@@ -1,4 +1,4 @@
-class Student{
+export class Student{
     private name : string
     private RA : string
     private imageURL : string

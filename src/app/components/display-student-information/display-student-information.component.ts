@@ -1,3 +1,4 @@
+import { Student } from './../../../entities/student';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DisplayStudentInformationComponent implements OnInit {
 
-  constructor() { }
+  public studentToDisplay! : Student
+  
+  constructor() { 
+    this.studentToDisplay = new Student("Malu", "21.12306-8", "abc/21")
+
+  }
 
   ngOnInit(): void {
   }
-
 }
