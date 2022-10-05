@@ -1,3 +1,4 @@
+import { FetchStudentService } from './../../services/fetch-student.service';
 import { Component, OnInit } from '@angular/core';
 import { Student } from 'src/entities/student';
 
@@ -9,8 +10,8 @@ import { Student } from 'src/entities/student';
 export class VisualizarFotoAlunoComponent implements OnInit {
   student : Student
 
-  constructor() {
-    this.student = new Student("Brancas", "21.12306-8", "https://fotopaulo.com.br/public/getProductTypeImage/35742")
+  constructor(private fetchStudentService : FetchStudentService) {
+    this.student = this.fetchStudentService.FetchStudent("21.00123-8")
    }
 
   ngOnInit(): void {
