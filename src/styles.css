@@ -1,13 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap");
+html,
+body {
+  height: 100%;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0;
+  font-family: "Noto Sans", sans-serif;
+}
 
+h1,h2{
+    font: bold;
+}
 
-.background{
-    background-image: linear-gradient(to right, #02258f, #0264ff);
-    height: 200px;
+h1{
+    font-size: 24px;
+}
+
+h2{
+    font-size: 22px;
+}
+
+h3{
+    font-size: 18px;
+}
+
+h4{
+    font-size: 16px;
+}
+
+.background {
+  background-image: linear-gradient(to right, #02258f, #0264ff);
+  height: 200px;
 }
 
 .background2 {
-    background-color: #f5f5fa ;
+  background-color: #f5f5fa;
 }
