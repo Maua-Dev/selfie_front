@@ -1,3 +1,4 @@
+import { ConsultStudentSituationService } from './services/consult-student-situation.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,7 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  aprovado:string = 'Aprovado'
+  aprovado!:string
   reprovado:string = 'Reprovado'
-  title = 'selfie-maua-front';
+  title = 'selfie-maua-front'
+
+  constructor(private consultSituationService : ConsultStudentSituationService){
+    this.aprovado = this.consultSituationService.GetStudentSituation()
+  }
+
+
 }
