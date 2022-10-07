@@ -6,17 +6,23 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfileComponentComponent } from './components/profile-component/profile-component.component';
 import { BackgroundComponent } from './components/background/background.component';
 import { CardSelfieComponent } from './components/card-selfie/card-selfie.component';
+import { TituloPaginaComponent } from './components/titulo-pagina/titulo-pagina.component';
+import { CardStatusComponent } from './components/card-status/card-status.component';
+import { BackgroundGreyComponent } from './components/background-grey/background-grey.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProfileComponentComponent,
     BackgroundComponent,
-    CardSelfieComponent
+    CardSelfieComponent,
+    TituloPaginaComponent,
+    CardStatusComponent,
+    BackgroundGreyComponent
   ],
   imports: [
     BrowserModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

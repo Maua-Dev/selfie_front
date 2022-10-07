@@ -1,0 +1,7 @@
+.background2 {
+    width: 100%;
+    height: -webkit-fill-available;
+    display: flex;
+    position: fixed;
+    z-index: -1;
+}
