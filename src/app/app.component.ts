@@ -1,4 +1,3 @@
-import { Student } from './../entities/student';
 import { Component } from '@angular/core';
 
 @Component({
