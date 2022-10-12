@@ -1,15 +1,26 @@
 
-<div class="background-card">
-    <img src="{{studentToDisplay.GetImageURL()}}" alt="Foto do aluno">
-    
-    <div class="name">
-        <h2>Nome</h2>
-        <p>{{studentToDisplay.GetName()}}
-        </p>
-    </div>
-
-    <div class="ra">
-        <h2>RA</h2>
-        <p>{{studentToDisplay.GetRA()}}</p>
+<div class="background-card col-sm-5 col-3 col-md-3">
+    <div class="row">
+        <img class="col-6" src="{{studentToDisplay.GetImageURL()}}" alt="Foto do aluno">
+        
+        <div class="col">
+            <div class="name">
+                <h2>Nome</h2>
+                <p>{{studentToDisplay.GetName()}}
+                </p>
+            </div>
+            <div class="ra">
+                <h2>RA</h2>
+                <p>{{studentToDisplay.GetRA()}}</p>
+            </div>
+            <div class="row">
+                <div class="col col-xl-5">
+                    <button type="button" class="btn btn-outline-success">Aprovar</button>
+                </div>
+                <div class="col">
+                    <button type="button" class="btn btn-outline-danger">Reprovar</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
