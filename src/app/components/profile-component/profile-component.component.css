@@ -28,7 +28,8 @@ ul img{
 }
 
 ul p{
-    font-family: notoBold;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 700;
     font-size:3.5vw;
     color:#fff;
     margin: 0.25vh 0 0 0;
