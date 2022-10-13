@@ -34,3 +34,11 @@ ul p{
     margin: 0.25vh 0 0 0;
 }
 
+@media(min-width: 820px){
+    ul{
+        padding: 0 0 0 158px;
+    }
+    ul p{
+        font-size: 22px;
+    }
+}

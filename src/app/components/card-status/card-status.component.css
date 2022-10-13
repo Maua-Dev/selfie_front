@@ -47,3 +47,12 @@ li p{
 #aprovado{
     color: green;
 }
+
+@media(min-width: 820px){
+    div{
+        width: 500px;
+    }
+    ul{
+        padding: 6px 8px;
+    }
+}
