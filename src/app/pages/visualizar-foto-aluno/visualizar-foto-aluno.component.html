@@ -1,6 +1,5 @@
-<app-student-card [studentToDisplay]="student"></app-student-card>
-<h2>Em Andamento</h2>
-<app-situation-rectangle [studentToDisplay]="student"></app-situation-rectangle>
-<app-situation-rectangle [studentToDisplay]="student"></app-situation-rectangle>
-<app-situation-rectangle [studentToDisplay]="student"></app-situation-rectangle>
-<app-situation-rectangle [studentToDisplay]="student"></app-situation-rectangle>
+<div class="container">
+    <app-student-card [studentToDisplay]="student"></app-student-card>
+    <h2>Em Andamento</h2>
+    <app-situation-rectangle *ngFor="let student of studentsList" [studentToDisplay]="student"></app-situation-rectangle>
+</div>

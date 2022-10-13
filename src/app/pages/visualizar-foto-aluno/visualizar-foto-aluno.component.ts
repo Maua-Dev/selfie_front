@@ -9,9 +9,11 @@ import { Student } from 'src/entities/student';
 })
 export class VisualizarFotoAlunoComponent implements OnInit {
   student : Student
+  studentsList : Student[]
 
   constructor(private fetchStudentService : FetchStudentService) {
     this.student = this.fetchStudentService.FetchStudent("21.00123-8")
+    this.studentsList = this.fetchStudentService.FetchStudentsList()
    }
 
   ngOnInit(): void {
