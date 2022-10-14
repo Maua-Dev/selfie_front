@@ -1,22 +1,32 @@
-import { FetchStudentService } from './../../services/fetch-student.service';
+import { FetchStudent } from './../../services/fetch-student';
 import { Component, OnInit } from '@angular/core';
 import { Student } from 'src/entities/student';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-visualizar-foto-aluno',
   templateUrl: './visualizar-foto-aluno.component.html',
-  styleUrls: ['./visualizar-foto-aluno.component.css']
+  styleUrls: ['./visualizar-foto-aluno.component.css'],
 })
 export class VisualizarFotoAlunoComponent implements OnInit {
-  student : Student
-  studentsList : Student[]
+  student?: Student;
+  studentsList?: Student[];
 
-  constructor(private fetchStudentService : FetchStudentService) {
-    this.student = this.fetchStudentService.FetchStudent("21.00123-8")
-    this.studentsList = this.fetchStudentService.FetchStudentsList()
-   }
-
-  ngOnInit(): void {
+  constructor(private fetchStudentService: FetchStudent) {
   }
 
+  ngOnInit(): void {
+    this.getStudent();
+    this.getStudentList();
+  }
+  async getStudent(): Promise<void> {
+    this.student = await lastValueFrom(
+      this.fetchStudentService.FetchStudent('')
+    );
+  }
+  async getStudentList(): Promise<void> {
+    this.studentsList = await lastValueFrom(
+      this.fetchStudentService.FetchStudentsList()
+    );
+  }
 }

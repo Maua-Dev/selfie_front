@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { FetchStudentService } from './fetch-student.service';
+import { FetchStudentService } from './fetch-student-mock.service';
 
 describe('FetchStudentService', () => {
   let service: FetchStudentService;

@@ -1,3 +1,5 @@
+import { FetchStudentMockService } from './services/fetch-student-mock.service';
+import { FetchStudent } from './services/fetch-student';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -11,12 +13,10 @@ import { SituationRectangleComponent } from './components/situation-rectangle/si
     AppComponent,
     VisualizarFotoAlunoComponent,
     StudentCardComponent,
-    SituationRectangleComponent
+    SituationRectangleComponent,
   ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule],
+  providers: [{ provide: FetchStudent, useClass: FetchStudentMockService }],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
