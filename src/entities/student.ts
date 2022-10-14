@@ -1,9 +1,5 @@
 export class Student{
-    private name : string
-    private RA : string
-    private imageURL : string
-
-    constructor(name : string, RA : string, imageURL : string){
+    constructor(private name : string, private RA : string, private imageURL : string){
         this.name = name
         this.RA = RA
         this.imageURL = imageURL
