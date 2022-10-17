@@ -1,6 +1,7 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { Card } from 'src/entities/card';
-import { Student } from 'src/entities/student';
+import { CardStatusService } from 'src/app/services/card-status.service';
+import { CardInterface } from 'src/entities/cardInterface';
 
 @Component({
   selector: 'app-card-status',
@@ -10,15 +11,19 @@ import { Student } from 'src/entities/student';
 export class CardStatusComponent implements OnInit {
 
   cards : Card[] = [
-    {id:1, data:'20/10/2022',situacao:'Reprovado',motivo:'foto com boné'},
-    {id:2, data:'22/10/2022',situacao:'Reprovado',motivo:'foto com óculos'},
-    {id:3, data:'23/10/2022',situacao:'Reprovado',motivo:'pouca qualidade'},
-    {id:4, data:'25/10/2022',situacao:'Aprovado',motivo:''},
+    new Card(1, '21/10/2022', 'Reprovado', 'foto com óculos'),
+    new Card(2,'22/10/2022','Reprovado','pouca qualidade'),
+    new Card(3, '23/10/2022','Reprovado','pouca qualidade'),
+    new Card(4,'25/10/2022','Aprovado','aaa'),
   ]
 
-  constructor() { } 
+  constructor(private cardStatusService : CardStatusService) { } 
 
   ngOnInit(): void {
+  }
+
+  criandoCard(){
+    this.cardStatusService.createCard(this.cards)
   }
 
 }

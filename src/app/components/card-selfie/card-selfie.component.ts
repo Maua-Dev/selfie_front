@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import { CardStatusService } from 'src/app/services/card-status.service';
+import { Card } from 'src/entities/card';
+import { CardStatusComponent } from '../card-status/card-status.component';
 @Component({
   selector: 'app-card-selfie',
   templateUrl: './card-selfie.component.html',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardSelfieComponent implements OnInit {
 
-  constructor() { }
+  cards : Card[]
+
+  constructor(private cardStatusService : CardStatusService) { }
 
   ngOnInit(): void {
   }
 
+  criarStatus(){
+    
+  }
 }

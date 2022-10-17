@@ -1,17 +1,18 @@
 <section>
     <div>
         <ul *ngFor="let card of cards">
-            <li *ngIf="card.situacao === 'Reprovado'">
-                <p class="titulo-card-status">Selfie #{{card.id}}</p>
-                <p class="status">Enviado em: {{card.data}}</p>
-                <p class="status">Situação: <span [ngStyle]="{'color':'red'}">{{card.situacao}}</span></p>
-                <p class="status">Motivo: {{card.motivo}}</p>
+            <li *ngIf="card.GetSituacao() === 'Reprovado'">
+                <p class="titulo-card-status">Selfie #{{card.GetId()}}</p>
+                <p class="status">Enviado em: {{card.GetData()}}</p>
+                <p class="status">Situação: <span [ngStyle]="{'color':'red'}">{{card.GetSituacao()}}</span></p>
+                <p class="status">Motivo: {{card.GetMotivo()}}</p>
             </li>
-            <li *ngIf="card.situacao === 'Aprovado'">
-                <p class="titulo-card-status">Selfie #{{card.id}}</p>
-                <p class="status">Enviado em: {{card.data}}</p>
-                <p class="status">Situação: <span [ngStyle]="{'color':'green'}">{{card.situacao}}</span></p>
+            <li *ngIf="card.GetSituacao() === 'Aprovado'">
+                <p class="titulo-card-status">Selfie #{{card.GetId()}}</p>
+                <p class="status">Enviado em: {{card.GetData()}}</p>
+                <p class="status">Situação: <span [ngStyle]="{'color':'green'}">{{card.GetSituacao()}}</span></p>
             </li>
+            <button (click)="criandoCard()">aaa</button>
         </ul>
     </div>
 </section>
