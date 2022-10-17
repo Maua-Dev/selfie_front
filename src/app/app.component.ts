@@ -12,9 +12,9 @@ export class AppComponent {
   reprovado:string = 'Reprovado'
   title = 'selfie-maua-front';
 
-  a = new Student("Davi","20/10/2022","Aprovado","")
+  //a = new Student("Davi","20/10/2022","Aprovado","")
 
-  constructor(private consult : ConsultStudentService){
-    this.aprovado = this.consult.GetServiceStatus(this.a);
+  constructor(/*private consult : ConsultStudentService*/){
+    //this.aprovado = this.consult.GetServiceStatus(this.a);
   }
 }
