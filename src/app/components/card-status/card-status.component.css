@@ -43,14 +43,6 @@ li p{
     font-size: 14px;
 }
 
-#reprovado{
-    color: red;
-}
-
-#aprovado{
-    color: green;
-}
-
 @media(min-width: 820px){
     div{
         width: 500px;

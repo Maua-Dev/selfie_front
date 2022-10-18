@@ -8,13 +8,14 @@ import { ConsultStudentService } from './services/consult-student-service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  aprovado!:string
-  reprovado:string = 'Reprovado'
   title = 'selfie-maua-front';
 
-  //a = new Student("Davi","20/10/2022","Aprovado","")
+  eventoPai !: boolean                      // 4) definindo uma variavel a ser manipulada - pensei nisso
 
-  constructor(/*private consult : ConsultStudentService*/){
-    //this.aprovado = this.consult.GetServiceStatus(this.a);
+  constructor(){
+  }
+
+  eventoClick(){
+    this.eventoPai = true               // 5) atribuindo o valor (transmitido do filho para o pai) para a variavel (4)
   }
 }

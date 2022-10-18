@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { CardStatusService } from 'src/app/services/card-status.service';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Card } from 'src/entities/card';
 import { CardStatusComponent } from '../card-status/card-status.component';
 @Component({
@@ -9,14 +8,19 @@ import { CardStatusComponent } from '../card-status/card-status.component';
 })
 export class CardSelfieComponent implements OnInit {
 
-  cards : Card[]
+  constructor() { }
 
-  constructor(private cardStatusService : CardStatusService) { }
+  @Output() eventClickSelfie : EventEmitter<Card> = new EventEmitter()  //2) criando um transmissor para a classe pai
+  //eventoClickSelfie : boolean = false
+
 
   ngOnInit(): void {
   }
 
   criarStatus(){
-    
+    //this.eventoClickSelfie = !this.eventoClickSelfie
+    //console.log(this.eventoClickSelfie)
+    this.eventClickSelfie.emit()
   }
+
 }

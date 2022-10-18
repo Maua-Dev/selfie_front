@@ -1,5 +1,6 @@
 <section>
-    <div>
+    <div>                <!-- 8) Aplicando lógica do evento todo -->
+        <span *ngIf=" evento ? criandoCard() : ''"></span>  
         <ul *ngFor="let card of cards">
             <li *ngIf="card.GetSituacao() === 'Reprovado'">
                 <p class="titulo-card-status">Selfie #{{card.GetId()}}</p>
@@ -12,7 +13,6 @@
                 <p class="status">Enviado em: {{card.GetData()}}</p>
                 <p class="status">Situação: <span [ngStyle]="{'color':'green'}">{{card.GetSituacao()}}</span></p>
             </li>
-            <button (click)="criandoCard()">aaa</button>
         </ul>
     </div>
 </section>
