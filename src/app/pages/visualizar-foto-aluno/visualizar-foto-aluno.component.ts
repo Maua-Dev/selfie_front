@@ -9,24 +9,25 @@ import { lastValueFrom } from 'rxjs';
   styleUrls: ['./visualizar-foto-aluno.component.css'],
 })
 export class VisualizarFotoAlunoComponent implements OnInit {
-  student!: Student;
-  studentsList!: Student[];
+  student!: Student
+  studentsList!: Student[]
 
   constructor(private fetchStudentService: FetchStudent) {
   }
 
   ngOnInit(): void {
-    this.getStudent();
-    this.getStudentList();
+    this.GetStudent()
+    this.GetStudentList()
   }
-  async getStudent(): Promise<void> {
+  async GetStudent(): Promise<void> {
       this.student = await lastValueFrom(
       this.fetchStudentService.FetchStudent('')
     );
   }
-  async getStudentList(): Promise<void> {
+  async GetStudentList(): Promise<void> {
     this.studentsList = await lastValueFrom(
       this.fetchStudentService.FetchStudentsList()
     );
+    console.log(this.studentsList)
   }
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterContentInit, Component, Input, OnInit } from '@angular/core';
 import { Student } from 'src/entities/student';
 
 @Component({
@@ -6,14 +6,13 @@ import { Student } from 'src/entities/student';
   templateUrl: './student-card.component.html',
   styleUrls: ['./student-card.component.css']
 })
-export class StudentCardComponent implements OnInit {
+export class StudentCardComponent implements AfterContentInit {
 
   @Input() public studentToDisplay! : Student
-  
   constructor() { 
   }
-
-  ngOnInit(): void {
+  ngAfterContentInit(): void {
+    console.log(this.studentToDisplay)
   }
 
 }
