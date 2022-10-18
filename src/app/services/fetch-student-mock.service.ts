@@ -13,7 +13,7 @@ export class FetchStudentMockService implements FetchStudent {
     //Todo: por enquanto isso aqui está mockado
     return of(
       new Student(
-        'Brancas',
+        'Duez',
         '21.12306-8',
         'https://fotopaulo.com.br/public/getProductTypeImage/35742'
       )

@@ -9,8 +9,8 @@ import { lastValueFrom } from 'rxjs';
   styleUrls: ['./visualizar-foto-aluno.component.css'],
 })
 export class VisualizarFotoAlunoComponent implements OnInit {
-  student?: Student;
-  studentsList?: Student[];
+  student!: Student;
+  studentsList!: Student[];
 
   constructor(private fetchStudentService: FetchStudent) {
   }
@@ -20,7 +20,7 @@ export class VisualizarFotoAlunoComponent implements OnInit {
     this.getStudentList();
   }
   async getStudent(): Promise<void> {
-    this.student = await lastValueFrom(
+      this.student = await lastValueFrom(
       this.fetchStudentService.FetchStudent('')
     );
   }

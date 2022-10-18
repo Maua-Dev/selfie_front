@@ -2,3 +2,8 @@ h2{
     color: #022893;
     display: inline;
 }
+
+.filter-buttons{
+    padding: 0;
+    margin: 0;
+}
