@@ -7,3 +7,8 @@ h2{
     padding: 0;
     margin-bottom: 10px;
 }
+
+.clean-filters-btn{
+    position: relative;
+    left: 70%;
+}
