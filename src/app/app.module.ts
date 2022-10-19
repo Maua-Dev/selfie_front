@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {MatDialogModule} from '@angular/material/dialog';
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfileComponentComponent } from './components/profile-component/profile-component.component';
@@ -9,6 +9,7 @@ import { CardSelfieComponent } from './components/card-selfie/card-selfie.compon
 import { TituloPaginaComponent } from './components/titulo-pagina/titulo-pagina.component';
 import { CardStatusComponent } from './components/card-status/card-status.component';
 import { BackgroundGreyComponent } from './components/background-grey/background-grey.component';
+import { PopupComponent } from './components/popup/popup.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +19,13 @@ import { BackgroundGreyComponent } from './components/background-grey/background
     CardSelfieComponent,
     TituloPaginaComponent,
     CardStatusComponent,
-    BackgroundGreyComponent
+    BackgroundGreyComponent,
+    PopupComponent,
   ],
   imports: [
     BrowserModule,
     NoopAnimationsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

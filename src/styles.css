@@ -3,15 +3,11 @@ html, body {
     height: 100%; 
     margin-left: auto;
     margin-right: auto; }
-body { margin: 0; font-family: 'Noto Sans', sans-serif; }
+body { font-family: 'Noto Sans', sans-serif; }
 
 @media(min-width: 821px){
     *{
         max-width: 821px;
-    }
-    body{
-        margin-left: auto;
-        margin-right: auto;
     }
     .background{
         width: 821px;
@@ -20,3 +16,6 @@ body { margin: 0; font-family: 'Noto Sans', sans-serif; }
         width: 821px;
     }
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
