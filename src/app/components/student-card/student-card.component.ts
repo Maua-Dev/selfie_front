@@ -12,7 +12,6 @@ export class StudentCardComponent implements AfterContentInit {
   constructor() { 
   }
   ngAfterContentInit(): void {
-    console.log(this.studentToDisplay)
   }
 
 }

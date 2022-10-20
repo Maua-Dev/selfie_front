@@ -5,6 +5,8 @@
   </svg>
   <h2> Filtros</h2>
 
+  
+
   <div class="container">
     <div class="row row-cols-2 gx-1 gy-2 filter-buttons">
       <div class="col-auto"><input class="btn btn-primary" type="button" value="Pendente"></div>
@@ -14,7 +16,9 @@
     </div>
   </div>
 
-  <app-student-card [studentToDisplay]="student"></app-student-card>
+  <div class="container">
+    <app-student-card *ngFor="let student of studentsList" [studentToDisplay]="student"></app-student-card>
+  </div>
 
   <svg xmlns="http://www.w3.org/2000/svg" width="30" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
     <path
