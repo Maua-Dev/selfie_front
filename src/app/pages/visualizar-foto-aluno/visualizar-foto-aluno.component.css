@@ -12,3 +12,8 @@ h2{
     position: relative;
     right: -50%;
 }
+
+.cards-container{
+    overflow:auto; 
+    height: 500px;
+}
