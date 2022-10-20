@@ -1,8 +1,8 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Card } from 'src/entities/card';
-import { CardStatusComponent } from '../card-status/card-status.component';
 import { PopupComponent } from '../popup/popup.component';
-import {MatDialogModule,MatDialog} from '@angular/material/dialog';
+import {MatDialog} from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-card-selfie',
@@ -21,10 +21,7 @@ export class CardSelfieComponent implements OnInit {
   }
 
   criarStatus(){
-    let dialogRef = this.dialog.open(PopupComponent,{
-      height: '400px',
-      width: '600px',
-    })
+    let dialogRef = this.dialog.open(PopupComponent,{})
     this.eventClickSelfie.emit()
   }
 

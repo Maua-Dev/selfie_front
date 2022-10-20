@@ -10,6 +10,7 @@ import { TituloPaginaComponent } from './components/titulo-pagina/titulo-pagina.
 import { CardStatusComponent } from './components/card-status/card-status.component';
 import { BackgroundGreyComponent } from './components/background-grey/background-grey.component';
 import { PopupComponent } from './components/popup/popup.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PopupComponent } from './components/popup/popup.component';
   imports: [
     BrowserModule,
     NoopAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
