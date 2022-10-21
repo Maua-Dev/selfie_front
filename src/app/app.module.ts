@@ -11,6 +11,8 @@ import { CardStatusComponent } from './components/card-status/card-status.compon
 import { BackgroundGreyComponent } from './components/background-grey/background-grey.component';
 import { PopupComponent } from './components/popup/popup.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { TelaTirarSelfieComponent } from './components/tela-tirar-selfie/tela-tirar-selfie.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -22,12 +24,14 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     CardStatusComponent,
     BackgroundGreyComponent,
     PopupComponent,
+    TelaTirarSelfieComponent,
   ],
   imports: [
     BrowserModule,
     NoopAnimationsModule,
     MatDialogModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
