@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { Student } from 'src/entities/student';
-import { ConsultStudentService } from './services/consult-student-service';
 
 @Component({
   selector: 'app-root',

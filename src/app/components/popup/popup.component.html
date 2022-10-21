@@ -6,15 +6,16 @@
             <li>Sem máscaras, chapéu os acessórios que descaracterize o rosto;</li>
             <li>Rosto iluminado (sem sombras marcantes).</li>
         </ul>
-        <div class="position-checkbox">
-            <mat-checkbox [color]="'primary'">
+        <div class="position-checkbox">  
+            <mat-checkbox [color]="'primary'" (change)="changeEvent($event)" [checked]="isChecked">  
                 <div class="checkbox">
-                    Declaro que li e aceito as <p [ngStyle]="{'font-weight':'700','tab-size':4}" > Condições </p> acima
+                    Declaro que li e aceito as <span [ngStyle]="{'font-weight':'700','tab-size':4}">Condições</span>
                 </div>
             </mat-checkbox>
         </div>
         <div class="alinha-botao">            
-            <button class="botao-tirar-foto">TIRAR</button>
+            <button *ngIf="controll === false" [ngStyle]="{'background-color':'grey'}" class="botao-tirar-foto" (click)="irParaSelfie()" disabled='true'>TIRAR</button>
+            <button *ngIf="controll === true" class="botao-tirar-foto" (click)="irParaSelfie()">TIRAR</button>
         </div>
     </div>
 </div>

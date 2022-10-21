@@ -15,14 +15,16 @@ export class CardSelfieComponent implements OnInit {
 
   @Output() eventClickSelfie : EventEmitter<Card> = new EventEmitter()  //2) criando um transmissor para a classe pai
   //eventoClickSelfie : boolean = false
-
+  dialogRef !: any
 
   ngOnInit(): void {
   }
 
   criarStatus(){
-    let dialogRef = this.dialog.open(PopupComponent,{})
-    this.eventClickSelfie.emit()
+    this.dialogRef = this.dialog.open(PopupComponent)   //invocando ele
+    console.log(this.dialogRef.nextPage)
+    if(this.dialogRef.nextPage === true)
+      this.dialogRef.popup
   }
 
 }
