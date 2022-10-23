@@ -1,5 +1,7 @@
+import { Selfie } from "./selfie"
+
 export class Student{
-    constructor(private name : string, private RA : string, private imageURL : string){
+    constructor(private name : string, private RA : string, private imageURL : string, private uploadedSelfiesList : Selfie[]){
     }
 
     public GetName() : string {
@@ -19,11 +21,18 @@ export class Student{
     }
 
     public GetImageURL() : string {
-        return this.imageURL
+      var url = this.uploadedSelfiesList.pop()?.imgURL
+
+      return url? url : `Foto de ${this.name} está undefined`
     }
+
 
     public SetImageURL(newURL : string) : void {
         this.imageURL = newURL
+    }
+
+    public GetUploadedSelfiesList() : Selfie[]{
+      return this.uploadedSelfiesList
     }
 
 }

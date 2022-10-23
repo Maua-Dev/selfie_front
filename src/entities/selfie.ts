@@ -1,25 +1,17 @@
-class Selfie {
+export class Selfie {
   constructor(
     private _idSelfie: number,
     private _dateUpload: string,
     private _imgURL: string,
     private _state: string,
-    private _rejectionReason: string,
-    private _rejectionDescription: string
+    private _rejectionReason?: string,
+    private _rejectionDescription?: string
   ) {}
 
-  public get rejectionDescription(): string {
-    return this._rejectionDescription;
+  public get rejectionReason() : string{
+    return this.rejectionReason
   }
-  public set rejectionDescription(value: string) {
-    this._rejectionDescription = value;
-  }
-  public get rejectionReason(): string {
-    return this._rejectionReason;
-  }
-  public set rejectionReason(value: string) {
-    this._rejectionReason = value;
-  }
+
   public get state(): string {
     return this._state;
   }
