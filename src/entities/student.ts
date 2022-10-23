@@ -1,8 +1,5 @@
 export class Student{
     constructor(private name : string, private RA : string, private imageURL : string){
-        this.name = name
-        this.RA = RA
-        this.imageURL = imageURL
     }
 
     public GetName() : string {
