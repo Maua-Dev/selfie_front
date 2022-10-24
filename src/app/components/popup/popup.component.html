@@ -15,7 +15,7 @@
         </div>
         <div class="alinha-botao">            
             <button *ngIf="controll === false" [ngStyle]="{'background-color':'grey'}" class="botao-tirar-foto" (click)="irParaSelfie()" disabled='true'>TIRAR</button>
-            <button *ngIf="controll === true" class="botao-tirar-foto" (click)="irParaSelfie()">TIRAR</button>
+            <button *ngIf="controll === true" class="botao-tirar-foto" (click)="irParaSelfie()" routerLink="/selfie">TIRAR</button>
         </div>
     </div>
 </div>

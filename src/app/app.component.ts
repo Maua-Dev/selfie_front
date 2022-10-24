@@ -8,12 +8,12 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'selfie-maua-front';
 
-  eventoPai !: boolean                      // 4) definindo uma variavel a ser manipulada - pensei nisso
+  //eventoPai !: boolean                      // 4) definindo uma variavel a ser manipulada - pensei nisso
 
   constructor(){
   }
 
-  eventoClick(){
+  /*eventoClick(){
     this.eventoPai = true               // 5) atribuindo o valor (transmitido do filho para o pai) para a variavel (4)
-  }
+  }*/
 }

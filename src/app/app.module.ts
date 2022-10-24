@@ -13,6 +13,7 @@ import { PopupComponent } from './components/popup/popup.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { TelaTirarSelfieComponent } from './components/tela-tirar-selfie/tela-tirar-selfie.component';
 import { AppRoutingModule } from './app-routing.module';
+import { HomePageComponent } from './components/home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AppRoutingModule } from './app-routing.module';
     BackgroundGreyComponent,
     PopupComponent,
     TelaTirarSelfieComponent,
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,
