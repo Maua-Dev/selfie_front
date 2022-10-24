@@ -16,7 +16,6 @@ export class FetchStudentMockService implements FetchStudent {
       new Student(
         'Duez',
         '21.12306-8',
-        'https://fotopaulo.com.br/public/getProductTypeImage/35742',
         [
           new Selfie(
             0,
@@ -35,7 +34,6 @@ export class FetchStudentMockService implements FetchStudent {
       new Student(
         'Brancas',
         '21.12306-8',
-        'https://fotopaulo.com.br/public/getProductTypeImage/35742',
         [
           new Selfie(
             0,
@@ -58,7 +56,6 @@ export class FetchStudentMockService implements FetchStudent {
       new Student(
         'Soller',
         '21.12306-8',
-        'https://fotopaulo.com.br/public/getProductTypeImage/35742',
         [
           new Selfie(
             0,
@@ -73,7 +70,6 @@ export class FetchStudentMockService implements FetchStudent {
       new Student(
         'Duez',
         '21.12306-8',
-        'https://fotopaulo.com.br/public/getProductTypeImage/35742',
         [
           new Selfie(
             0,
@@ -88,7 +84,6 @@ export class FetchStudentMockService implements FetchStudent {
       new Student(
         'Davi',
         '21.12306-8',
-        'https://fotopaulo.com.br/public/getProductTypeImage/35742',
         [
           new Selfie(
             0,
@@ -103,7 +98,6 @@ export class FetchStudentMockService implements FetchStudent {
       new Student(
         'Hector',
         '21.12306-8',
-        'https://fotopaulo.com.br/public/getProductTypeImage/35742',
         [
           new Selfie(
             0,
@@ -118,7 +112,6 @@ export class FetchStudentMockService implements FetchStudent {
       new Student(
         'Vilardi',
         '21.12306-8',
-        'https://fotopaulo.com.br/public/getProductTypeImage/35742',
         [
           new Selfie(
             0,
@@ -133,7 +126,6 @@ export class FetchStudentMockService implements FetchStudent {
       new Student(
         'Carolina',
         '21.12306-8',
-        'https://fotopaulo.com.br/public/getProductTypeImage/35742',
         [
           new Selfie(
             0,
@@ -148,7 +140,6 @@ export class FetchStudentMockService implements FetchStudent {
       new Student(
         'Caio',
         '21.12306-8',
-        'https://fotopaulo.com.br/public/getProductTypeImage/35742',
         [
           new Selfie(
             0,

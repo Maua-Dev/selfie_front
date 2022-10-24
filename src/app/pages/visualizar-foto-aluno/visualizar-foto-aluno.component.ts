@@ -18,8 +18,7 @@ export class VisualizarFotoAlunoComponent implements OnInit {
   }
 
   async GetStudentList(): Promise<void> {
-    this.studentsList = await lastValueFrom(
-      this.fetchStudentService.FetchStudentsList()
-    );
+
+    this.studentsList = await this.fetchStudentService.FetchStudentsList();
   }
 }
