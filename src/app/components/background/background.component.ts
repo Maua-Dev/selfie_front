@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-background',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BackgroundComponent implements OnInit {
 
-  constructor() { }
+  sizeMain : number = 39.1;
+  sizeSelfie : number = 80;
+
+  constructor(protected router : Router) { }
 
   ngOnInit(): void {
   }

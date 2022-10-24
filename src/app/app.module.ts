@@ -14,6 +14,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { TelaTirarSelfieComponent } from './components/tela-tirar-selfie/tela-tirar-selfie.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomePageComponent } from './components/home-page/home-page.component';
+import { CardSelfieTela2Component } from './components/card-selfie-tela2/card-selfie-tela2.component';
+import { WebcamModule } from 'ngx-webcam';
+
 
 @NgModule({
   declarations: [
@@ -27,13 +30,15 @@ import { HomePageComponent } from './components/home-page/home-page.component';
     PopupComponent,
     TelaTirarSelfieComponent,
     HomePageComponent,
+    CardSelfieTela2Component,
   ],
   imports: [
     BrowserModule,
     NoopAnimationsModule,
     MatDialogModule,
     MatCheckboxModule,
-    AppRoutingModule
+    AppRoutingModule,
+    WebcamModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

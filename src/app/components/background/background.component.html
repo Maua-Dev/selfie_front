@@ -1,1 +1,2 @@
-<div class="background"></div>
+<div *ngIf="router.url === '/'" class="background" [ngStyle]="{'height':sizeMain+'vh'}"></div>
+<div *ngIf="router.url === '/selfie'" class="background" [ngStyle]="{'height':sizeSelfie+'vh'}"></div>

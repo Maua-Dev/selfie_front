@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class CardSelfieComponent implements OnInit {
 
-  constructor(private dialog : MatDialog, private router : Router) { }
+  constructor(private dialog : MatDialog) { }
 
   @Output() eventClickSelfie : EventEmitter<Card> = new EventEmitter()  //2) criando um transmissor para a classe pai
   //eventoClickSelfie : boolean = false
