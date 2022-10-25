@@ -1,3 +1,4 @@
+import { Selfie } from 'src/entities/selfie';
 import { AfterContentInit, Component, Input, OnInit } from '@angular/core';
 import { Student } from 'src/entities/student';
 
@@ -9,6 +10,7 @@ import { Student } from 'src/entities/student';
 export class StudentCardComponent implements AfterContentInit {
 
   @Input() public studentToDisplay! : Student
+  @Input() public photoToDisplay! : Selfie
   constructor() { 
   }
   ngAfterContentInit(): void {
