@@ -15,10 +15,10 @@ export class VisualizarFotoAlunoComponent implements OnInit {
   constructor(private fetchStudentService: FetchStudent) {}
 
   ngOnInit(): void {
-    this.GetStudentList();
+    this.GetSelfiesList();
   }
 
-  GetStudentList(): void {
+  GetSelfiesList(): void {
     lastValueFrom(this.fetchStudentService.FetchStudentsList()).then(
       (res: any) => {
         let studentsJson = res['student'];
@@ -50,7 +50,36 @@ export class VisualizarFotoAlunoComponent implements OnInit {
           selfiesList
         );
         this.studentsList = [studentToReturn];
+        this.GetSelfiesListByState("")
+
       }
     );
   }
+
+
+  GetSelfiesListByState(state:string) : void{
+    if(state == ''){
+      this.GetSelfiesList()
+      return
+    }
+
+    let studentListCopy :Student[] = this.studentsList.slice()
+    let newStudentList : Student[] = []
+
+    studentListCopy.forEach(student => {
+      let selfieListFiltered : Selfie[] = []
+      
+      student.GetUploadedSelfiesList().forEach(selfie => {
+        if(selfie.state == state){
+          selfieListFiltered.push(selfie)
+        }
+      });
+
+      newStudentList.push(new Student(student.GetName(), student.GetRA(), selfieListFiltered))
+    });
+
+    this.studentsList = newStudentList
+
+  }
+
 }
