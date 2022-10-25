@@ -18,8 +18,8 @@ export class VisualizarFotoAlunoComponent implements OnInit {
     this.GetStudentList();
   }
 
-   GetStudentList(): void {
-     lastValueFrom(this.fetchStudentService.FetchStudentsList()).then(
+  GetStudentList(): void {
+    lastValueFrom(this.fetchStudentService.FetchStudentsList()).then(
       (res: any) => {
         let studentsJson = res['student'];
         let selfiesListJson = res['selfies'];
@@ -38,6 +38,12 @@ export class VisualizarFotoAlunoComponent implements OnInit {
             )
           );
         });
+
+        selfiesList = selfiesList.sort(
+          (a: Selfie, b: Selfie) =>
+            new Date(a.dateUpload).getUTCMilliseconds() - new Date(b.dateUpload).getUTCMilliseconds()
+        );
+
         let studentToReturn = new Student(
           studentsJson['name'],
           studentsJson['ra'],
