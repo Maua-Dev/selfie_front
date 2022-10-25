@@ -2,6 +2,7 @@ import { FetchStudent } from './../../services/fetch-student';
 import { Component, OnInit } from '@angular/core';
 import { Student } from 'src/entities/student';
 import { lastValueFrom } from 'rxjs';
+import { Selfie } from 'src/entities/selfie';
 
 @Component({
   selector: 'app-visualizar-foto-aluno',
@@ -17,8 +18,33 @@ export class VisualizarFotoAlunoComponent implements OnInit {
     this.GetStudentList();
   }
 
-  async GetStudentList(): Promise<void> {
+   GetStudentList(): void {
+     lastValueFrom(this.fetchStudentService.FetchStudentsList()).then(
+      (res: any) => {
+        let studentsJson = res['student'];
+        let selfiesListJson = res['selfies'];
 
-    this.studentsList = await this.fetchStudentService.FetchStudentsList();
+        let selfiesList: Selfie[] = [];
+
+        selfiesListJson.forEach((selfie: any) => {
+          selfiesList.push(
+            new Selfie(
+              selfie['idSelfie'],
+              selfie['dateUpload'],
+              selfie['url'],
+              selfie['state'],
+              selfie['rejectionReason'],
+              selfie['rejectionDescription']
+            )
+          );
+        });
+        let studentToReturn = new Student(
+          studentsJson['name'],
+          studentsJson['ra'],
+          selfiesList
+        );
+        this.studentsList = [studentToReturn];
+      }
+    );
   }
 }
