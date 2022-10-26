@@ -4,6 +4,8 @@ import { Student } from 'src/entities/student';
 import { lastValueFrom } from 'rxjs';
 import { Selfie } from 'src/entities/selfie';
 
+declare var window:any
+
 @Component({
   selector: 'app-visualizar-foto-aluno',
   templateUrl: './visualizar-foto-aluno.component.html',
@@ -12,11 +14,13 @@ import { Selfie } from 'src/entities/selfie';
 export class VisualizarFotoAlunoComponent implements OnInit {
   private studentsList!: Student[];
   studentsListFiltered! : Student[]
+  form:any
 
   constructor(private fetchStudentService: FetchStudent) {}
 
   ngOnInit() {
     this.GetSelfiesList();
+    this.form = new window.bootstrap.Modal(document.getElementById("pop-up-modal"))
   }
 
   GetSelfiesList(): void {
@@ -81,4 +85,9 @@ export class VisualizarFotoAlunoComponent implements OnInit {
 
     this.studentsListFiltered = newStudentList;
   }
+
+  OpenPopUp(){
+    this.form.show()
+  }
+
 }
