@@ -8,7 +8,7 @@
             <div class="webcam">
                 <webcam [trigger]="$trigger" (imageCapture)="snapshot($event)" (initError)="handleInitError($event)" [height]="450" [width]="300"></webcam>  <!---->
             </div>
-            <button class="botao-tirar-foto" (click)="tirarFoto()">TIRAR</button>  <!-- 1) click acionar funcao (click)="criarStatus()" -->
+            <button class="botao-tirar-foto" (click)="tirarFoto()" routerLink="/checkSelfie">TIRAR</button>  <!-- 1) click acionar funcao (click)="criarStatus()" -->
             <a (click)="popUp()">Reler <span [ngStyle]="{'font-weight':700}">Condições</span></a>
             <div *ngIf="previewImage">
                 <img [src]="previewImage" height="250" width="250">
