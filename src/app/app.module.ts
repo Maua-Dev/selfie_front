@@ -9,6 +9,7 @@ import { StudentCardComponent } from './components/student-card/student-card.com
 import { SituationRectangleComponent } from './components/situation-rectangle/situation-rectangle.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FetchStudentFromBackendService } from './services/fetch-student-from-backend.service';
+import { RejectionCardComponent } from './components/rejection-card/rejection-card.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { FetchStudentFromBackendService } from './services/fetch-student-from-ba
     VisualizarFotoAlunoComponent,
     StudentCardComponent,
     SituationRectangleComponent,
+    RejectionCardComponent,
   ],
   imports: [BrowserModule, HttpClientModule],
   providers: [{ provide: FetchStudent, useClass: FetchStudentFromBackendService }],
