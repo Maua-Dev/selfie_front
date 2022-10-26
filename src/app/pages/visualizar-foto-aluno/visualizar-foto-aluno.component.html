@@ -5,20 +5,25 @@
   </svg>
   <h2> Filtros</h2>
 
-  
+
 
   <div class="container">
     <div class="row row-cols-2 gx-1 gy-2 filter-buttons">
-      <div class="col-auto"><input class="btn btn-primary" type="button" value="Pendente"></div>
-      <div class="col-auto"><input class="btn btn-primary" type="button" value="Aprovados"></div>
-      <div class="col-auto"><input class="btn btn-primary" type="button" value="Reprovados"></div>
-      <div class="col-auto clean-filters-btn"><input class="btn btn-primary" type="button" value="Limpar filtros"></div>
+      <div class="col-auto"><input class="btn btn-primary" type="button" value="Pendente"
+          (click)="GetSelfiesListByState('Pendente')"></div>
+      <div class="col-auto"><input class="btn btn-primary" type="button" value="Aprovados"
+          (click)="GetSelfiesListByState('APPROVED')"></div>
+      <div class="col-auto"><input class="btn btn-primary" type="button" value="Reprovados"
+          (click)="GetSelfiesListByState('DECLINED')"></div>
+      <div class="col-auto clean-filters-btn"><input class="btn btn-primary" type="button" value="Limpar filtros"
+          (click)="GetSelfiesListByState('')"></div>
     </div>
   </div>
 
   <div class="container cards-container">
-    <div *ngFor="let student of studentsList" >
-      <app-student-card *ngFor="let selfie of student.GetUploadedSelfiesList()"  [studentToDisplay]="student" [photoToDisplay]="selfie"></app-student-card>
+    <div *ngFor="let student of studentsListFiltered">
+      <app-student-card *ngFor="let selfie of student.GetUploadedSelfiesList()" [studentToDisplay]="student"
+        [photoToDisplay]="selfie"></app-student-card>
     </div>
   </div>
 
@@ -28,5 +33,6 @@
   </svg>
   <h2> Em Andamento</h2>
 
-  <app-situation-rectangle *ngFor="let student of studentsList" [studentToDisplay]="student"></app-situation-rectangle>
+  <app-situation-rectangle *ngFor="let student of studentsListFiltered" [studentToDisplay]="student">
+  </app-situation-rectangle>
 </div>

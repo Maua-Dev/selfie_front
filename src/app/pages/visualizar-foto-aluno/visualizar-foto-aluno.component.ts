@@ -10,11 +10,12 @@ import { Selfie } from 'src/entities/selfie';
   styleUrls: ['./visualizar-foto-aluno.component.css'],
 })
 export class VisualizarFotoAlunoComponent implements OnInit {
-  studentsList!: Student[];
+  private studentsList!: Student[];
+  studentsListFiltered! : Student[]
 
   constructor(private fetchStudentService: FetchStudent) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.GetSelfiesList();
   }
 
@@ -41,7 +42,8 @@ export class VisualizarFotoAlunoComponent implements OnInit {
 
         selfiesList = selfiesList.sort(
           (a: Selfie, b: Selfie) =>
-            new Date(a.dateUpload).getUTCMilliseconds() - new Date(b.dateUpload).getUTCMilliseconds()
+            new Date(a.dateUpload).getUTCMilliseconds() -
+            new Date(b.dateUpload).getUTCMilliseconds()
         );
 
         let studentToReturn = new Student(
@@ -50,36 +52,33 @@ export class VisualizarFotoAlunoComponent implements OnInit {
           selfiesList
         );
         this.studentsList = [studentToReturn];
-        this.GetSelfiesListByState("")
-
+        this.studentsListFiltered = this.studentsList.slice();
       }
     );
   }
 
+  GetSelfiesListByState(state: string): void {
+    this.studentsListFiltered = this.studentsList.slice();
+    let newStudentList: Student[] = [];
 
-  GetSelfiesListByState(state:string) : void{
-    if(state == ''){
-      this.GetSelfiesList()
+    if(state ==''){
       return
     }
 
-    let studentListCopy :Student[] = this.studentsList.slice()
-    let newStudentList : Student[] = []
+    this.studentsListFiltered.forEach((student) => {
+      let selfieListFiltered: Selfie[] = [];
 
-    studentListCopy.forEach(student => {
-      let selfieListFiltered : Selfie[] = []
-      
-      student.GetUploadedSelfiesList().forEach(selfie => {
-        if(selfie.state == state){
-          selfieListFiltered.push(selfie)
+      student.GetUploadedSelfiesList().forEach((selfie) => {
+        if (selfie.state == state) {
+          selfieListFiltered.push(selfie);
         }
       });
 
-      newStudentList.push(new Student(student.GetName(), student.GetRA(), selfieListFiltered))
+      newStudentList.push(
+        new Student(student.GetName(), student.GetRA(), selfieListFiltered)
+      );
     });
 
-    this.studentsList = newStudentList
-
+    this.studentsListFiltered = newStudentList;
   }
-
 }
