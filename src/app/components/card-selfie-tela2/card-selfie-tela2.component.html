@@ -4,9 +4,15 @@
             <p class="welcome-msg">
                 HORA DA SELFIE
             </p>
-            <button class="placeholder-foto"></button>
-            <button class="botao-tirar-foto">TIRAR</button>  <!-- 1) click acionar funcao (click)="criarStatus()" -->
+            <!--<button class="placeholder-foto"></button>-->
+            <div class="webcam">
+                <webcam [trigger]="$trigger" (imageCapture)="snapshot($event)" (initError)="handleInitError($event)" [height]="450" [width]="300"></webcam>  <!---->
+            </div>
+            <button class="botao-tirar-foto" (click)="tirarFoto()">TIRAR</button>  <!-- 1) click acionar funcao (click)="criarStatus()" -->
             <a (click)="popUp()">Reler <span [ngStyle]="{'font-weight':700}">Condições</span></a>
+            <div *ngIf="previewImage">
+                <img [src]="previewImage" height="250" width="250">
+            </div>
         </ul>
     </div>
 </section>
