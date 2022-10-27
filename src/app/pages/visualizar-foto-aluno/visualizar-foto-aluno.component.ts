@@ -13,15 +13,11 @@ declare var window: any;
 export class VisualizarFotoAlunoComponent implements OnInit {
   private studentsList!: Student[];
   studentsListFiltered!: Student[];
-  form: any;
 
   constructor(private fetchStudentService: FetchStudent) {}
 
   ngOnInit() {
     this.GetSelfiesList();
-    this.form = new window.bootstrap.Modal(
-      document.getElementById('pop-up-modal')
-    );
   }
 
   GetSelfiesList(): void {
@@ -60,7 +56,4 @@ export class VisualizarFotoAlunoComponent implements OnInit {
     this.studentsListFiltered = newStudentList;
   }
 
-  OpenPopUp(): void {
-    this.form.show();
-  }
 }
