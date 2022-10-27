@@ -14,7 +14,7 @@ export class FetchStudentFromBackendService implements FetchStudent {
 
   constructor(private http: HttpClient) {}
 
-  FetchStudent(studentRA: string) {
+  FetchStudent(studentRA: string) : Observable<Student> {
     return this.http.get<Student>(
       `${this.baseURL}/get-selfies-by-ra?ra=${studentRA}`
     );
