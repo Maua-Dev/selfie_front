@@ -1,7 +1,6 @@
 import { FetchStudent } from './../../services/fetch-student';
 import { Component, OnInit } from '@angular/core';
 import { Student } from 'src/entities/student';
-import { lastValueFrom } from 'rxjs';
 import { Selfie } from 'src/entities/selfie';
 
 declare var window: any;
@@ -30,26 +29,11 @@ export class VisualizarFotoAlunoComponent implements OnInit {
       let studentsJson = resp['student'];
       let selfiesListJson = resp['selfies'];
 
-      let selfiesList: Selfie[] = Selfie.InstantiateSelfiesListFromJson(selfiesListJson);
-
-     
-
-      selfiesList = selfiesList.sort(
-        (a: Selfie, b: Selfie) =>
-          new Date(a.dateUpload).getUTCMilliseconds() -
-          new Date(b.dateUpload).getUTCMilliseconds()
-      );
-
-      let studentToReturn = new Student(
-        studentsJson['name'],
-        studentsJson['ra'],
-        selfiesList
-      );
+      let studentToReturn = Student.FactoryStudentFromJsonAndSelfieJson(studentsJson, selfiesListJson);
       this.studentsList = [studentToReturn];
       this.studentsListFiltered = this.studentsList.slice();
     });
   }
-
 
   GetSelfiesListByState(state: string): void {
     this.studentsListFiltered = this.studentsList.slice();
@@ -76,7 +60,7 @@ export class VisualizarFotoAlunoComponent implements OnInit {
     this.studentsListFiltered = newStudentList;
   }
 
-    OpenPopUp(): void {
+  OpenPopUp(): void {
     this.form.show();
   }
 }
