@@ -8,8 +8,8 @@ export class Selfie {
     private _rejectionDescription?: string
   ) {}
 
-  public get rejectionReason() : string{
-    return this.rejectionReason
+  public get rejectionReason(): string {
+    return this.rejectionReason;
   }
 
   public get state(): string {
@@ -35,5 +35,26 @@ export class Selfie {
   }
   public set idSelfie(value: number) {
     this._idSelfie = value;
+  }
+
+  public static InstantiateSelfieFromJson(jsonString: any): Selfie {
+    return new Selfie(
+      jsonString['idSelfie'],
+      jsonString['dateUpload'],
+      jsonString['url'],
+      jsonString['state'],
+      jsonString['rejectionReason'],
+      jsonString['rejectionDescription']
+    );
+  }
+
+  public static InstantiateSelfiesListFromJson(jsonString: any[]): Selfie[] {
+    let selfiesList: Selfie[] = [];
+
+    jsonString.forEach((selfie: any) => {
+      selfiesList.push(this.InstantiateSelfieFromJson(selfie));
+    });
+
+    return selfiesList;
   }
 }

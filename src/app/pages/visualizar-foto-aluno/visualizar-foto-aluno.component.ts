@@ -30,20 +30,9 @@ export class VisualizarFotoAlunoComponent implements OnInit {
       let studentsJson = resp['student'];
       let selfiesListJson = resp['selfies'];
 
-      let selfiesList: Selfie[] = [];
+      let selfiesList: Selfie[] = Selfie.InstantiateSelfiesListFromJson(selfiesListJson);
 
-      selfiesListJson.forEach((selfie: any) => {
-        selfiesList.push(
-          new Selfie(
-            selfie['idSelfie'],
-            selfie['dateUpload'],
-            selfie['url'],
-            selfie['state'],
-            selfie['rejectionReason'],
-            selfie['rejectionDescription']
-          )
-        );
-      });
+     
 
       selfiesList = selfiesList.sort(
         (a: Selfie, b: Selfie) =>
