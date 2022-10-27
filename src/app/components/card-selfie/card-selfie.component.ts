@@ -13,6 +13,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CardSelfieComponent implements OnInit {
 
   foto : string = ''
+  status!:boolean;
+  stream:any = null;
 
   constructor(private dialog : MatDialog,private router :ActivatedRoute) { }
 
@@ -21,13 +23,35 @@ export class CardSelfieComponent implements OnInit {
   dialogRef !: any
 
   ngOnInit(): void {
+    this.checkPermissions()
   }
 
   criarStatus(){
-    this.dialogRef = this.dialog.open(PopupComponent)   //invocando ele
-    console.log(this.dialogRef.nextPage)
-    if(this.dialogRef.nextPage === true)
-      this.dialogRef.popup
+    if(this.status == true){
+      this.dialogRef = this.dialog.open(PopupComponent)   //invocando ele
+      console.log(this.dialogRef.nextPage)
+      if(this.dialogRef.nextPage === true)
+        this.dialogRef.popup
+    }
+    else{
+      alert('Necessario ativar a camera para prosseguir')
+      this.checkPermissions()
+    }
+  }
+
+  checkPermissions() : void{
+    navigator.mediaDevices.getUserMedia({
+      video:{
+        facingMode: 'user'
+      },
+    }).then((response)=>{
+      console.log('response: ', response)
+      this.stream = response
+      this.status = true
+    }).catch(err =>{
+      this.stream = err
+      this.status = false
+    })
   }
 
 }

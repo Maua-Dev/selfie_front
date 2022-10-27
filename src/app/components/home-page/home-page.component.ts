@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 export class HomePageComponent implements OnInit {
 
   eventoPai !: boolean                      // 4) definindo uma variavel a ser manipulada - pensei nisso
+  status!:boolean;
+  stream:any = null;
   //public foto: string = ''
 
   constructor(private router : Router) { }

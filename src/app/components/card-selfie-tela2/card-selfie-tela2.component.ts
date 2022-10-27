@@ -28,7 +28,7 @@ export class CardSelfieTela2Component implements OnInit {
   }
 
   ngOnInit(): void {
-    this.checkPermissions();
+    //this.checkPermissions();
     //if(this.previewImage != '')
     //  this.previewImage = history.state
   }
@@ -84,7 +84,7 @@ export class CardSelfieTela2Component implements OnInit {
  
   confirmarFoto(){
     alert('Foto feita!')
-    this.route.queryParams.subscribe(() => this.previewImage)
+    //this.route.queryParams.subscribe(() => this.previewImage)
   }
 
 }
