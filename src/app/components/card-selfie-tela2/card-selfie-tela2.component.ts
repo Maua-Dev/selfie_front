@@ -13,6 +13,10 @@ import { PopupComponent } from '../popup/popup.component';
 export class CardSelfieTela2Component implements OnInit {
   
   dialogRef !: any;
+  webcam : boolean = true;
+  foto : boolean = false;
+  h !: number
+  w !: number
   status!:boolean;
   stream:any = null;
   trigger: Subject<void> = new Subject();
@@ -35,6 +39,14 @@ export class CardSelfieTela2Component implements OnInit {
 
   tirarFoto(){
     this.trigger.next();
+    this.webcam = !this.webcam
+    this.foto = !this.foto
+    if(this.previewImage != ''){
+      //this.webcam = !this.webcam
+      //this.foto = !this.foto
+      this.h = 400
+      this.w = 300
+    }
   }
 
   checkPermissions() : void{
@@ -65,4 +77,8 @@ export class CardSelfieTela2Component implements OnInit {
     }
   }
  
+  confirmarFoto(){
+    alert('Foto feita!')
+  }
+
 }
