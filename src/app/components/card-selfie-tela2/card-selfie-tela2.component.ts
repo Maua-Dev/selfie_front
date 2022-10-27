@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { WebcamImage, WebcamInitError } from 'ngx-webcam';
 import { Observable, Subject } from 'rxjs';
 import { PopupComponent } from '../popup/popup.component';
+import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-card-selfie-tela2',
@@ -22,10 +23,14 @@ export class CardSelfieTela2Component implements OnInit {
   trigger: Subject<void> = new Subject();
   previewImage:string = '';
 
-  constructor(private dialog : MatDialog) { }
+  constructor(private dialog : MatDialog,private router:Router, private route :ActivatedRoute) {
+    //console.log(this.router.getCurrentNavigation()?.extras.state)
+  }
 
   ngOnInit(): void {
-    this.checkPermissions()
+    this.checkPermissions();
+    //if(this.previewImage != '')
+    //  this.previewImage = history.state
   }
 
   get $trigger() : Observable<void>{
@@ -79,6 +84,7 @@ export class CardSelfieTela2Component implements OnInit {
  
   confirmarFoto(){
     alert('Foto feita!')
+    this.route.queryParams.subscribe(() => this.previewImage)
   }
 
 }

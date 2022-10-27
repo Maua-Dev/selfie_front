@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -8,10 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class HomePageComponent implements OnInit {
 
   eventoPai !: boolean                      // 4) definindo uma variavel a ser manipulada - pensei nisso
+  //public foto: string = ''
 
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit(): void {
+    //this.router.navigateByUrl('/selfie', {state: this.foto})
   }
 
   eventoClick(){

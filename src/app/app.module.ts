@@ -16,7 +16,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { CardSelfieTela2Component } from './components/card-selfie-tela2/card-selfie-tela2.component';
 import { WebcamModule } from 'ngx-webcam';
-import { TelaChecarSelfieComponent } from './components/tela-checar-selfie/tela-checar-selfie.component';
 
 
 @NgModule({
@@ -32,7 +31,6 @@ import { TelaChecarSelfieComponent } from './components/tela-checar-selfie/tela-
     TelaTirarSelfieComponent,
     HomePageComponent,
     CardSelfieTela2Component,
-    TelaChecarSelfieComponent,
   ],
   imports: [
     BrowserModule,

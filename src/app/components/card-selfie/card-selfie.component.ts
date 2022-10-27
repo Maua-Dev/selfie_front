@@ -2,7 +2,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Card } from 'src/entities/card';
 import { PopupComponent } from '../popup/popup.component';
 import {MatDialog} from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -12,7 +12,9 @@ import { Router } from '@angular/router';
 })
 export class CardSelfieComponent implements OnInit {
 
-  constructor(private dialog : MatDialog) { }
+  foto : string = ''
+
+  constructor(private dialog : MatDialog,private router :ActivatedRoute) { }
 
   @Output() eventClickSelfie : EventEmitter<Card> = new EventEmitter()  //2) criando um transmissor para a classe pai
   //eventoClickSelfie : boolean = false

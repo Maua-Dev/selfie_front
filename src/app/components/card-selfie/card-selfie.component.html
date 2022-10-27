@@ -4,7 +4,10 @@
             <p class="welcome-msg">
                 HORA DA SELFIE
             </p>
-            <button class="placeholder-foto"></button>
+            <button *ngIf="foto == ''" class="placeholder-foto"></button>
+            <div *ngIf="foto != ''">
+                <img href="foto">
+            </div>
             <button class="botao-tirar-foto" (click)="criarStatus()">TIRAR</button>  <!-- 1) click acionar funcao -->
         </ul>
     </div>
