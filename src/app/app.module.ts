@@ -16,7 +16,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { CardSelfieTela2Component } from './components/card-selfie-tela2/card-selfie-tela2.component';
 import { WebcamModule } from 'ngx-webcam';
-
+import { HttpClientModule } from '@angular/common/http'
+import { SelfieStudent } from './services/selfie-student.service';
+import { SelfieStudentMockService } from './services/selfie-student-mock.service';
 
 @NgModule({
   declarations: [
@@ -39,8 +41,9 @@ import { WebcamModule } from 'ngx-webcam';
     MatCheckboxModule,
     AppRoutingModule,
     WebcamModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [{ provide: SelfieStudent, useClass: SelfieStudentMockService }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

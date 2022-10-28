@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { WebcamImage, WebcamInitError } from 'ngx-webcam';
-import { Observable, Subject } from 'rxjs';
+import { lastValueFrom, Observable, Subject } from 'rxjs';
 import { PopupComponent } from '../popup/popup.component';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { SelfieStudent } from 'src/app/services/selfie-student.service';
 
 @Component({
   selector: 'app-card-selfie-tela2',
@@ -12,41 +14,38 @@ import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 })
 
 export class CardSelfieTela2Component implements OnInit {
-  
-  dialogRef !: any;
-  webcam : boolean = true;
-  foto : boolean = false;
-  h !: number
-  w !: number
-  status!:boolean;
-  stream:any = null;
-  trigger: Subject<void> = new Subject();
-  previewImage:string = '';
 
-  constructor(private dialog : MatDialog,private router:Router, private route :ActivatedRoute) {
-    //console.log(this.router.getCurrentNavigation()?.extras.state)
+  fotoId!: number;
+  dialogRef !: any;
+  webcam: boolean = true;
+  foto: boolean = false;
+  h !: number;
+  w !: number;
+  status!: boolean;
+  stream: any = null;
+  trigger: Subject<void> = new Subject();
+  previewImage: string = '';
+
+  constructor(private dialog: MatDialog, private selfieService: SelfieStudent) {
   }
 
   ngOnInit(): void {
-    //this.checkPermissions();
-    //if(this.previewImage != '')
-    //  this.previewImage = history.state
   }
 
-  get $trigger() : Observable<void>{
+  get $trigger(): Observable<void> {
     return this.trigger.asObservable();
   }
 
-  snapshot(event:WebcamImage){
+  snapshot(event: WebcamImage) {
     console.log(event)
     this.previewImage = event.imageAsDataUrl;
   }
 
-  tirarFoto(){
+  tirarFoto() {
     this.trigger.next();
     this.webcam = !this.webcam
     this.foto = !this.foto
-    if(this.previewImage != ''){
+    if (this.previewImage != '') {
       //this.webcam = !this.webcam
       //this.foto = !this.foto
       this.h = 400
@@ -54,25 +53,25 @@ export class CardSelfieTela2Component implements OnInit {
     }
   }
 
-  checkPermissions() : void{
+  checkPermissions(): void {
     navigator.mediaDevices.getUserMedia({
-      video:{
+      video: {
         facingMode: 'user'
       },
-    }).then((response)=>{
+    }).then((response) => {
       console.log('response: ', response)
       this.stream = response
       this.status = true
-    }).catch(err =>{
+    }).catch(err => {
       this.stream = err
       this.status = false
     })
   }
 
-  popUp(){
+  popUp() {
     this.dialogRef = this.dialog.open(PopupComponent)   //invocando ele
     console.log(this.dialogRef.nextPage)
-    if(this.dialogRef.nextPage === true)
+    if (this.dialogRef.nextPage === true)
       this.dialogRef.popup
   }
 
@@ -81,10 +80,21 @@ export class CardSelfieTela2Component implements OnInit {
       console.warn("Camera access was not allowed by user!");
     }
   }
- 
-  confirmarFoto(){
-    alert('Foto feita!')
-    //this.route.queryParams.subscribe(() => this.previewImage)
+
+  async sendingPhoto() {
+    var res = await lastValueFrom(this.selfieService.uploadSelfie(this.previewImage));
+    console.log(this.fotoId)
+    console.log(res)
   }
 
+  async confirmarFoto() {
+    alert('Foto feita!')
+    await this.sendingPhoto()
+  }
+
+}
+
+interface Foto {
+  id: number;
+  url: string;
 }
