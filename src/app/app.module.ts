@@ -1,3 +1,4 @@
+import { UpdateSelfieStateBackendService } from './services/update-selfie-state-backend.service';
 import { FetchStudentMockService } from './services/fetch-student-mock.service';
 import { FetchStudent } from './services/fetch-student';
 import { NgModule } from '@angular/core';
@@ -11,6 +12,7 @@ import { FetchStudentFromBackendService } from './services/fetch-student-from-ba
 import { RejectionCardComponent } from './components/rejection-card/rejection-card.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { UpdateSelfieStateService } from './services/update-selfie-state.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     RejectionCardComponent,
   ],
   imports: [BrowserModule, NgbModule, HttpClientModule],
-  providers: [{ provide: FetchStudent, useClass: FetchStudentFromBackendService }],
+  providers: [{ provide: FetchStudent, useClass: FetchStudentFromBackendService },
+  {provide:UpdateSelfieStateService, useClass:UpdateSelfieStateBackendService}],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
