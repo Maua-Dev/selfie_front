@@ -3,8 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { Student } from 'src/entities/student';
 import { Selfie } from 'src/entities/selfie';
 
-declare var window: any;
-
 @Component({
   selector: 'app-visualizar-foto-aluno',
   templateUrl: './visualizar-foto-aluno.component.html',
