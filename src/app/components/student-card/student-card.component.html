@@ -15,10 +15,10 @@
             </div>
             <div class="row">
                 <div class="col col-xl-5">
-                    <button type="button" class="btn btn-outline-success">Aprovar</button>
+                    <button type="button" class="btn btn-outline-success" (click)="SetSelfieStateAsReproved('APROVED')">Aprovar</button>
                 </div>
                 <div class="col">
-                    <button type="button" class="btn btn-outline-danger">Reprovar</button>
+                    <button type="button" class="btn btn-outline-danger" (click)="SetSelfieStateAsReproved('REPROVED')">Reprovar</button>
                 </div>
             </div>
         </div>
