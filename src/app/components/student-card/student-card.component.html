@@ -1,26 +1,34 @@
-
-<div class="background-card col-sm-5 col-3 col-md-3">
-    <div class="row">
-        <img class="col-6" src="{{photoToDisplay.imgURL}}" alt="Foto do aluno">
-        
-        <div class="col">
-            <div class="name">
-                <h2>Nome</h2>
-                <p>{{studentToDisplay.GetName()}}
-                </p>
-            </div>
-            <div class="ra">
-                <h2>RA</h2>
-                <p>{{studentToDisplay.GetRA()}}</p>
-            </div>
+<mat-card>
+    <mat-card-content>
+        <div class="container">
             <div class="row">
-                <div class="col col-xl-5">
-                    <button type="button" class="btn btn-outline-success" (click)="SetSelfieStateAsReproved('APROVED')">Aprovar</button>
+                <div class="col-5">
+                    <img id="card-image" src="{{photoToDisplay.imgURL}}"
+                        alt="Uma foto de {{studentToDisplay.GetName()}}">
                 </div>
                 <div class="col">
-                    <button type="button" class="btn btn-outline-danger" (click)="SetSelfieStateAsReproved('REPROVED')">Reprovar</button>
+                    <div class="col-3">
+                        <h2>{{studentToDisplay.GetName()}}</h2>
+                        <h2>{{studentToDisplay.GetRA()}}</h2>
+                    </div>
+                    <div class="col">
+                        <h2>Selecione o(s) motivo(s)</h2>
+                        <div>
+                            <mat-checkbox [color]="'primary'">Fundo escuro</mat-checkbox>
+                        </div>
+                        <div>
+                            <mat-checkbox [color]="'primary'">Uso de máscaras, chapéu ou acessórios</mat-checkbox>
+                        </div>
+                        <div>
+                            <mat-checkbox [color]="'primary'">Rosto pouco iluminado</mat-checkbox>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </mat-card-content>
+    <mat-card-footer>
+        <button class="aprove-btn" mat-raised-button (click)="SetSelfieStateAsReproved('APROVED')">Aprovar</button>
+        <button class="reprove-btn" mat-raised-button (click)="SetSelfieStateAsReproved('REPROVED')">Recusar</button>
+    </mat-card-footer>
+</mat-card>

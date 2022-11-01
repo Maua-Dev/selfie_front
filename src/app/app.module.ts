@@ -13,6 +13,10 @@ import { RejectionCardComponent } from './components/rejection-card/rejection-ca
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { UpdateSelfieStateService } from './services/update-selfie-state.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,7 @@ import { UpdateSelfieStateService } from './services/update-selfie-state.service
     SituationRectangleComponent,
     RejectionCardComponent,
   ],
-  imports: [BrowserModule, NgbModule, HttpClientModule],
+  imports: [BrowserModule, NgbModule, HttpClientModule, BrowserAnimationsModule, MatCardModule, MatCheckboxModule, MatButtonModule],
   providers: [{ provide: FetchStudent, useClass: FetchStudentFromBackendService },
   {provide:UpdateSelfieStateService, useClass:UpdateSelfieStateBackendService}],
   bootstrap: [AppComponent],
