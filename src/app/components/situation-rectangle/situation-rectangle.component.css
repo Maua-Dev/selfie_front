@@ -2,10 +2,17 @@
     color: #022893;
 }
 
-.checkbox{
+mat-checkbox{
     padding-left: 20px;
+    margin: 0;
+
 }
 
 .container{
     margin-top: 1px;
+    border-radius: 5px;
+}
+.student-name{
+    font-weight: bold;
+
 }

@@ -1,9 +1,7 @@
 <div class="container border border-primary">
     <div class="row">
-        <div class="col-1 checkbox checkbox">
-            <input class="checkbox-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="checkbox-label" for="flexCheckDefault">
-            </label>
+        <div class="col-1">
+            <mat-checkbox [color]="'primary'"></mat-checkbox>
         </div>
         <div class="col col-sm student-name">
             {{studentToDisplay.GetName()}}
