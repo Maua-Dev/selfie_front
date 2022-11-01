@@ -17,7 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
-import { FormBuilder } from '@angular/forms';
+import {MatIconModule} from '@angular/material/icon';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
@@ -37,6 +37,7 @@ import { AppRoutingModule } from './app-routing.module';
     MatCheckboxModule,
     MatButtonModule,
     AppRoutingModule,
+    MatIconModule,
     
   ],
   providers: [
