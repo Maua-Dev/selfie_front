@@ -6,22 +6,36 @@ import { UpdateSelfieStateService } from 'src/app/services/update-selfie-state.s
 @Component({
   selector: 'app-student-card',
   templateUrl: './student-card.component.html',
-  styleUrls: ['./student-card.component.css']
+  styleUrls: ['./student-card.component.css'],
 })
 export class StudentCardComponent implements OnInit {
+  @Input() public studentToDisplay!: Student;
+  @Input() public photoToDisplay!: Selfie;
 
-  @Input() public studentToDisplay! : Student
-  @Input() public photoToDisplay! : Selfie
-  constructor(private updateSelfieService : UpdateSelfieStateService) { 
+  private recuseReasons: any = {
+    fundoEscuro: false,
+    oculos: false,
+    rostoEscuro: false,
+  };
+
+  constructor(private updateSelfieService: UpdateSelfieStateService) {}
+
+  SetSelfieState(newState: string): void {
+    let newRecuseReasons = `${this.recuseReasons['fundoEscuro']};${this.recuseReasons['oculos']};${this.recuseReasons['rostoEscuro']}`;
+    this.updateSelfieService.UpdateSelfieState(
+      this.studentToDisplay.GetRA(),
+      this.photoToDisplay.idSelfie.toString(),
+      newState,
+      newRecuseReasons,
+      ''
+    );
+    console.log(`Settei como ${newState}`);
+    console.log(this.recuseReasons)
   }
 
-  SetSelfieStateAsReproved(newState : string) : void{
-    this.updateSelfieService.UpdateSelfieState(this.studentToDisplay.GetRA(), this.photoToDisplay.idSelfie.toString(), newState, '', '')
-    console.log(`Settei como ${newState}`)
-  }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-
+  setReproveReason(reason: string) {
+    this.recuseReasons[reason] = !this.recuseReasons[reason];
   }
- 
 }

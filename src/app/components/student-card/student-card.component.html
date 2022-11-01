@@ -16,13 +16,13 @@
                     <div class="col">
                         <h2>Selecione o(s) motivo(s)</h2>
                         <div>
-                            <mat-checkbox [color]="'primary'">Fundo escuro</mat-checkbox>
+                            <mat-checkbox [color]="'primary'" (change)="setReproveReason('fundoEscuro')">Fundo escuro</mat-checkbox>
                         </div>
                         <div>
-                            <mat-checkbox [color]="'primary'">Uso de máscaras, chapéu ou acessórios</mat-checkbox>
+                            <mat-checkbox [color]="'primary'" (change)="setReproveReason('oculos')">Uso de máscaras, chapéu ou acessórios</mat-checkbox>
                         </div>
                         <div>
-                            <mat-checkbox [color]="'primary'">Rosto pouco iluminado</mat-checkbox>
+                            <mat-checkbox [color]="'primary'" (change)="setReproveReason('rostoEscuro')">Rosto pouco iluminado</mat-checkbox>
                         </div>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
         </div>
     </mat-card-content>
     <mat-card-footer>
-        <button class="aprove-btn" mat-raised-button (click)="SetSelfieStateAsReproved('APROVED')">Aprovar</button>
-        <button class="reprove-btn" mat-raised-button (click)="SetSelfieStateAsReproved('REPROVED')">Recusar</button>
+        <button class="aprove-btn" mat-raised-button (click)="SetSelfieState('APROVED')">Aprovar</button>
+        <button class="reprove-btn" mat-raised-button (click)="SetSelfieState('REPROVED')">Recusar</button>
     </mat-card-footer>
 </mat-card>
