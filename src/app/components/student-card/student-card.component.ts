@@ -1,5 +1,5 @@
 import { Selfie } from 'src/entities/selfie';
-import { AfterContentInit, Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Student } from 'src/entities/student';
 import { UpdateSelfieStateService } from 'src/app/services/update-selfie-state.service';
 
