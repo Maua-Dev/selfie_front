@@ -12,6 +12,9 @@ export class HomePageComponent implements OnInit {
   status!:boolean;
   stream:any = null;
   //public foto: string = ''
+  foto!:string 
+
+  
 
   constructor(private router : Router) { }
 

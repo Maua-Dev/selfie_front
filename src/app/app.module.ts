@@ -19,6 +19,7 @@ import { WebcamModule } from 'ngx-webcam';
 import { HttpClientModule } from '@angular/common/http'
 import { SelfieStudent } from './services/selfie-student.service';
 import { SelfieStudentMockService } from './services/selfie-student-mock.service';
+import { CardStatusInicialComponent } from './components/card-status-inicial/card-status-inicial.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { SelfieStudentMockService } from './services/selfie-student-mock.service
     TelaTirarSelfieComponent,
     HomePageComponent,
     CardSelfieTela2Component,
+    CardStatusInicialComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,7 @@ import { SelfieStudentMockService } from './services/selfie-student-mock.service
     WebcamModule,
     HttpClientModule
   ],
-  providers: [{ provide: SelfieStudent, useClass: SelfieStudentMockService }],
+  providers: [{ provide: SelfieStudent, useClass: SelfieStudentMockService }], //injecao de dependencia
   bootstrap: [AppComponent]
 })
 export class AppModule { }

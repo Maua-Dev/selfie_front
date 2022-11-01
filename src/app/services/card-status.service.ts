@@ -11,10 +11,7 @@ export class CardStatusService {
   constructor() { }
 
   public createStatus(){
-    if(this.id <= 3)
-      return new Card(this.id++,'17/10/2022','Reprovado','foto com óculos')
-    else
-      return new Card(this.id++,'17/10/2022','Aprovado','')
+    return new Card(this.id++,'31/10/2022','Pendente','')     //mockado
   }
 
   public createCard(arrayCards : Card[]){

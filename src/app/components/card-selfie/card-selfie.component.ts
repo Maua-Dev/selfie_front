@@ -21,10 +21,9 @@ export class CardSelfieComponent implements OnInit {
   marginTop:string = '4vh'
   marginBottom!:string
 
-  constructor(private dialog : MatDialog,private router :ActivatedRoute, private selfieService: SelfieStudent) { }
+  constructor(private dialog : MatDialog, private selfieService: SelfieStudent) { }
 
-  @Output() eventClickSelfie : EventEmitter<Card> = new EventEmitter()  //2) criando um transmissor para a classe pai
-  //eventoClickSelfie : boolean = false
+  @Output() eventClickSelfie : EventEmitter<Card> = new EventEmitter()  //1) criando um transmissor para a classe pai
   dialogRef !: any
 
   ngOnInit(): void {
@@ -38,13 +37,13 @@ export class CardSelfieComponent implements OnInit {
       this.tamanho = 'auto'
       this.marginTop = '2vh'
       this.marginBottom = '1vh'
+      this.eventClickSelfie.emit()          //2) transmitindo definitivo
     }
   }
   
-  criarStatus(){
+  termos(){
     if(this.status == true){
       this.dialogRef = this.dialog.open(PopupComponent)   //invocando ele
-      console.log(this.dialogRef.nextPage)
       if(this.dialogRef.nextPage === true)
         this.dialogRef.popup
     }
@@ -55,7 +54,7 @@ export class CardSelfieComponent implements OnInit {
   }
 
   checkPermissions() : void{
-    navigator.mediaDevices.getUserMedia({
+    let video = navigator.mediaDevices.getUserMedia({
       video:{
         facingMode: 'user'
       },
@@ -67,6 +66,10 @@ export class CardSelfieComponent implements OnInit {
       this.stream = err
       this.status = false
     })
+
+    if (this.foto != ''){
+      //video.stop()
+    }
   }
 
 }

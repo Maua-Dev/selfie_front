@@ -8,8 +8,8 @@
             <div *ngIf="foto != ''" class="placehold-foto">
                 <img [src]="foto" [height]="108" [width]="242">
             </div>
-            <button *ngIf="foto==''" class="botao-tirar-foto" [ngStyle]="{'margin-top':marginTop, 'margin-bottom':marginBottom }" (click)="criarStatus()">TIRAR</button>  <!-- 1) click acionar funcao -->
-            <button *ngIf="foto!=''" disabled='true' class="botao-tirar-foto" [ngStyle]="{'margin-top':marginTop, 'margin-bottom':marginBottom, 'background-color':'grey'}" (click)="criarStatus()">TIRAR</button>  <!-- 1) click acionar funcao -->
+            <button *ngIf="foto==''" class="botao-tirar-foto" [ngStyle]="{'margin-top':marginTop, 'margin-bottom':marginBottom }" (click)="termos()">TIRAR</button>  
+            <button *ngIf="foto!=''" disabled='true' class="botao-tirar-foto" [ngStyle]="{'margin-top':marginTop, 'margin-bottom':marginBottom, 'background-color':'grey'}" (click)="termos()">TIRAR</button> 
         </ul>
     </div>
 </section>

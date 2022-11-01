@@ -46,8 +46,6 @@ export class CardSelfieTela2Component implements OnInit {
     this.webcam = !this.webcam
     this.foto = !this.foto
     if (this.previewImage != '') {
-      //this.webcam = !this.webcam
-      //this.foto = !this.foto
       this.h = 400
       this.w = 300
     }
@@ -83,8 +81,6 @@ export class CardSelfieTela2Component implements OnInit {
 
   async sendingPhoto() {
     var res = await lastValueFrom(this.selfieService.uploadSelfie(this.previewImage));
-    console.log(this.fotoId)
-    console.log(res)
   }
 
   async confirmarFoto() {
@@ -94,7 +90,3 @@ export class CardSelfieTela2Component implements OnInit {
 
 }
 
-interface Foto {
-  id: number;
-  url: string;
-}

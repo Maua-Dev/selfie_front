@@ -10,16 +10,22 @@ import { CardStatusService } from 'src/app/services/card-status.service';
 export class CardStatusComponent{
 
   cards : Card[] = [
-    //new Card(1, '21/10/2022', 'Reprovado', 'foto com óculos'),
+    //new Card(1, '21/10/2022', 'Pendente', 'foto com óculos'),
     //new Card(2,'22/10/2022','Reprovado','pouca qualidade'),
     //new Card(3, '23/10/2022','Reprovado','pouca qualidade'),
     //new Card(4,'25/10/2022','Aprovado','aaa'),
   ]
 
-  @Input() evento !: boolean                       // 7) Colocando a info do pai para o filho em uma variavel
+  foto !: string
+  showCard !: boolean
 
   constructor(private cardStatusService : CardStatusService) { } 
   
+  ngOnInit(): void {
+    this.criandoCard()
+    console.log(this.cards)
+  }
+
   public criandoCard(){
     this.cardStatusService.createCard(this.cards)
   }

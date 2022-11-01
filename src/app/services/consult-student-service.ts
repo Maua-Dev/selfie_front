@@ -20,7 +20,7 @@ export class ConsultStudentService {
 
     //verificar essa porra
     public FetchStudentList() : Student[]{
-        return [new Student("Davi","14/10/2022","Aprovado",""), new Student("Davi","14/10/2022","Reprovado","Está com boné")]
+        return [new Student("Davi","14/10/2022","Aprovado","",''), new Student("Davi","14/10/2022","Reprovado","Está com boné",'')]
     }
 
     //verificar essa porra
