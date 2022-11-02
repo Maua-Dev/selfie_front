@@ -19,13 +19,12 @@ export class CardStatusInicialComponent implements OnInit {
   }
 
   public initialCard(){
-    let card = this.cardStatusService.getInicialCard()
-    if(card.getId() == 0){
-      this.title = 'Envie sua selfie!'
-      this.date = 'Não enviado'
-      this.situation = 'Não enviado'
-    }
 
+    this.title = 'Envie sua selfie!'
+    this.date = 'Não enviado'
+    this.situation = 'Não enviado'
   }
 
 }
+
+

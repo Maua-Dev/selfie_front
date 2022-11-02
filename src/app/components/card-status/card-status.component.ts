@@ -12,10 +12,6 @@ export class CardStatusComponent{
   teste !: any
   cards : Card[] = []
   
-  title : string = 'Envie sua selfie!'
-  date : string = 'Não enviado'
-  situation : string = 'Não enviado'
-  
   constructor(private cardStatusService : CardStatusService) { } 
   
   ngOnInit(): void {

@@ -32,15 +32,12 @@ export class CardStatusService {
     return new Card(this.id++, '01/11/2022','','','','')
   }
 
-
   public createCards(json : any) : any{
     var list : Card[] = [];
     var motivo !: string;
-    const timeElapsed = Date.now()
-    const todayDate = new Date(timeElapsed)
 
-    if(json['selfies'] === null){
-      return new Card(this.id++,todayDate.toLocaleDateString(),'','','','')
+    if(json['selfies'].length === 0){
+      return new Card(this.id++,'Não enviado','Não enviado','Não enviado','Não enviado','Não enviado')
     }
 
     else{

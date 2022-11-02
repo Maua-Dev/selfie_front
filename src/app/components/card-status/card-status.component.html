@@ -1,13 +1,4 @@
 <section>
-    <div *ngIf="!cards">
-        <ul>
-            <li>
-                <p class="titulo-card-status">{{title}}</p>
-                <p class="status">Enviado em: <span style="color:orange; font-weight: 500;">{{date}}</span></p>
-                <p class="status">Situação: <span style="color:orange; font-weight: 500;">{{situation}}</span></p>
-            </li>
-        </ul>
-    </div>
     <div *ngIf="cards">                
         <ul *ngFor="let card of cards">
             <li *ngIf="card.getSituacao() === 'Pendente'">
