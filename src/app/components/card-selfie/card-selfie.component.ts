@@ -59,7 +59,6 @@ export class CardSelfieComponent implements OnInit {
         facingMode: 'user'
       },
     }).then((response)=>{
-      console.log('response: ', response)
       this.stream = response
       this.status = true
     }).catch(err =>{

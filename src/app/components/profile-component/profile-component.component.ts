@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Input} from '@angular/core';
 import { Observable } from 'rxjs';
 import { SelfieStudent } from 'src/app/services/selfie-student.service';
 import { Student } from 'src/entities/student';
@@ -10,18 +10,12 @@ import { Student } from 'src/entities/student';
 })
 export class ProfileComponentComponent implements OnInit {
 
-  name : any = ''
+  @Input() nameProfile !: any
   imagePath : string = '/assets/icon-profile.png'
 
-  constructor(public selfieStudent : SelfieStudent) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.getNome()
-  }
-
-  getNome(){
-    this.name = this.selfieStudent.getName()
-    return this.name
   }
 
 }

@@ -1,37 +1,34 @@
 export class Student{
     private name : string
-    private date : string
-    private status : string
-    private motivo: string
-    private selfie : string    //base64
+    private ra: string
+    private email: string
 
     // pensar na selfie depois
 
-    constructor(name : string, date : string, status : string, motivo : string, selfie : string){
-        this.name = name
-        this.date = date
-        this.status = status
-        this.motivo = motivo
-        this.selfie = selfie   
+    constructor(name : string, ra : string, email : string){
+        this.name = name  
+        this.ra = ra
+        this.email = email
     }
 
-    public GetNome() : string {
+    public getNome() : string {
         return this.name
     }
 
-    public GetData() : string {
-        return this.date
+    public getRa() : string {
+        return this.ra
     }
 
-    public GetStatus() : string{
-        return this.status
+    public getEmail() : string {
+        return this.email
     }
 
-    public GetMotivo() : string{
-        return this.motivo
+    public static createStudent(json : any){
+        return new Student(
+            json['name'],
+            json['ra'],
+            json['email']
+        )
     }
 
-    public GetSelfie() : string { 
-        return this.selfie
-    }
 }

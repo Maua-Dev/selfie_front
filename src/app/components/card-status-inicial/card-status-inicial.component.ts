@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CardStatusService } from 'src/app/services/card-status.service';
 
 @Component({
   selector: 'app-card-status-inicial',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardStatusInicialComponent implements OnInit {
 
-  constructor() { }
+  title !: string
+  date !: string
+  situation !: string
+
+  constructor(public cardStatusService : CardStatusService) { }
 
   ngOnInit(): void {
+    this.initialCard()
+  }
+
+  public initialCard(){
+    let card = this.cardStatusService.getInicialCard()
+    if(card.getId() == 0){
+      this.title = 'Envie sua selfie!'
+      this.date = 'Não enviado'
+      this.situation = 'Não enviado'
+    }
+
   }
 
 }

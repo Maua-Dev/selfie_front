@@ -37,7 +37,7 @@ export class CardSelfieTela2Component implements OnInit {
   }
 
   snapshot(event: WebcamImage) {
-    console.log(event)
+    //console.log(event)
     this.previewImage = event.imageAsDataUrl;
   }
 

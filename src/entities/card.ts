@@ -1,35 +1,42 @@
-import { TitleStrategy } from "@angular/router";
-
 export class Card{
     private id : number;
     private data : string;
+    private selfie : string;
     private situacao : string;
     private motivo : string;
+    private descricao : string;
 
-    constructor(id : number, data : string, situacao : string, motivo : string){
+    constructor(id : number ,data : string, selfie : string, situacao : string, motivo : string, descricao : string){
         this.id = id;
         this.data = data;
+        this.selfie = selfie;
         this.situacao = situacao;
         this.motivo = motivo;
+        this.descricao = descricao;
     }
 
-    public GetId(){
+    public getId(){
         return this.id
     }
 
-    public SetId(idNovo : number){
-        this.id = idNovo
+    public setSelfie(){
+        return this.selfie
     }
 
-    public GetData(){
+    public getData(){
         return this.data
     }
 
-    public GetSituacao(){
+    public getSituacao(){
         return this.situacao
     }
 
-    public GetMotivo() : string{
+    public getMotivo() : string{
         return this.motivo
     }
+
+    public getDescricao(){
+        return this.descricao
+    }
+
 }

@@ -13,7 +13,7 @@ export class SelfieStudentImp implements SelfieStudent {
 
     constructor(private http: HttpClient) {}
     
-    public getName(): Observable<Student> {
+    public getStudent(): Observable<Student> {
         return this.http.get<Student>(
             `${this.baseURL}/get-student?ra=${this.studentRA}`
         )

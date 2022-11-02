@@ -9,29 +9,23 @@ import { CardStatusService } from 'src/app/services/card-status.service';
 })
 export class CardStatusComponent{
 
-  cards : Card[] = [
-    //new Card(1, '21/10/2022', 'Pendente', 'foto com óculos'),
-    //new Card(2,'22/10/2022','Reprovado','pouca qualidade'),
-    //new Card(3, '23/10/2022','Reprovado','pouca qualidade'),
-    //new Card(4,'25/10/2022','Aprovado','aaa'),
-  ]
-
-  foto !: string
-  showCard !: boolean
-
+  teste !: any
+  cards : Card[] = []
+  
+  title : string = 'Envie sua selfie!'
+  date : string = 'Não enviado'
+  situation : string = 'Não enviado'
+  
   constructor(private cardStatusService : CardStatusService) { } 
   
   ngOnInit(): void {
-    this.criandoCard()
-    console.log(this.cards)
+    this.creatingCard()
   }
 
-  public criandoCard(){
-    this.cardStatusService.createCard(this.cards)
-  }
-
-  public getCards(){
-    return this.cards
+  public creatingCard(){
+    this.cardStatusService.creatingCard().subscribe(response => 
+      this.cards = this.cardStatusService.createCards(response)
+    );
   }
 
 }

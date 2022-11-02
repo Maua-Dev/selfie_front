@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Card } from 'src/entities/card';
 
 @Injectable({
@@ -6,20 +8,67 @@ import { Card } from 'src/entities/card';
 })
 export class CardStatusService {
 
-  id : number = 1
+  id : number = 0
+  private readonly baseURL : string = 'https://idxd34yq6k.execute-api.us-east-1.amazonaws.com/prod/mss-student';
+  private studentRA : string = '21010757'
 
-  constructor() { }
+  teste !: any
+  idCard !: number
+  date !: string
+  situation !: string
+  reason !: string
+  description !: string
 
-  public createStatus(){
-    return new Card(this.id++,'31/10/2022','Pendente','')     //mockado
+  constructor(private http: HttpClient) { }
+
+
+  public creatingCard() : Observable<any>{
+    return this.http.get<any>(
+      `${this.baseURL}/get-selfies-by-ra?ra=${this.studentRA}`
+    )
   }
 
-  public createCard(arrayCards : Card[]){
-    console.log(arrayCards)
-    arrayCards.push(this.createStatus())
+  public getInicialCard(){
+    return new Card(this.id++, '01/11/2022','','','','')
   }
 
-  public showCard(arrayCards : Card[]){
-    arrayCards
+
+  public createCards(json : any) : any{
+    var list : Card[] = [];
+    var motivo !: string;
+    const timeElapsed = Date.now()
+    const todayDate = new Date(timeElapsed)
+
+    if(json['selfies'] === null){
+      return new Card(this.id++,todayDate.toLocaleDateString(),'','','','')
+    }
+
+    else{
+      for(var i : number = 0; i < 2;i++){
+          let data = json['selfies'][i]['dateUpload'].substring(8,10)
+          let mes = json['selfies'][i]['dateUpload'].substring(5,7)
+          let ano = json['selfies'][i]['dateUpload'].substring(0,4)
+          
+          let date = `${data}/${mes}/${ano}`
+          
+          // fazer enums aqui !
+          if(json['selfies'][i]['rejectionReason'] === 'COVERED_FACE')
+            motivo = 'Rosto coberto'
+          else
+            motivo = json['selfies'][i]['rejectionReason']
+  
+          let card = new Card(
+              json['selfies'][i]['idSelfie'],
+              date,       
+              json['selfies'][i]['url'],
+              json['selfies'][i]['state'],
+              motivo,
+              json['selfies'][i]['rejectionDescription']            
+          )
+          list.push(card)
+      }
+      return list
+    }
   }
+
 }

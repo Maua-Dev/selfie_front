@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SelfieStudent } from 'src/app/services/selfie-student.service';
+import { Student } from 'src/entities/student';
 
 @Component({
   selector: 'app-tela-tirar-selfie',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TelaTirarSelfieComponent implements OnInit {
 
-  constructor() { }
+  nome !: any
+  student !: any 
+
+  constructor(public selfieStudent : SelfieStudent) { }
 
   ngOnInit(): void {
+    this.getStudent()
+  }
+
+  public getStudent(){
+    this.selfieStudent.getStudent().subscribe(response =>{
+      this.student = Student.createStudent(response);             //recebe o estudante
+      this.nome = this.student.getNome()
+    })
+  }
+
+  public getName(){
+    this.getStudent()
+    this.nome = this.student.getNome()
   }
 
 }
