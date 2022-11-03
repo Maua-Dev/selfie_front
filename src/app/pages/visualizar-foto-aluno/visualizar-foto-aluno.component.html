@@ -1,20 +1,21 @@
 <div class="container">
-  <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="filter_list"></mat-icon>
+  <mat-icon fontIcon="tune"></mat-icon>
   <h2> Filtros</h2>
-
-
 
   <div class="container">
     <div class="row row-cols-2 gx-1 gy-2 filter-buttons">
-      <div class="col-auto"><input class="btn btn-primary" type="button" value="Pendente"
-          (click)="GetSelfiesListByState('Pendente')"></div>
-      <div class="col-auto"><input class="btn btn-primary" type="button" value="Aprovados"
-          (click)="GetSelfiesListByState('APPROVED')"></div>
-      <div class="col-auto"><input class="btn btn-primary" type="button" value="Reprovados"
-          (click)="GetSelfiesListByState('DECLINED')"></div>
-      <div class="col-auto clean-filters-btn"><input class="btn btn-primary" type="button" value="Limpar filtros"
-          (click)="GetSelfiesListByState('')"></div>
-    </div>
+      <div class="col-auto btn d-flex justify-content-center" (click)="GetSelfiesListByState('Pendente')">
+        Para aprovar <mat-icon fontIcon="add"></mat-icon>
+      </div>
+      <div class="col-auto btn d-flex justify-content-center" (click)="GetSelfiesListByState('APPROVED')">
+        Aprovados <mat-icon fontIcon="add"></mat-icon>
+      </div>
+      <div class="col-auto btn d-flex justify-content-center" (click)="GetSelfiesListByState('DECLINED')">
+        Reprovados <mat-icon fontIcon="add"></mat-icon>
+      </div>
+      <div class="col-auto btn clean-filters-btn d-flex justify-content-center" (click)="GetSelfiesListByState('')">
+        Limpar Filtros 
+      </div>
   </div>
 
   <div class="container cards-container">

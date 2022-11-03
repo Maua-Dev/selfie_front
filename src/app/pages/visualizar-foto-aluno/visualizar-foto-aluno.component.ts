@@ -54,4 +54,8 @@ export class VisualizarFotoAlunoComponent implements OnInit {
     this.studentsListFiltered = newStudentList;
   }
 
+  k(){
+    console.log("Eu te amo")
+  }
+
 }

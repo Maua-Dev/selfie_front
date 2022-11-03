@@ -29,8 +29,6 @@ export class StudentCardComponent implements OnInit {
       newRecuseReasons,
       ''
     );
-    console.log(`Settei como ${newState}`);
-    console.log(this.recuseReasons)
   }
 
   ngOnInit(): void {}
