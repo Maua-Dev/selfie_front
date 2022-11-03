@@ -10,20 +10,20 @@
                 </div>
                 <div class="col">
                     <div class="col-3">
-                        <h3>{{studentToDisplay.GetName()}}</h3>
-                        <h3>{{studentToDisplay.GetEmail()}}</h3>
+                        <h2 id="student-name">{{studentToDisplay.GetName()}}</h2>
+                        <h3 id="student-email">{{studentToDisplay.GetEmail()}}</h3>
                     </div>
                     <div class="col">
                         <h2>Impedimentos</h2>
-                        <div>
+                        <div class="rejection-reason-list">
                             <mat-checkbox [color]="'primary'" (change)="setReproveReason('fundoEscuro')">Fundo escuro
                             </mat-checkbox>
                         </div>
-                        <div>
+                        <div class="rejection-reason-list">
                             <mat-checkbox [color]="'primary'" (change)="setReproveReason('oculos')">Uso de máscaras,
                                 chapéu ou acessórios</mat-checkbox>
                         </div>
-                        <div>
+                        <div class="rejection-reason-list">
                             <mat-checkbox [color]="'primary'" (change)="setReproveReason('rostoEscuro')">Rosto pouco
                                 iluminado</mat-checkbox>
                         </div>
@@ -34,10 +34,10 @@
     </mat-card-content>
         <mat-card-footer>
             <div class="footer-content">
-                <button class="aprove-btn" mat-raised-button (click)="SetSelfieState('APROVED')">
+                <button class="aprove-btn button" mat-raised-button (click)="SetSelfieState('APROVED')">
                     <mat-icon fontIcon="thumb_up"></mat-icon> Aprovar
                 </button>
-                <button class="reprove-btn" mat-raised-button (click)="SetSelfieState('REPROVED')">
+                <button class="reprove-btn button" mat-raised-button (click)="SetSelfieState('REPROVED')">
                     <mat-icon fontIcon="thumb_down"></mat-icon> Reprovar
                 </button>
             </div>
