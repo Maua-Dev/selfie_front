@@ -9,10 +9,27 @@ import { Student } from 'src/entities/student';
 export class SituationRectangleComponent implements OnInit {
 
   @Input() public studentToDisplay! : Student
+  studentState!:string
 
   constructor() { }
 
   ngOnInit(): void {
+    this.studentToDisplay.GetUploadedSelfiesList().forEach(selfie => {
+      if(selfie.state == "APPROVED"){
+        this.studentState = "APPROVED"
+        return
+      }
+      else if(selfie.state == "DECLINED"){
+        this.studentState = "DECLINED"
+        return
+      }
+      else if(selfie.state == "PENDING_REVIEW"){
+        this.studentState = "PENDING_REVIEW"
+        return
+      }
+    
+      this.studentState = 'IN_REVIEW'
+    });
   }
 
 }
