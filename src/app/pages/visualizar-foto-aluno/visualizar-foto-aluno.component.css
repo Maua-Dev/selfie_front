@@ -1,7 +1,3 @@
-h2 {
-  color: #022893;
-  display: inline;
-}
 
 .filter-buttons {
   padding: 0;
@@ -43,5 +39,12 @@ mat-icon {
 }
 
 .tittle-and-icon{
+  display: flex;
+  align-content: center;
   margin: 20px 0;
+  color: #022893;
+
+  font-weight: 700;
+  font-size: 22px;
+
 }
