@@ -8,6 +8,9 @@
         <div class="col col-sm student-ra">
             {{studentToDisplay.GetRA()}}
         </div>
+        <div>
+            Situação: 
+        </div>
         <div class="col col-sm student-situation">
             <app-state-display-icons [stateToDisplay]="studentToDisplay.GetUploadedSelfiesList()[0].state"></app-state-display-icons>
         </div>
