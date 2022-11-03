@@ -1,6 +1,8 @@
 <div class="container">
-  <mat-icon fontIcon="tune"></mat-icon>
-  <h2> Filtros</h2>
+  <div class="tittle-and-icon">
+    <mat-icon fontIcon="tune"></mat-icon>
+    <h2>Filtros</h2>
+  </div>
 
   <div class="container">
     <div class="row row-cols-2 gx-1 gy-2 filter-buttons">
@@ -14,21 +16,24 @@
         Reprovados <mat-icon fontIcon="add"></mat-icon>
       </div>
       <div class="col-auto btn clean-filters-btn d-flex justify-content-center" (click)="GetSelfiesListByState('')">
-        Limpar Filtros 
+        Limpar Filtros
       </div>
-  </div>
+    </div>
 
-  <div class="container cards-container">
-    <div *ngFor="let student of studentsListFiltered">
-      <app-student-card *ngFor="let selfie of student.GetUploadedSelfiesList()" [studentToDisplay]="student"
-        [photoToDisplay]="selfie"></app-student-card>
+    <div class="container cards-container">
+      <div *ngFor="let student of studentsListFiltered">
+        <app-student-card *ngFor="let selfie of student.GetUploadedSelfiesList()" [studentToDisplay]="student"
+          [photoToDisplay]="selfie"></app-student-card>
+      </div>
     </div>
   </div>
 
-  <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="settings"></mat-icon>
-  <h2> Em Andamento</h2>
+  <div class="tittle-and-icon">
+    <mat-icon fontIcon="settings"></mat-icon>
+    <h2>Em Andamento</h2>
+  </div>
 
   <app-situation-rectangle *ngFor="let student of studentsListFiltered" [studentToDisplay]="student">
   </app-situation-rectangle>
-</div>
 
+</div>

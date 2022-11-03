@@ -12,6 +12,8 @@ h2 {
 .cards-container {
   overflow: auto;
   height: 500px;
+  display: flex;
+  flex-direction: row;
 }
 
 .btn {
@@ -36,5 +38,10 @@ h2 {
 }
 
 mat-icon {
-  margin-left: 5px;
+  margin: 0 5px 0 0;
+  color: #022893;
+}
+
+.tittle-and-icon{
+  margin: 20px 0;
 }
