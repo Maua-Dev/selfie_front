@@ -4,6 +4,7 @@ export class Student {
   constructor(
     private name: string,
     private RA: string,
+    private email: string,
     private uploadedSelfiesList: Selfie[]
   ) {}
 
@@ -17,6 +18,10 @@ export class Student {
 
   public GetRA(): string {
     return this.RA;
+  }
+
+  public GetEmail(): string {
+    return this.email;
   }
 
   public SetRA(newRA: string): void {
@@ -37,13 +42,22 @@ export class Student {
     jsonString: any,
     selfiesList: Selfie[]
   ): Student {
-    return new Student(jsonString['name'], jsonString['ra'], selfiesList);
-  }
-
-  public static FactoryStudentFromJsonAndSelfieJson(jsonString: any, selfiesList: any): Student {
     return new Student(
       jsonString['name'],
       jsonString['ra'],
+      jsonString['email'],
+      selfiesList
+    );
+  }
+
+  public static FactoryStudentFromJsonAndSelfieJson(
+    jsonString: any,
+    selfiesList: any
+  ): Student {
+    return new Student(
+      jsonString['name'],
+      jsonString['ra'],
+      jsonString['email'],
       Selfie.InstantiateSelfiesListFromJson(selfiesList)
     );
   }

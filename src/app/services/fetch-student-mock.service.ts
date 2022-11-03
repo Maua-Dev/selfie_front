@@ -15,7 +15,7 @@ export class FetchStudentMockService implements FetchStudent {
     return of(
       new Student(
         'Duez',
-        '21.12306-8',
+        '21.12306-8','euteamolöra@gmail.com',
         [
           new Selfie(
             0,
@@ -33,7 +33,7 @@ export class FetchStudentMockService implements FetchStudent {
     return of([
       new Student(
         'Brancas',
-        '21.12306-8',
+        '21.12306-8','euteamolöra@gmail.com',
         [
           new Selfie(
             0,
@@ -55,7 +55,7 @@ export class FetchStudentMockService implements FetchStudent {
       ),
       new Student(
         'Soller',
-        '21.12306-8',
+        '21.12306-8','euteamolöra@gmail.com',
         [
           new Selfie(
             0,
@@ -69,7 +69,7 @@ export class FetchStudentMockService implements FetchStudent {
       ),
       new Student(
         'Duez',
-        '21.12306-8',
+        '21.12306-8','euteamolöra@gmail.com',
         [
           new Selfie(
             0,
@@ -83,7 +83,7 @@ export class FetchStudentMockService implements FetchStudent {
       ),
       new Student(
         'Davi',
-        '21.12306-8',
+        '21.12306-8','euteamolöra@gmail.com',
         [
           new Selfie(
             0,
@@ -97,7 +97,7 @@ export class FetchStudentMockService implements FetchStudent {
       ),
       new Student(
         'Hector',
-        '21.12306-8',
+        '21.12306-8','euteamolöra@gmail.com',
         [
           new Selfie(
             0,
@@ -111,7 +111,7 @@ export class FetchStudentMockService implements FetchStudent {
       ),
       new Student(
         'Vilardi',
-        '21.12306-8',
+        '21.12306-8','euteamolöra@gmail.com',
         [
           new Selfie(
             0,
@@ -125,7 +125,7 @@ export class FetchStudentMockService implements FetchStudent {
       ),
       new Student(
         'Carolina',
-        '21.12306-8',
+        '21.12306-8','euteamolöra@gmail.com',
         [
           new Selfie(
             0,
@@ -139,7 +139,7 @@ export class FetchStudentMockService implements FetchStudent {
       ),
       new Student(
         'Caio',
-        '21.12306-8',
+        '21.12306-8','euteamolöra@gmail.com',
         [
           new Selfie(
             0,

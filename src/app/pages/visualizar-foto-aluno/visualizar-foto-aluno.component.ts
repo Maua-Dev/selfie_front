@@ -47,7 +47,7 @@ export class VisualizarFotoAlunoComponent implements OnInit {
       });
 
       newStudentList.push(
-        new Student(student.GetName(), student.GetRA(), selfieListFiltered)
+        new Student(student.GetName(), student.GetRA(), student.GetEmail(), selfieListFiltered)
       );
     });
 
