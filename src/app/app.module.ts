@@ -9,7 +9,6 @@ import { VisualizarFotoAlunoComponent } from './pages/visualizar-foto-aluno/visu
 import { StudentCardComponent } from './components/student-card/student-card.component';
 import { SituationRectangleComponent } from './components/situation-rectangle/situation-rectangle.component';
 import { FetchStudentFromBackendService } from './services/fetch-student-from-backend.service';
-import { RejectionCardComponent } from './components/rejection-card/rejection-card.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { UpdateSelfieStateService } from './services/update-selfie-state.service';
@@ -26,7 +25,6 @@ import { AppRoutingModule } from './app-routing.module';
     VisualizarFotoAlunoComponent,
     StudentCardComponent,
     SituationRectangleComponent,
-    RejectionCardComponent,
   ],
   imports: [
     BrowserModule,
