@@ -16,3 +16,7 @@
 mat-icon{
     margin-right: 5px;
 }
+
+.clickable:hover{
+    text-decoration: underline solid #022893;
+}
