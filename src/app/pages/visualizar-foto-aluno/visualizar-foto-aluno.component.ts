@@ -24,7 +24,7 @@ export class VisualizarFotoAlunoComponent implements OnInit {
       let selfiesListJson = resp['selfies'];
 
       let studentToReturn = Student.FactoryStudentFromJsonAndSelfieJson(studentsJson, selfiesListJson);
-      this.studentsList = [studentToReturn];
+      this.studentsList = [studentToReturn, studentToReturn];
       this.studentsListFiltered = this.studentsList.slice();
     });
   }
