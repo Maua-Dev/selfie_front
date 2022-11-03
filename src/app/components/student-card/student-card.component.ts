@@ -21,7 +21,14 @@ export class StudentCardComponent implements OnInit {
   constructor(private updateSelfieService: UpdateSelfieStateService) {}
 
   SetSelfieState(newState: string): void {
-    let newRecuseReasons = `${this.recuseReasons['fundoEscuro']};${this.recuseReasons['oculos']};${this.recuseReasons['rostoEscuro']}`;
+    let newRecuseReasons :string[] = []
+    
+    for(let reason in this.recuseReasons){
+      if(this.recuseReasons[reason]){
+        newRecuseReasons.push(reason)
+      }
+    }
+
     this.updateSelfieService.UpdateSelfieState(
       this.studentToDisplay.GetRA(),
       this.photoToDisplay.idSelfie.toString(),
@@ -29,6 +36,7 @@ export class StudentCardComponent implements OnInit {
       newRecuseReasons,
       ''
     );
+    console.log(this.recuseReasons)
   }
 
   ngOnInit(): void {}

@@ -4,5 +4,5 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export abstract class UpdateSelfieStateService {
-  abstract UpdateSelfieState(ra:string, idSelfie:string, newState : string, newRejectionReason:string, newRejectionDescription:string) : void
+  abstract UpdateSelfieState(ra:string, idSelfie:string, newState : string, newRejectionReason:string[], newRejectionDescription:string) : void
 }

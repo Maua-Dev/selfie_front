@@ -19,11 +19,11 @@ export class SituationRectangleComponent implements OnInit {
         this.studentState = "APPROVED"
         return
       }
-      else if(selfie.state == "DECLINED"){
+      if(selfie.state == "DECLINED"){
         this.studentState = "DECLINED"
         return
       }
-      else if(selfie.state == "PENDING_REVIEW"){
+      if(this.studentToDisplay.GetUploadedSelfiesList().length <= 0){
         this.studentState = "PENDING_REVIEW"
         return
       }

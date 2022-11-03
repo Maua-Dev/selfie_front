@@ -15,7 +15,7 @@ export class UpdateSelfieStateBackendService
     ra: string,
     idSelfie: string,
     newState: string,
-    newRejectionReason: string,
+    newRejectionReason: string[],
     newRejectionDescription: string
   ): void {
     this.http.post(`${this.BaseURL}/update-selfie`, {
