@@ -18,6 +18,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { AppRoutingModule } from './app-routing.module';
+import { StateDisplayIconsComponent } from './components/state-display-icons/state-display-icons.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AppRoutingModule } from './app-routing.module';
     VisualizarFotoAlunoComponent,
     StudentCardComponent,
     SituationRectangleComponent,
+    StateDisplayIconsComponent,
   ],
   imports: [
     BrowserModule,

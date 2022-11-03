@@ -9,7 +9,7 @@
             {{studentToDisplay.GetRA()}}
         </div>
         <div class="col col-sm student-situation">
-            {{studentToDisplay.GetUploadedSelfiesList()[0].state}} <!-- todo: Isso aqui é texto. Mudar para ficar com ícones igual ao figma --> 
+            <app-state-display-icons [stateToDisplay]="studentToDisplay.GetUploadedSelfiesList()[0].state"></app-state-display-icons>
         </div>
         <div class="clickable">
             <mat-icon fontIcon="outgoing_mail"></mat-icon>
