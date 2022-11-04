@@ -10,20 +10,12 @@ export class CardStatusService {
 
   id : number = 0
   private readonly baseURL : string = 'https://idxd34yq6k.execute-api.us-east-1.amazonaws.com/prod/mss-student';
-  private studentRA : string = '21010757'
-
-  teste !: any
-  idCard !: number
-  date !: string
-  situation !: string
-  reason !: string
-  description !: string
+  private studentRA : string = '17090212'  
 
   constructor(private http: HttpClient) { }
 
-
-  public creatingCard() : Observable<any>{
-    return this.http.get<any>(
+  public gettingJson() : Observable<any>{
+  return this.http.get<any>(
       `${this.baseURL}/get-selfies-by-ra?ra=${this.studentRA}`
     )
   }
@@ -32,12 +24,45 @@ export class CardStatusService {
     return new Card(this.id++, '01/11/2022','','','','')
   }
 
+  public getStatus(json : any){
+    this.createCards(json).forEach((card: any) => {
+        return card.getSituacao()
+    });
+  }
+
+  cardStatus !: string
+
+  public gettingStatus() : string{
+    this.gettingJson().subscribe(response =>{
+      this.createCards(response).map((card:any)=>{
+        console.log(card.getSituacao())
+        this.cardStatus = card.getSituacao()
+        console.log(this.cardStatus)
+      })
+      console.log(this.cardStatus)
+    })
+    console.log(this.cardStatus)
+    return this.cardStatus
+  }
+
+  public creatingCards(){
+    this.gettingJson().subscribe(response => {
+      return this.createCards(response)
+    })
+  }
+
   public createCards(json : any) : any{
     var list : Card[] = [];
     var motivo !: string;
+    if(json['selfies'].length === 0){  
 
-    if(json['selfies'].length === 0){
-      return new Card(this.id++,'Não enviado','Não enviado','Não enviado','Não enviado','Não enviado')
+      // se estiver vazia, dar POST nas infos
+      // uploadSelfie
+      // vai exibir GET com as infos
+
+      let card = new Card(this.id++,'Data invalida','Selfie n enviada','Pendente','Sem motivo','Sem descricao') 
+      list.push(card)
+      return list
     }
 
     else{

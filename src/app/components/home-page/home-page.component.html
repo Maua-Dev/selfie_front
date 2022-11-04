@@ -4,10 +4,5 @@
     <app-card-selfie (eventClickSelfie)="eventoClick()"></app-card-selfie>    <!-- 3) passando info do filho para pai -->
     <app-background-grey></app-background-grey>
     <app-titulo-pagina></app-titulo-pagina>
-    <div *ngIf="!eventoPai">
-        <app-card-status-inicial></app-card-status-inicial>
-    </div>
-    <div *ngIf="eventoPai">
-        <app-card-status></app-card-status>
-    </div>
+    <app-card-status></app-card-status>
 </div>

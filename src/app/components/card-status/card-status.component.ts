@@ -19,9 +19,15 @@ export class CardStatusComponent{
   }
 
   public creatingCard(){
-    this.cardStatusService.creatingCard().subscribe(response => 
+    this.cardStatusService.gettingJson().subscribe(response =>{
+      console.log(this.cards)
       this.cards = this.cardStatusService.createCards(response)
-    );
+      console.log(this.cards)
+    });
+  }
+
+  public createCard(){
+    this.cardStatusService.gettingJson()
   }
 
 }

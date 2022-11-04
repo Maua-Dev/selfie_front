@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
 import { Student } from "src/entities/student";
+import { InfoLogin } from "./info-login.service";
 import { SelfieStudent } from "./selfie-student.service";
 
 @Injectable({
@@ -11,10 +12,11 @@ export class SelfieStudentMockService implements SelfieStudent {
   private selfie: string = '';
 
   private readonly baseURL : string = 'https://idxd34yq6k.execute-api.us-east-1.amazonaws.com/prod/mss-student';
-  private studentRA : string = '21010757'
 
   constructor(private http: HttpClient){
   }
+
+  private studentRA : string = '17090212'
 
   public getStudent(): Observable<any> {
     return this.http.get<any>(

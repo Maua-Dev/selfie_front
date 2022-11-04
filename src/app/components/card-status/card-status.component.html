@@ -1,5 +1,8 @@
 <section>
-    <div *ngIf="cards">                
+    <div *ngIf="cards.length == 0">
+        <app-card-status-inicial></app-card-status-inicial>
+    </div>
+    <div *ngIf="cards.length != 0">                
         <ul *ngFor="let card of cards">
             <li *ngIf="card.getSituacao() === 'Pendente'">
                 <p class="titulo-card-status">Selfie #{{card.getId()}}</p>

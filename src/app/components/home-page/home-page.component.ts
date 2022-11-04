@@ -26,7 +26,7 @@ export class HomePageComponent implements OnInit {
       this.student = Student.createStudent(response);             //recebe o estudante
       this.nome = this.student.getNome()
     })
-  }
+  } 
 
   public getName(){
     this.getStudent()

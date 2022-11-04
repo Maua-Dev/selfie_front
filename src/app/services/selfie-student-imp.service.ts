@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Student } from "src/entities/student";
+import { InfoLogin } from "./info-login.service";
 import { SelfieStudent } from "./selfie-student.service";
 @Injectable({
     providedIn: 'root'
@@ -9,10 +10,12 @@ import { SelfieStudent } from "./selfie-student.service";
 export class SelfieStudentImp implements SelfieStudent {
 
     private readonly baseURL : string = 'https://idxd34yq6k.execute-api.us-east-1.amazonaws.com/prod/mss-student';
-    private studentRA : string = '21010757'
-
-    constructor(private http: HttpClient) {}
     
+
+    constructor(private http: HttpClient, private infoLogin : InfoLogin) {}
+    
+    private studentRA : string = '17090212'
+
     public getStudent(): Observable<Student> {
         return this.http.get<Student>(
             `${this.baseURL}/get-student?ra=${this.studentRA}`
