@@ -19,10 +19,6 @@
       <app-filter-lists-buttons [text]="'Reprovados'" [buttonIsActivated]="selfieFiltersButtons[2]"
         (click)="FilterSelfieByState(2,'SELFIE_REJECTED')"></app-filter-lists-buttons>
     </div>
-
-
-
-
   </div>
 
   <div class="cards-container">
@@ -36,18 +32,23 @@
   </div>
 
   <div class="row filter-buttons">
-    <!-- <div class="col-auto btn d-flex justify-content-center" (click)="GetSelfiesListByState('Pendente')">
-      Não enviados <mat-icon fontIcon="add"></mat-icon>
+    <div class="col-auto d-flex justify-content-center">
+      <app-filter-lists-buttons [text]="'Aprovados'" [buttonIsActivated]="studentsFiltersButtons[0]" (click)="FilterStudentsByStatus(0,'APPROVED')"></app-filter-lists-buttons>
+
     </div>
-    <div class="col-auto btn d-flex justify-content-center" (click)="GetSelfiesListByState('APPROVED')">
-      Aprovados <mat-icon fontIcon="add"></mat-icon>
+    <div class="col-auto d-flex justify-content-center">
+      <app-filter-lists-buttons [text]="'Reprovados'" [buttonIsActivated]="studentsFiltersButtons[1]" (click)="FilterStudentsByStatus(1,'DECLINED')">
+      </app-filter-lists-buttons>
     </div>
-    <div class="col-auto btn d-flex justify-content-center" (click)="GetSelfiesListByState('DECLINED')">
-      Reprovados <mat-icon fontIcon="add"></mat-icon>
+    <div class="col-auto d-flex justify-content-center">
+      <app-filter-lists-buttons [text]="'Em Análise'" [buttonIsActivated]="studentsFiltersButtons[2]" (click)="FilterStudentsByStatus(2,'SELFIE_IN_REVIEW')">
+      </app-filter-lists-buttons>
     </div>
-    <div class="col-auto btn d-flex justify-content-center" (click)="GetSelfiesListByState('DECLINED')">
-      Em análise <mat-icon fontIcon="add"></mat-icon>
-    </div> -->
+    <div class="col-auto d-flex justify-content-center">
+      <app-filter-lists-buttons [text]="'Não enviados'" [buttonIsActivated]="studentsFiltersButtons[3]" (click)="FilterStudentsByStatus(3,'NO_SELFIE')">
+      </app-filter-lists-buttons>
+    </div>
+
   </div>
 
   <div class="rect-container">

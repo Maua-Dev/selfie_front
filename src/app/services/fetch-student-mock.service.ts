@@ -37,7 +37,7 @@ export class FetchStudentMockService implements FetchStudent {
               idSelfie: 0,
               dateCreated: '2022-10-01T16:01:59.149927',
               url: 'https://i.imgur.com/0KFBHTB.jpg',
-              state: 'DECLINED',
+              state: 'SELFIE_REJECTED',
               rejectionReasons: ['COVERED_FACE'],
             },
           ],
@@ -48,10 +48,10 @@ export class FetchStudentMockService implements FetchStudent {
           status: 'APPROVED',
           selfies: [
             {
-              idSelfie: 0,
+              idSelfie: 1,
               dateCreated: '2022-10-01T16:01:59.149927',
               url: 'https://i.imgur.com/0KFBHTB.jpg',
-              state: 'DECLINED',
+              state: 'APPROVED',
               rejectionReasons: ['COVERED_FACE'],
             },
           ],
