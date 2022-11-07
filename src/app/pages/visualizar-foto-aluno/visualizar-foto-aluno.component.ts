@@ -36,7 +36,7 @@ export class VisualizarFotoAlunoComponent implements OnInit {
       });
     })
 
-    this.selfiesListFiltered = this.selfiesList
+    this.selfiesListFiltered = this.selfiesList.slice()
   }
   
   GetStudentsList() : void{
@@ -51,49 +51,16 @@ export class VisualizarFotoAlunoComponent implements OnInit {
         this.studentsList.push(student)
       }
       
-      this.studentsListFiltered = this.studentsList
+      this.studentsListFiltered = this.studentsList.slice()
 
     })
+  }
+
+  FilterSelfieByState(indexButton: number, state: string){
+    this.selfieFiltersButtons[indexButton] = !this.selfieFiltersButtons[indexButton]
+    
   }
 
  
 
 }
-
-
-
-  // GetSelfiesList(): void {
-  //   this.fetchStudentService.FetchStudentsList().subscribe((resp: any) => {
-  //     let studentsJson = resp['student'];
-  //     let selfiesListJson = resp['selfies'];
-
-  //     let studentToReturn = Student.FactoryStudentFromJsonAndSelfieJson(studentsJson, selfiesListJson);
-  //     this.studentsList = [studentToReturn, studentToReturn, studentToReturn, studentToReturn, studentToReturn, studentToReturn, studentToReturn, studentToReturn];
-  //     this.studentsListFiltered = this.studentsList.slice();
-  //   });
-  // }
-
-  // GetSelfiesListByState(state: string): void {
-  //   this.studentsListFiltered = this.studentsList.slice();
-  //   let newStudentList: Student[] = [];
-
-  //   if (state == '') {
-  //     return;
-  //   }
-
-  //   this.studentsListFiltered.forEach((student) => {
-  //     let selfieListFiltered: Selfie[] = [];
-
-  //     student.GetUploadedSelfiesList().forEach((selfie) => {
-  //       if (selfie.state == state) {
-  //         selfieListFiltered.push(selfie);
-  //       }
-  //     });
-
-  //     newStudentList.push(
-  //       new Student(student.GetName(), student.GetRA(), student.GetEmail(), selfieListFiltered)
-  //     );
-  //   });
-
-  //   this.studentsListFiltered = newStudentList;
-  // }
