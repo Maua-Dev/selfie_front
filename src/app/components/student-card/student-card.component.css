@@ -11,10 +11,10 @@
 }
 
 mat-card {
-  max-width: 595px;
-  margin: 20px 10px;
+  width: 631px;
   background-color: rgba(224, 224, 230, 0.6);
   color: #003c9c;
+  margin: 20px 0px;
 }
 
 .button {

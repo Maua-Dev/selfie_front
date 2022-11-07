@@ -1,16 +1,5 @@
-
-
-.filter-buttons {
-  padding: 0;
-  margin-bottom: 10px;
-}
-
-
-.cards-container {
-  overflow: auto;
-  height: 500px;
-  display: flex;
-  flex-direction: row;
+.body-container {
+  margin: 20px 50px;
 }
 
 .btn {
@@ -20,26 +9,7 @@
   border-radius: 10px;
 }
 
-.clean-filters-btn {
-  position: relative;
-  right: -50%;
-  border: 1px solid #022893;
-  border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0);
-}
-
-.clean-filters-btn:active{
-    background-color: rgb(160, 160, 160);
-    border: 1px solid #022893;
-    color: #022893;
-}
-
-mat-icon {
-  margin: 0 5px 0 0;
-  color: #022893;
-}
-
-.tittle-and-icon{
+.tittle-and-icon {
   display: flex;
   align-content: center;
   margin: 20px 0;
@@ -47,5 +17,27 @@ mat-icon {
 
   font-weight: 700;
   font-size: 22px;
-
 }
+
+.clean-filters-btn {
+  position: relative;
+  border: 1px solid #022893;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.clean-filters-btn:active {
+  background-color: rgb(160, 160, 160);
+  border: 1px solid #022893;
+  color: #022893;
+}
+
+.cards-container {
+  overflow: auto;
+  height: 500px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+
