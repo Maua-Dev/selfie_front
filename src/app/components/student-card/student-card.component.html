@@ -3,15 +3,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-5">
-                    <a href="{{photoToDisplay.imgURL}}" target="_blank">
-                        <img id="card-image" src="{{photoToDisplay.imgURL}}"
-                            alt="Uma foto de {{studentToDisplay.GetName()}}">
+                    <a href="{{selfieToDisplay.imgURL}}" target="_blank">
+                        <img id="card-image" src="{{selfieToDisplay.imgURL}}"
+                            alt="Uma foto de {{studentSelfie.name}}">
                     </a>
                 </div>
                 <div class="col">
                     <div class="col-3">
-                        <h2 id="student-name">{{studentToDisplay.GetName()}}</h2>
-                        <h3 id="student-email">{{studentToDisplay.GetEmail()}}</h3>
+                        <h2 id="student-name">{{studentSelfie.name}}</h2>
+                        <h3 id="student-email">{{studentSelfie.email}}</h3>
                     </div>
                     <div class="col">
                         <h2>Impedimentos</h2>

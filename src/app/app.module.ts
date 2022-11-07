@@ -1,3 +1,4 @@
+import { FetchSelfieBackendService } from './services/fetch-selfie-backend.service';
 import { UpdateSelfieStateBackendService } from './services/update-selfie-state-backend.service';
 import { FetchStudentMockService } from './services/fetch-student-mock.service';
 import { FetchStudent } from './services/fetch-student';
@@ -19,6 +20,8 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { AppRoutingModule } from './app-routing.module';
 import { StateDisplayIconsComponent } from './components/state-display-icons/state-display-icons.component';
+import { FetchSelfieService } from './services/fetch-selfie.service';
+import { FetchSelfieMockService } from './services/fetch-selfie-mock.service';
 
 @NgModule({
   declarations: [
@@ -41,11 +44,12 @@ import { StateDisplayIconsComponent } from './components/state-display-icons/sta
     
   ],
   providers: [
-    { provide: FetchStudent, useClass: FetchStudentFromBackendService },
+    { provide: FetchStudent, useClass: FetchStudentMockService },
     {
       provide: UpdateSelfieStateService,
       useClass: UpdateSelfieStateBackendService,
     },
+    {provide:FetchSelfieService, useClass:FetchSelfieMockService}
   ],
   bootstrap: [AppComponent],
 })

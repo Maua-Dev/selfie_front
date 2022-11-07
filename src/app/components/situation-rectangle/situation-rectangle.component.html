@@ -3,16 +3,16 @@
             <mat-checkbox [color]="'primary'"></mat-checkbox>
         </div>
         <div class="col col-sm student-name">
-            {{studentToDisplay.GetName()}}
+            {{studentToDisplay.name}}
         </div>
         <div class="col-3 student-ra">
-            {{studentToDisplay.GetEmail()}}
+            {{studentToDisplay.email}}
         </div>
         <div>
             Situação: 
         </div>
         <div class="col col-sm student-situation">
-            <app-state-display-icons [stateToDisplay]="studentState"></app-state-display-icons>
+            <!-- <app-state-display-icons [stateToDisplay]="studentToDisplay.status"></app-state-display-icons> -->
         </div>
         <div class="clickable">
             <mat-icon fontIcon="outgoing_mail"></mat-icon>

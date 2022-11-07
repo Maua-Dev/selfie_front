@@ -9,8 +9,8 @@ import { UpdateSelfieStateService } from 'src/app/services/update-selfie-state.s
   styleUrls: ['./student-card.component.css'],
 })
 export class StudentCardComponent implements OnInit {
-  @Input() public studentToDisplay!: Student;
-  @Input() public photoToDisplay!: Selfie;
+  @Input() public selfieToDisplay!: Selfie;
+  studentSelfie : Student
 
   private recuseReasons: any = {
     fundoEscuro: false,
@@ -18,25 +18,27 @@ export class StudentCardComponent implements OnInit {
     rostoEscuro: false,
   };
 
-  constructor(private updateSelfieService: UpdateSelfieStateService) {}
+  constructor(private updateSelfieService: UpdateSelfieStateService) {
+    this.studentSelfie = this.selfieToDisplay.student!
+  }
 
   SetSelfieState(newState: string): void {
-    let newRecuseReasons :string[] = []
-    
-    for(let reason in this.recuseReasons){
-      if(this.recuseReasons[reason]){
-        newRecuseReasons.push(reason)
+    let newRecuseReasons: string[] = [];
+
+    for (let reason in this.recuseReasons) {
+      if (this.recuseReasons[reason]) {
+        newRecuseReasons.push(reason);
       }
     }
 
     this.updateSelfieService.UpdateSelfieState(
-      this.studentToDisplay.GetRA(),
-      this.photoToDisplay.idSelfie.toString(),
+      this.selfieToDisplay.student!.ra,
+      this.selfieToDisplay.idSelfie.toString(),
       newState,
       newRecuseReasons,
       ''
     );
-    console.log(this.recuseReasons)
+    console.log(this.recuseReasons);
   }
 
   ngOnInit(): void {}
