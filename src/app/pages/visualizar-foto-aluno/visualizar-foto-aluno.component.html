@@ -8,13 +8,16 @@
 
   <div class="row filter-buttons">
     <div class="col-auto d-flex justify-content-center">
-      <app-filter-lists-buttons [text]="'Para aprovar'" [buttonIsActivated]="selfieFiltersButtons[0]" (click)="FilterSelfieByState(0,'APPROVED')"></app-filter-lists-buttons>
+      <app-filter-lists-buttons [text]="'Para aprovar'" [buttonIsActivated]="selfieFiltersButtons[0]"
+        (click)="FilterSelfieByState(0,'SELFIE_IN_REVIEW')"></app-filter-lists-buttons>
     </div>
     <div class="col-auto d-flex justify-content-center">
-      <app-filter-lists-buttons [text]="'Aprovados'" [buttonIsActivated]="selfieFiltersButtons[1]"></app-filter-lists-buttons>
+      <app-filter-lists-buttons [text]="'Aprovados'" [buttonIsActivated]="selfieFiltersButtons[1]"
+        (click)="FilterSelfieByState(1,'APPROVED')"></app-filter-lists-buttons>
     </div>
     <div class="col-auto d-flex justify-content-center">
-      <app-filter-lists-buttons [text]="'Reprovados'" [buttonIsActivated]="selfieFiltersButtons[2]"></app-filter-lists-buttons>
+      <app-filter-lists-buttons [text]="'Reprovados'" [buttonIsActivated]="selfieFiltersButtons[2]"
+        (click)="FilterSelfieByState(2,'SELFIE_REJECTED')"></app-filter-lists-buttons>
     </div>
 
 

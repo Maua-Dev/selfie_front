@@ -58,7 +58,17 @@ export class VisualizarFotoAlunoComponent implements OnInit {
 
   FilterSelfieByState(indexButton: number, state: string){
     this.selfieFiltersButtons[indexButton] = !this.selfieFiltersButtons[indexButton]
-    
+
+    if(this.selfieFiltersButtons[indexButton]){
+      this.selfiesListFiltered = this.selfiesList.filter((element:Selfie, index:number, array:Selfie[]) : boolean=>{
+        return element.state == state
+      })
+    }
+    else{
+      this.selfiesListFiltered = this.selfiesListFiltered.concat(this.selfiesList.filter((element:Selfie, index:number, array:Selfie[]) : boolean=>{
+        return element.state != state
+      }))
+    }
   }
 
  

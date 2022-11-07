@@ -15,7 +15,7 @@ export class FetchSelfieMockService implements FetchSelfieService {
           idSelfie: 0,
           dateCreated: '2022-10-01T16:01:59.149927',
           url: 'https://www.petz.com.br/blog/wp-content/uploads/2021/11/enxoval-para-gato-Copia.jpg',
-          state: 'DECLINED',
+          state: 'SELFIE_REJECTED',
           rejectionReasons: ['COVERED_FACE'],
           rejectionDescription: 'Balaclava',
           student: {
@@ -28,7 +28,7 @@ export class FetchSelfieMockService implements FetchSelfieService {
           idSelfie: 1,
           dateCreated: '2022-10-01T16:01:59.149927',
           url: 'https://www.petz.com.br/blog/wp-content/uploads/2021/11/enxoval-para-gato-Copia.jpg',
-          state: 'DECLINED',
+          state: 'SELFIE_REJECTED',
           rejectionReasons: ['COVERED_FACE'],
           rejectionDescription: 'Balaclava',
           student: {
@@ -41,7 +41,7 @@ export class FetchSelfieMockService implements FetchSelfieService {
           idSelfie: 0,
           dateCreated: '2022-10-01T16:01:59.149927',
           url: 'https://www.petz.com.br/blog/wp-content/uploads/2021/11/enxoval-para-gato-Copia.jpg',
-          state: 'DECLINED',
+          state: 'SELFIE_REJECTED',
           rejectionReasons: ['COVERED_FACE'],
           rejectionDescription: 'Balaclava',
           student: {
@@ -54,7 +54,7 @@ export class FetchSelfieMockService implements FetchSelfieService {
           idSelfie: 0,
           dateCreated: '2022-10-01T16:01:59.149927',
           url: 'https://www.petz.com.br/blog/wp-content/uploads/2021/11/enxoval-para-gato-Copia.jpg',
-          state: 'DECLINED',
+          state: 'APPROVED',
           rejectionReasons: ['COVERED_FACE'],
           rejectionDescription: 'Balaclava',
           student: {
