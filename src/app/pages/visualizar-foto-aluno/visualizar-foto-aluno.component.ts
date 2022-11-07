@@ -27,6 +27,9 @@ export class VisualizarFotoAlunoComponent implements OnInit {
   ngOnInit() {
     this.GetSelfiesList();
     this.GetStudentsList();
+    this.studentsListFiltered = this.studentsList.slice();
+    this.selfiesListFiltered = this.selfiesList.slice();
+
   }
 
   GetSelfiesList(): void {
@@ -39,8 +42,6 @@ export class VisualizarFotoAlunoComponent implements OnInit {
         this.selfiesList.push(selfie);
       });
     });
-
-    this.selfiesListFiltered = this.selfiesList.slice();
   }
 
   GetStudentsList(): void {
@@ -61,24 +62,31 @@ export class VisualizarFotoAlunoComponent implements OnInit {
         this.studentsList.push(student);
       }
 
-      this.studentsListFiltered = this.studentsList.slice();
     });
   }
 
   FilterSelfieByState(indexButton: number, state: string): void {
+    if(state == ''){
+      this.selfiesListFiltered = this.selfiesList.slice()
+      for(let i = 0; i < this.selfieFiltersButtons.length; i++){
+        this.selfieFiltersButtons[i] = false
+      }
+      return
+    }
+
     this.selfieFiltersButtons[indexButton] =
       !this.selfieFiltersButtons[indexButton];
 
     if (this.selfieFiltersButtons[indexButton]) {
       this.selfiesListFiltered = this.selfiesList.filter(
-        (element: Selfie, index: number, array: Selfie[]): boolean => {
+        (element: Selfie): boolean => {
           return element.state == state;
         }
       );
     } else {
       this.selfiesListFiltered = this.selfiesListFiltered.concat(
         this.selfiesList.filter(
-          (element: Selfie, index: number, array: Selfie[]): boolean => {
+          (element: Selfie): boolean => {
             return element.state != state;
           }
         )

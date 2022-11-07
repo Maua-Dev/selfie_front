@@ -3,6 +3,7 @@
   color: #022893;
   margin: 10px;
   border-radius: 10px;
+  height: 40.99px;
 }
 
 .buttonActivated {
@@ -11,5 +12,5 @@
   background: #022893;
   border-radius: 10px;
   color: #ececf0;
-
+  height: 40.99px;
 }

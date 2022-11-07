@@ -22,7 +22,7 @@ export class FetchStudentFromBackendService implements FetchStudent {
 
   FetchStudentsList(): Observable<Student[]> {
     return this.http.get<Student[]>(
-      `https://08k8977qn8.execute-api.sa-east-1.amazonaws.com/prod/mss-student/get-all-students`
+      `https://qa04eosiuh.execute-api.us-east-1.amazonaws.com/prod/mss-student/get-all-students`
     );
     
   }

@@ -41,7 +41,7 @@ export class FetchSelfieMockService implements FetchSelfieService {
           idSelfie: 0,
           dateCreated: '2022-10-01T16:01:59.149927',
           url: 'https://www.petz.com.br/blog/wp-content/uploads/2021/11/enxoval-para-gato-Copia.jpg',
-          state: 'SELFIE_REJECTED',
+          state: 'SELFIE_IN_REVIEW',
           rejectionReasons: ['COVERED_FACE'],
           rejectionDescription: 'Balaclava',
           student: {

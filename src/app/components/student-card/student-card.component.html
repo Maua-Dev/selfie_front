@@ -34,12 +34,26 @@
     </mat-card-content>
         <mat-card-footer>
             <div class="footer-content">
-                <button class="aprove-btn button" mat-raised-button (click)="SetSelfieState('APROVED')">
-                    <mat-icon fontIcon="thumb_up"></mat-icon> Aprovar
-                </button>
-                <button class="reprove-btn button" mat-raised-button (click)="SetSelfieState('REPROVED')">
-                    <mat-icon fontIcon="thumb_down"></mat-icon> Reprovar
-                </button>
+                <span *ngIf="selfieToDisplay.state == 'SELFIE_IN_REVIEW'">
+                    <button class="aprove-btn button" mat-raised-button (click)="SetSelfieState('APROVED')">
+                        <mat-icon fontIcon="thumb_up"></mat-icon> Aprovar
+                    </button>
+                </span>
+                <span *ngIf="selfieToDisplay.state != 'SELFIE_IN_REVIEW'">
+                    <button class="aprove-btn button" disabled="true" mat-raised-button (click)="SetSelfieState('APROVED')">
+                        <mat-icon fontIcon="thumb_up"></mat-icon> Aprovar
+                    </button>
+                </span>
+                <span *ngIf="selfieToDisplay.state == 'SELFIE_IN_REVIEW'">
+                    <button class="reprove-btn button" mat-raised-button (click)="SetSelfieState('REPROVED')">
+                        <mat-icon fontIcon="thumb_down"></mat-icon> Reprovar
+                    </button>
+                </span>
+                <span *ngIf="selfieToDisplay.state != 'SELFIE_IN_REVIEW'">
+                    <button class="reprove-btn button" disabled="true" mat-raised-button (click)="SetSelfieState('REPROVED')">
+                        <mat-icon fontIcon="thumb_down"></mat-icon> Reprovar
+                    </button>
+                </span>
             </div>
         </mat-card-footer>
 </mat-card>

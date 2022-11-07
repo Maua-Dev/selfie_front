@@ -23,10 +23,12 @@ h1 {
 }
 
 .clean-filters-btn {
-  position: relative;
   border: 1px solid #022893;
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0);
+  height: 40.99px;
+
+  color: #022893;
 }
 
 .cards-container {
