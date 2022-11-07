@@ -31,7 +31,7 @@ export class FetchStudentMockService implements FetchStudent {
         21010757: {
           name: 'Victor',
           email: 'eusousoller@gmail.com',
-          status: 'APPROVED',
+          status: 'DECLINED',
           selfies: [
             {
               idSelfie: 0,

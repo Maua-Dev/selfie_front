@@ -10,7 +10,7 @@ import { UpdateSelfieStateService } from 'src/app/services/update-selfie-state.s
 })
 export class StudentCardComponent implements OnInit {
   @Input() public selfieToDisplay!: Selfie;
-  studentSelfie : Student
+  studentSelfie! : Student
 
   private recuseReasons: any = {
     fundoEscuro: false,
@@ -19,7 +19,6 @@ export class StudentCardComponent implements OnInit {
   };
 
   constructor(private updateSelfieService: UpdateSelfieStateService) {
-    this.studentSelfie = this.selfieToDisplay.student!
   }
 
   SetSelfieState(newState: string): void {
@@ -41,7 +40,10 @@ export class StudentCardComponent implements OnInit {
     console.log(this.recuseReasons);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.studentSelfie = this.selfieToDisplay.student!
+
+  }
 
   setReproveReason(reason: string) {
     this.recuseReasons[reason] = !this.recuseReasons[reason];

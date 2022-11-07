@@ -1,4 +1,4 @@
-<!-- <div class="body-container">
+<div class="body-container">
   <h1>Avaliação da Selfie</h1>
 
   <div class="tittle-and-icon">
@@ -7,7 +7,7 @@
   </div>
 
   <div class="row filter-buttons">
-    <div class="col-auto btn d-flex justify-content-center" (click)="GetSelfiesListByState('Pendente')">
+    <!-- <div class="col-auto btn d-flex justify-content-center" (click)="GetSelfiesListByState('Pendente')">
       Para aprovar <mat-icon fontIcon="add"></mat-icon>
     </div>
     <div class="col-auto btn d-flex justify-content-center" (click)="GetSelfiesListByState('APPROVED')">
@@ -19,14 +19,11 @@
     <div class="col-7"></div>
     <div class="col-auto btn clean-filters-btn" (click)="GetSelfiesListByState('')">
       Limpar Filtros
-    </div>
+    </div> -->
   </div>
 
   <div class="cards-container">
-    <div *ngFor="let student of studentsListFiltered">
-      <app-student-card *ngFor="let selfie of student.GetUploadedSelfiesList()" [studentToDisplay]="student"
-        [selfieToDisplay]="selfie"></app-student-card>
-    </div>
+    <app-student-card *ngFor="let selfie of selfiesListFiltered" [selfieToDisplay]="selfie"></app-student-card>
   </div>
 
   <h1>Status de envio</h1>
@@ -36,7 +33,7 @@
   </div>
 
   <div class="row filter-buttons">
-    <div class="col-auto btn d-flex justify-content-center" (click)="GetSelfiesListByState('Pendente')">
+    <!-- <div class="col-auto btn d-flex justify-content-center" (click)="GetSelfiesListByState('Pendente')">
       Não enviados <mat-icon fontIcon="add"></mat-icon>
     </div>
     <div class="col-auto btn d-flex justify-content-center" (click)="GetSelfiesListByState('APPROVED')">
@@ -47,7 +44,7 @@
     </div>
     <div class="col-auto btn d-flex justify-content-center" (click)="GetSelfiesListByState('DECLINED')">
       Em análise <mat-icon fontIcon="add"></mat-icon>
-    </div>
+    </div> -->
   </div>
 
   <div class="rect-container">
@@ -56,4 +53,4 @@
   </div>
 
 
-</div> -->
+</div>

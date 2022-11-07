@@ -9,7 +9,6 @@ import { Student } from 'src/entities/student';
 export class SituationRectangleComponent implements OnInit {
 
   @Input() public studentToDisplay! : Student
-  studentState!:string
 
   constructor() { }
 

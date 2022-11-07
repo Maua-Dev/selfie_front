@@ -38,6 +38,6 @@ export class StateDisplayIconsComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    // this.SetStateToDisplay(this.stateToDisplay)
+    this.SetStateToDisplay(this.stateToDisplay)
   }
 }

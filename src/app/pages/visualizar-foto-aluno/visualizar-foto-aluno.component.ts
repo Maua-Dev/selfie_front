@@ -33,6 +33,8 @@ export class VisualizarFotoAlunoComponent implements OnInit {
         this.selfiesList.push(selfie)
       });
     })
+
+    this.selfiesListFiltered = this.selfiesList
   }
   
   GetStudentsList() : void{
@@ -46,7 +48,9 @@ export class VisualizarFotoAlunoComponent implements OnInit {
 
         this.studentsList.push(student)
       }
-    
+      
+      this.studentsListFiltered = this.studentsList
+
     })
   }
 
