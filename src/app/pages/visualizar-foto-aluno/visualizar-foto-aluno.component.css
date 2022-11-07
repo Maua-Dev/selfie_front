@@ -1,20 +1,10 @@
 .body-container {
   margin: 20px 50px;
 }
-h1{
+h1 {
   font-weight: 700;
   font-size: 24px;
-  margin: 20px 0 ;
-}
-.btn {
-  background-color: rgba(224, 224, 230, 0.6);
-  color: #022893;
-  margin: 10px;
-  border-radius: 10px;
-}
-
-.filter-buttons{
-  margin-bottom: 10px;
+  margin: 20px 0;
 }
 
 .tittle-and-icon {
@@ -28,17 +18,15 @@ h1{
   align-items: center;
 }
 
+.filter-buttons {
+  margin-bottom: 10px;
+}
+
 .clean-filters-btn {
   position: relative;
   border: 1px solid #022893;
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0);
-}
-
-.clean-filters-btn:active {
-  background-color: rgb(160, 160, 160);
-  border: 1px solid #022893;
-  color: #022893;
 }
 
 .cards-container {
@@ -50,8 +38,6 @@ h1{
   justify-content: space-around;
 }
 
-.rect-container{
- padding-left: 200px;
+.rect-container {
+  padding-left: 200px;
 }
-
-

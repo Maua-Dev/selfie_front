@@ -1,0 +1,15 @@
+.buttonDeactivated {
+  background-color: rgba(224, 224, 230, 0.6);
+  color: #022893;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.buttonActivated {
+  margin: 10px;
+
+  background: #022893;
+  border-radius: 10px;
+  color: #ececf0;
+
+}

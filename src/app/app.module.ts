@@ -22,6 +22,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { StateDisplayIconsComponent } from './components/state-display-icons/state-display-icons.component';
 import { FetchSelfieService } from './services/fetch-selfie.service';
 import { FetchSelfieMockService } from './services/fetch-selfie-mock.service';
+import { FilterListsButtonsComponent } from './components/filter-lists-buttons/filter-lists-buttons.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { FetchSelfieMockService } from './services/fetch-selfie-mock.service';
     StudentCardComponent,
     SituationRectangleComponent,
     StateDisplayIconsComponent,
+    FilterListsButtonsComponent,
   ],
   imports: [
     BrowserModule,

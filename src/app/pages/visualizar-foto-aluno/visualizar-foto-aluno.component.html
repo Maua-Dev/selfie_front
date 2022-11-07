@@ -7,19 +7,19 @@
   </div>
 
   <div class="row filter-buttons">
-    <!-- <div class="col-auto btn d-flex justify-content-center" (click)="GetSelfiesListByState('Pendente')">
-      Para aprovar <mat-icon fontIcon="add"></mat-icon>
+    <div class="col-auto d-flex justify-content-center">
+      <app-filter-lists-buttons [text]="'Para aprovar'" [buttonIsActivated]="false"></app-filter-lists-buttons>
     </div>
-    <div class="col-auto btn d-flex justify-content-center" (click)="GetSelfiesListByState('APPROVED')">
-      Aprovados <mat-icon fontIcon="add"></mat-icon>
+    <div class="col-auto d-flex justify-content-center">
+      <app-filter-lists-buttons [text]="'Aprovados'" [buttonIsActivated]="false"></app-filter-lists-buttons>
     </div>
-    <div class="col-auto btn d-flex justify-content-center" (click)="GetSelfiesListByState('DECLINED')">
-      Reprovados <mat-icon fontIcon="add"></mat-icon>
+    <div class="col-auto d-flex justify-content-center">
+      <app-filter-lists-buttons [text]="'Reprovados'" [buttonIsActivated]="false"></app-filter-lists-buttons>
     </div>
-    <div class="col-7"></div>
-    <div class="col-auto btn clean-filters-btn" (click)="GetSelfiesListByState('')">
-      Limpar Filtros
-    </div> -->
+
+
+
+
   </div>
 
   <div class="cards-container">

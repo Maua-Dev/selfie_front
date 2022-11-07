@@ -16,6 +16,8 @@ export class VisualizarFotoAlunoComponent implements OnInit {
   private selfiesList : Selfie[] = [];
   selfiesListFiltered! : Selfie[];
 
+  selfieFiltersButtons : boolean[] = [false, false, false]
+
   constructor(private fetchStudentService: FetchStudent, private fetchSelfieService : FetchSelfieService) {}
 
   ngOnInit() {
@@ -53,6 +55,8 @@ export class VisualizarFotoAlunoComponent implements OnInit {
 
     })
   }
+
+ 
 
 }
 
