@@ -2,9 +2,7 @@
   <h1>Avaliação da Selfie</h1>
 
   <div class="tittle-and-icon">
-    <div>
-      <mat-icon fontIcon="tune"></mat-icon>
-    </div>
+    <mat-icon fontIcon="tune"></mat-icon>
     Filtros
   </div>
 
@@ -31,16 +29,30 @@
     </div>
   </div>
 
+  <h1>Status de envio</h1>
+
   <div class="tittle-and-icon">
-    <div>
-      <mat-icon fontIcon="settings"></mat-icon>
+    <mat-icon fontIcon="tune"></mat-icon>Filtros
+  </div>
+
+  <div class="row filter-buttons">
+    <div class="col-auto btn d-flex justify-content-center" (click)="GetSelfiesListByState('Pendente')">
+      Não enviados <mat-icon fontIcon="add"></mat-icon>
     </div>
-    Status De Envio
+    <div class="col-auto btn d-flex justify-content-center" (click)="GetSelfiesListByState('APPROVED')">
+      Aprovados <mat-icon fontIcon="add"></mat-icon>
+    </div>
+    <div class="col-auto btn d-flex justify-content-center" (click)="GetSelfiesListByState('DECLINED')">
+      Reprovados <mat-icon fontIcon="add"></mat-icon>
+    </div>
+    <div class="col-auto btn d-flex justify-content-center" (click)="GetSelfiesListByState('DECLINED')">
+      Em análise <mat-icon fontIcon="add"></mat-icon>
+    </div>
   </div>
 
   <div class="rect-container">
-      <app-situation-rectangle *ngFor="let student of studentsListFiltered" [studentToDisplay]="student">
-      </app-situation-rectangle>
+    <app-situation-rectangle *ngFor="let student of studentsListFiltered" [studentToDisplay]="student">
+    </app-situation-rectangle>
   </div>
 
 
