@@ -37,56 +37,11 @@
     </div>
     Status De Envio
   </div>
-  <div class="l">
-    <app-situation-rectangle *ngFor="let student of studentsListFiltered" [studentToDisplay]="student">
-    </app-situation-rectangle>
+
+  <div class="rect-container">
+      <app-situation-rectangle *ngFor="let student of studentsListFiltered" [studentToDisplay]="student">
+      </app-situation-rectangle>
   </div>
 
 
 </div>
-
-
-
-<!-- <div class="container">
-  <div class="tittle-and-icon">
-    <div>
-      <mat-icon fontIcon="tune"></mat-icon>
-    </div>
-    Filtros
-  </div>
-
-  <div class="container">
-    <div class="row row-cols-2 gx-1 gy-2 filter-buttons">
-      <div class="col-auto btn d-flex justify-content-center" (click)="GetSelfiesListByState('Pendente')">
-        Para aprovar <mat-icon fontIcon="add"></mat-icon>
-      </div>
-      <div class="col-auto btn d-flex justify-content-center" (click)="GetSelfiesListByState('APPROVED')">
-        Aprovados <mat-icon fontIcon="add"></mat-icon>
-      </div>
-      <div class="col-auto btn d-flex justify-content-center" (click)="GetSelfiesListByState('DECLINED')">
-        Reprovados <mat-icon fontIcon="add"></mat-icon>
-      </div>
-      <div class="col-auto btn clean-filters-btn d-flex justify-content-center" (click)="GetSelfiesListByState('')">
-        Limpar Filtros
-      </div>
-    </div>
-
-    <div class="container cards-container">
-      <div *ngFor="let student of studentsListFiltered">
-        <app-student-card *ngFor="let selfie of student.GetUploadedSelfiesList()" [studentToDisplay]="student"
-          [photoToDisplay]="selfie"></app-student-card>
-      </div>
-    </div>
-  </div>
-
-  <div class="tittle-and-icon">
-    <div>
-      <mat-icon fontIcon="settings"></mat-icon>
-    </div>
-    Em Andamento
-  </div>
-
-  <app-situation-rectangle *ngFor="let student of studentsListFiltered" [studentToDisplay]="student">
-  </app-situation-rectangle>
-
-</div> -->
