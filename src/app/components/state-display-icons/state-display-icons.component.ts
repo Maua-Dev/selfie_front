@@ -37,9 +37,6 @@ export class StateDisplayIconsComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    if(this.stateToDisplay == 'SELFIE_PENDING_REVIEW'){
-      this.stateToDisplay = 'SELFIE_IN_REVIEW'
-    }
     this.SetStateToDisplay(this.stateToDisplay);
   }
 }

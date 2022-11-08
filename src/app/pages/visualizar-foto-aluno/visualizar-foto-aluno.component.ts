@@ -81,10 +81,6 @@ export class VisualizarFotoAlunoComponent implements OnInit {
 
     let stateFilter = state
 
-    if(stateFilter == 'PENDING_REVIEW'){
-      stateFilter = 'IN_REVIEW'
-    }
-
     this.selfieFiltersButtons[indexButton] =
       !this.selfieFiltersButtons[indexButton];
 
