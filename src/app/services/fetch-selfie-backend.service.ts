@@ -14,7 +14,7 @@ export class FetchSelfieBackendService implements FetchSelfieService{
 
   FetchAllSelfies(): Observable<Selfie[]> {
     return this.http.get<Selfie[]>(
-      `https://08k8977qn8.execute-api.sa-east-1.amazonaws.com/prod/mss-student/get-all-selfies`
+      `https://l975vn092c.execute-api.sa-east-1.amazonaws.com/prod/mss-student/get-all-selfies`
     );
   }
 }

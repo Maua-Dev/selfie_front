@@ -27,23 +27,21 @@ export class VisualizarFotoAlunoComponent implements OnInit {
   ngOnInit() {
     this.GetSelfiesList();
     this.GetStudentsList();
-    this.studentsListFiltered = this.studentsList.slice();
-    this.selfiesListFiltered = this.selfiesList.slice();
-
   }
 
   GetSelfiesList(): void {
     this.fetchSelfieService.FetchAllSelfies().subscribe((resp: any) => {
       let allSelfies = resp['all_selfies'];
 
-      let selfiesList: Selfie[] = []
+      let selfiesList: Selfie[] = [];
       allSelfies.forEach((selfieJson: any) => {
         let selfie: Selfie = Selfie.InstatiateSelfieFromJson(selfieJson);
 
         selfiesList.push(selfie);
       });
 
-      this.selfiesList = selfiesList
+      this.selfiesList = selfiesList;
+      this.selfiesListFiltered = this.selfiesList.slice();
     });
   }
 
@@ -51,7 +49,7 @@ export class VisualizarFotoAlunoComponent implements OnInit {
     this.fetchStudentService.FetchStudentsList().subscribe((resp: any) => {
       let allStudentsDict = resp['all_students'];
 
-      let studentsList: Student[] = []
+      let studentsList: Student[] = [];
 
       for (let studentRa in allStudentsDict) {
         let studentJson = allStudentsDict[studentRa];
@@ -67,17 +65,18 @@ export class VisualizarFotoAlunoComponent implements OnInit {
         studentsList.push(student);
       }
 
-      this.studentsList = studentsList
+      this.studentsList = studentsList;
+      this.studentsListFiltered = this.studentsList.slice();
     });
   }
 
   FilterSelfieByState(indexButton: number, state: string): void {
-    if(state == ''){
-      this.selfiesListFiltered = this.selfiesList.slice()
-      for(let i = 0; i < this.selfieFiltersButtons.length; i++){
-        this.selfieFiltersButtons[i] = false
+    if (state == '') {
+      this.selfiesListFiltered = this.selfiesList.slice();
+      for (let i = 0; i < this.selfieFiltersButtons.length; i++) {
+        this.selfieFiltersButtons[i] = false;
       }
-      return
+      return;
     }
 
     this.selfieFiltersButtons[indexButton] =
@@ -91,11 +90,9 @@ export class VisualizarFotoAlunoComponent implements OnInit {
       );
     } else {
       this.selfiesListFiltered = this.selfiesListFiltered.concat(
-        this.selfiesList.filter(
-          (element: Selfie): boolean => {
-            return element.state != state;
-          }
-        )
+        this.selfiesList.filter((element: Selfie): boolean => {
+          return element.state != state;
+        })
       );
     }
   }

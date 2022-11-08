@@ -6,23 +6,21 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./state-display-icons.component.css'],
 })
 export class StateDisplayIconsComponent implements OnInit {
-  
-  @Input() stateToDisplay!:string
+  @Input() stateToDisplay!: string;
 
   private readonly butonsColorMap: any = {
     APPROVED: '#38B000',
-    DECLINED: '#D00000',
-    IN_REVIEW: '#FDBE21',
-    PENDING_REVIEW: '#FDBE21',
-    disabledButtonColor: '#E0E0E5'
+    SELFIE_REJECTED: '#D00000',
+    SELFIE_IN_REVIEW: '#FDBE21',
+    NO_SELFIE: '#FDBE21',
+    disabledButtonColor: '#E0E0E5',
   };
-
 
   currentButonsColor: any = {
     APPROVED: this.butonsColorMap['disabledButtonColor'],
-    DECLINED: this.butonsColorMap['disabledButtonColor'],
-    IN_REVIEW: this.butonsColorMap['disabledButtonColor'],
-    PENDING_REVIEW: this.butonsColorMap['disabledButtonColor'],
+    SELFIE_REJECTED: this.butonsColorMap['disabledButtonColor'],
+    SELFIE_IN_REVIEW:this.butonsColorMap['disabledButtonColor'],
+    NO_SELFIE: this.butonsColorMap['disabledButtonColor'],
   };
 
   SetStateToDisplay(stateKey: string) {
@@ -30,7 +28,8 @@ export class StateDisplayIconsComponent implements OnInit {
       if (key == stateKey) {
         this.currentButonsColor[key] = this.butonsColorMap[key];
       } else {
-        this.currentButonsColor[key] = this.butonsColorMap['disabledButtonColor'];
+        this.currentButonsColor[key] =
+          this.butonsColorMap['disabledButtonColor'];
       }
     }
   }
@@ -38,6 +37,9 @@ export class StateDisplayIconsComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.SetStateToDisplay(this.stateToDisplay)
+    if(this.stateToDisplay == 'SELFIE_PENDING_REVIEW'){
+      this.stateToDisplay = 'SELFIE_IN_REVIEW'
+    }
+    this.SetStateToDisplay(this.stateToDisplay);
   }
 }
