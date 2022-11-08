@@ -29,7 +29,7 @@ export class FetchStudentMockService implements FetchStudent {
     let a: any = {
       all_students: {
         21010757: {
-          name: 'Victor',
+          name: 'Victor Guirão Soller',
           email: 'eusousoller@gmail.com',
           status: 'DECLINED',
           selfies: [
@@ -43,7 +43,7 @@ export class FetchStudentMockService implements FetchStudent {
           ],
         },
         21010758: {
-          name: 'Victor',
+          name: 'Caio Bartolomeu de Gordox #GoFuria Coxinha',
           email: 'eusousoller@gmail.com',
           status: 'APPROVED',
           selfies: [

@@ -36,17 +36,22 @@ export class VisualizarFotoAlunoComponent implements OnInit {
     this.fetchSelfieService.FetchAllSelfies().subscribe((resp: any) => {
       let allSelfies = resp['all_selfies'];
 
+      let selfiesList: Selfie[] = []
       allSelfies.forEach((selfieJson: any) => {
         let selfie: Selfie = Selfie.InstatiateSelfieFromJson(selfieJson);
 
-        this.selfiesList.push(selfie);
+        selfiesList.push(selfie);
       });
+
+      this.selfiesList = selfiesList
     });
   }
 
   GetStudentsList(): void {
     this.fetchStudentService.FetchStudentsList().subscribe((resp: any) => {
       let allStudentsDict = resp['all_students'];
+
+      let studentsList: Student[] = []
 
       for (let studentRa in allStudentsDict) {
         let studentJson = allStudentsDict[studentRa];
@@ -59,9 +64,10 @@ export class VisualizarFotoAlunoComponent implements OnInit {
           studentJson['selfies']
         );
 
-        this.studentsList.push(student);
+        studentsList.push(student);
       }
 
+      this.studentsList = studentsList
     });
   }
 
