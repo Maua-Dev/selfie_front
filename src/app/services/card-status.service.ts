@@ -27,6 +27,7 @@ export class CardStatusService {
   list : Card[] = []
 
   public showCards(json : any) : any{
+    this.list = []
     var motivo !: string
     
     // caso ja haja selfies no RA
@@ -63,19 +64,29 @@ export class CardStatusService {
       console.log(card)
       this.list.push(card)
     }
-
     console.log(this.list)
+
     return this.list
   }
 
   public createCards() : any{
 
     //vai criar um card no momento em que ele tira a foto, e nesse momento, cria-se uma classe Card e uma requisicao post
+    // verificar a resposta do back
+    let card = new Card(this.id++,'data de hoje','selfie','Pendente','','')   //criando classe card
+   
 
-    let card = new Card(this.id++,'data de hoje','selfie','','','')   //criando classe card
-    this.list.push(card)
+  }
 
+  situacao !: string
 
+  public sendingStatus(situation:string){
+    this.situacao = situation
+    console.log('situacao no service: '+this.situacao)
+  }
+
+  public gettingStatus(){
+    return this.situacao
   }
 
 }

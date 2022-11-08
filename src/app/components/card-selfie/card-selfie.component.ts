@@ -1,5 +1,4 @@
-import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
-import { Card } from 'src/entities/card';
+import { Component, OnInit} from '@angular/core';
 import { PopupComponent } from '../popup/popup.component';
 import {MatDialog} from '@angular/material/dialog';
 import { SelfieStudent } from 'src/app/services/selfie-student.service';
@@ -21,14 +20,11 @@ export class CardSelfieComponent implements OnInit {
   
   constructor(private dialog : MatDialog, private selfieService: SelfieStudent, private cardStatusService : CardStatusService) { }
 
-  @Output() eventClickSelfie : EventEmitter<Card> = new EventEmitter()  //1) criando um transmissor para a classe pai
-  @Input() statusCard !: string
-
+  statusCard!:any
   dialogRef !: any
 
   ngOnInit(): void {
     this.getSelfie()
-    this.acionaCamera()
     this.checkingStatus()
   }
 
@@ -84,7 +80,7 @@ export class CardSelfieComponent implements OnInit {
   }
 
   public checkingStatus(){
-    //this.status = this.cardStatusService.gettingStatus()
-    return this.status
+    this.statusCard = this.cardStatusService.gettingStatus()
+    return this.statusCard
   }
 }

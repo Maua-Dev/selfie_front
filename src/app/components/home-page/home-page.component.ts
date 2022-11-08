@@ -36,11 +36,6 @@ export class HomePageComponent implements OnInit {
     })
   } 
 
-  public getName(){
-    this.getStudent()
-    this.nome = this.student.getNome()
-  }
-
   eventoClick(){
     this.eventoPai = true               // 5) atribuindo o valor (transmitido do filho para o pai) para a variavel (4)
   }
