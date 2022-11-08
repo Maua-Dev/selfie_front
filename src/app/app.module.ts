@@ -51,7 +51,7 @@ import { FilterListsButtonsComponent } from './components/filter-lists-buttons/f
       provide: UpdateSelfieStateService,
       useClass: UpdateSelfieStateBackendService,
     },
-    {provide:FetchSelfieService, useClass:FetchSelfieMockService}
+    {provide:FetchSelfieService, useClass:FetchSelfieBackendService}
   ],
   bootstrap: [AppComponent],
 })

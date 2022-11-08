@@ -79,19 +79,25 @@ export class VisualizarFotoAlunoComponent implements OnInit {
       return;
     }
 
+    let stateFilter = state
+
+    if(stateFilter == 'PENDING_REVIEW'){
+      stateFilter = 'IN_REVIEW'
+    }
+
     this.selfieFiltersButtons[indexButton] =
       !this.selfieFiltersButtons[indexButton];
 
     if (this.selfieFiltersButtons[indexButton]) {
       this.selfiesListFiltered = this.selfiesList.filter(
         (element: Selfie): boolean => {
-          return element.state == state;
+          return element.state == stateFilter;
         }
       );
     } else {
       this.selfiesListFiltered = this.selfiesListFiltered.concat(
         this.selfiesList.filter((element: Selfie): boolean => {
-          return element.state != state;
+          return element.state != stateFilter;
         })
       );
     }

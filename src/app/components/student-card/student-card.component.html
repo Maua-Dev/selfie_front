@@ -4,8 +4,7 @@
             <div class="row">
                 <div class="col-5">
                     <a href="{{selfieToDisplay.imgURL}}" target="_blank">
-                        <img id="card-image" src="{{selfieToDisplay.imgURL}}"
-                            alt="Uma foto de {{studentSelfie.name}}">
+                        <img id="card-image" src="{{selfieToDisplay.imgURL}}" alt="Uma foto de {{studentSelfie.name}}">
                     </a>
                 </div>
                 <div class="col">
@@ -16,51 +15,52 @@
                     <div class="col">
                         <h2>Impedimentos</h2>
                         <div class="rejection-reason-list">
-                            <mat-checkbox [color]="'primary'" (change)="setReproveReason('fundoEscuro')">Fundo escuro
+                            <mat-checkbox [color]="'primary'" (change)="setReproveReason('NOT_ALLOWED_BACKGROUND')">
+                                Fundo inválido
                             </mat-checkbox>
                         </div>
                         <div class="rejection-reason-list">
-                            <mat-checkbox [color]="'primary'" (change)="setReproveReason('oculos')">Uso de máscaras,
-                                chapéu ou acessórios</mat-checkbox>
+                            <mat-checkbox [color]="'primary'" (change)="setReproveReason('COVERED_FACE ')">Rosto coberto
+                            </mat-checkbox>
                         </div>
                         <div class="rejection-reason-list">
-                            <mat-checkbox [color]="'primary'" (change)="setReproveReason('rostoEscuro')">Rosto pouco
-                                iluminado</mat-checkbox>
+                            <mat-checkbox [color]="'primary'" (change)="setReproveReason('NO_PERSON_RECOGNIZED ')">
+                                Nenhuma pessoa reconhecida</mat-checkbox>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </mat-card-content>
-        <mat-card-footer>
-            <div class="footer-content">
-                <span *ngIf="selfieToDisplay.state == 'IN_REVIEW' || selfieToDisplay.state == 'PENDING_REVIEW'">
-                    <button class="aprove-btn button" mat-raised-button (click)="SetSelfieState('APROVED')">
-                        <mat-icon  fontIcon="thumb_up"></mat-icon> Aprovar
-                    </button>
+    <mat-card-footer>
+        <div class="footer-content">
+            <span *ngIf="selfieToDisplay.state == 'IN_REVIEW' || selfieToDisplay.state == 'PENDING_REVIEW'">
+                <button class="aprove-btn button" mat-raised-button (click)="SetSelfieState('APROVED')">
+                    <mat-icon fontIcon="thumb_up"></mat-icon> Aprovar
+                </button>
 
-                    <button class="reprove-btn button" mat-raised-button (click)="SetSelfieState('REPROVED')">
-                        <mat-icon fontIcon="thumb_down"></mat-icon> Reprovar
-                    </button>
-                </span>
-                <span *ngIf="selfieToDisplay.state == 'DECLINED'">
-                    <button class="aprove-btn button" disabled="true" mat-raised-button (click)="SetSelfieState('APROVED')">
-                        <mat-icon fontIcon="thumb_up"></mat-icon> Aprovar
-                    </button>
-                    <button class="reprove-btn button" disabled="true" mat-raised-button (click)="SetSelfieState('REPROVED')">
-                        <mat-icon [style.color]="'#d00000'" fontIcon="thumb_down"></mat-icon> Reprovar
-                    </button>
-                </span>
+                <button class="reprove-btn button" mat-raised-button (click)="SetSelfieState('REPROVED')">
+                    <mat-icon fontIcon="thumb_down"></mat-icon> Reprovar
+                </button>
+            </span>
+            <span *ngIf="selfieToDisplay.state == 'DECLINED'">
+                <button class="aprove-btn button" disabled="true" mat-raised-button>
+                    <mat-icon fontIcon="thumb_up"></mat-icon> Aprovar
+                </button>
+                <button class="reprove-btn button" disabled="true" mat-raised-button>
+                    <mat-icon [style.color]="'#d00000'" fontIcon="thumb_down"></mat-icon> Reprovar
+                </button>
+            </span>
 
-                <span *ngIf="selfieToDisplay.state == 'APPROVED'">
-                    <button class="aprove-btn button" disabled="true" mat-raised-button (click)="SetSelfieState('APROVED')">
-                        <mat-icon [style.color]="'#38b000'" fontIcon="thumb_up"></mat-icon> Aprovar
-                    </button>
-                    <button class="reprove-btn button" disabled="true" mat-raised-button (click)="SetSelfieState('REPROVED')">
-                        <mat-icon fontIcon="thumb_down"></mat-icon> Reprovar
-                    </button>
-                </span>
-                
-            </div>
-        </mat-card-footer>
+            <span *ngIf="selfieToDisplay.state == 'APPROVED'">
+                <button class="aprove-btn button" disabled="true" mat-raised-button>
+                    <mat-icon [style.color]="'#38b000'" fontIcon="thumb_up"></mat-icon> Aprovar
+                </button>
+                <button class="reprove-btn button" disabled="true" mat-raised-button>
+                    <mat-icon fontIcon="thumb_down"></mat-icon> Reprovar
+                </button>
+            </span>
+
+        </div>
+    </mat-card-footer>
 </mat-card>

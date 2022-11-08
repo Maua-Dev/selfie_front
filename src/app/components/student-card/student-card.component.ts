@@ -13,9 +13,9 @@ export class StudentCardComponent implements OnInit {
   studentSelfie! : Student
 
   private recuseReasons: any = {
-    fundoEscuro: false,
-    oculos: false,
-    rostoEscuro: false,
+    NOT_ALLOWED_BACKGROUND: false,
+    COVERED_FACE : false,
+    NO_PERSON_RECOGNIZED : false,
   };
 
   constructor(private updateSelfieService: UpdateSelfieStateService) {
