@@ -6,6 +6,7 @@ import { PopupComponent } from '../popup/popup.component';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { SelfieStudent } from 'src/app/services/selfie-student.service';
+import { CardStatusService } from 'src/app/services/card-status.service';
 
 @Component({
   selector: 'app-card-selfie-tela2',
@@ -26,7 +27,7 @@ export class CardSelfieTela2Component implements OnInit {
   trigger: Subject<void> = new Subject();
   previewImage: string = '';
 
-  constructor(private dialog: MatDialog, private selfieService: SelfieStudent) {
+  constructor(private dialog: MatDialog, private selfieService: SelfieStudent, private statusCardService : CardStatusService) {
   }
 
   ngOnInit(): void {
@@ -85,6 +86,8 @@ export class CardSelfieTela2Component implements OnInit {
 
   async confirmarFoto() {
     alert('Foto feita!')
+    this.statusCardService.createCards()
+    //this.statusCardService
     await this.sendingPhoto()
   }
 

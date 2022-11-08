@@ -14,11 +14,19 @@ export class HomePageComponent implements OnInit {
   eventoPai !: boolean                      // 4) definindo uma variavel a ser manipulada - pensei nisso
   nome !: any
   student !: any 
+  statusCamera !: boolean
 
   constructor(public selfieStudent : SelfieStudent, public cardStatusService : CardStatusService) { }
 
   ngOnInit(): void {
     this.getStudent()
+  }
+
+  status!:string
+
+  public showStatusLastCard(){
+    //this.status = this.cardStatusService.gettingStatus()
+    console.log(this.status)
   }
 
   public getStudent(){

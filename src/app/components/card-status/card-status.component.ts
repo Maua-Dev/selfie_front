@@ -1,6 +1,7 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input, Output, EventEmitter } from '@angular/core';
 import { Card } from 'src/entities/card';
 import { CardStatusService } from 'src/app/services/card-status.service';
+import { outputAst } from '@angular/compiler';
 
 @Component({
   selector: 'app-card-status',
@@ -9,25 +10,35 @@ import { CardStatusService } from 'src/app/services/card-status.service';
 })
 export class CardStatusComponent{
 
-  teste !: any
+  statusCard!:string
   cards : Card[] = []
-  
+
+  @Output() lastStatus : EventEmitter<string> = new EventEmitter()
+
   constructor(private cardStatusService : CardStatusService) { } 
   
   ngOnInit(): void {
-    this.creatingCard()
+    this.showingCards()
   }
 
-  public creatingCard(){
-    this.cardStatusService.gettingJson().subscribe(response =>{
+  public showingCards(){
+    this.cardStatusService.gettingJson().subscribe((response : any) => {
+      this.cards = this.cardStatusService.showCards(response)
       console.log(this.cards)
-      this.cards = this.cardStatusService.createCards(response)
-      console.log(this.cards)
-    });
+      this.statusCard = this.cards[this.cards.length-1].getSituacao()
+      console.log(this.statusCard)
+      //console.log(this.cards)
+      //this.lastStatus.emit()
+    })
+    
   }
 
-  public createCard(){
-    this.cardStatusService.gettingJson()
+  /*
+  public gettingStatus(){
+    this.statusCard = this.cardStatusService.gettingStatus()
+    console.log(this.statusCard)
+    return this.statusCard
   }
+  */
 
 }

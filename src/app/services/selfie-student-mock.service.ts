@@ -2,7 +2,6 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
 import { Student } from "src/entities/student";
-import { InfoLogin } from "./info-login.service";
 import { SelfieStudent } from "./selfie-student.service";
 
 @Injectable({

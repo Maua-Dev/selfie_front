@@ -10,70 +10,36 @@ export class CardStatusService {
 
   id : number = 0
   private readonly baseURL : string = 'https://idxd34yq6k.execute-api.us-east-1.amazonaws.com/prod/mss-student';
-  private studentRA : string = '17090212'  
+  private studentRA : string = '21010757' //'17090212  21010757'  
 
   constructor(private http: HttpClient) { }
 
+  // FAZ A REQUISICAO HTTP GET INFORMACOES DA SELFIE
   public gettingJson() : Observable<any>{
-  return this.http.get<any>(
-      `${this.baseURL}/get-selfies-by-ra?ra=${this.studentRA}`
-    )
+    return this.http.get<any>(`${this.baseURL}/get-selfies-by-ra?ra=${this.studentRA}`)
   }
 
+  // PEGA O CARD INICIAL 
   public getInicialCard(){
-    return new Card(this.id++, '01/11/2022','','','','')
+    return new Card(this.id, 'Não enviado ainda','','NEED_TO_SEND','','')        
   }
 
-  public getStatus(json : any){
-    this.createCards(json).forEach((card: any) => {
-        return card.getSituacao()
-    });
-  }
+  list : Card[] = []
 
-  cardStatus !: string
-
-  public gettingStatus() : string{
-    this.gettingJson().subscribe(response =>{
-      this.createCards(response).map((card:any)=>{
-        console.log(card.getSituacao())
-        this.cardStatus = card.getSituacao()
-        console.log(this.cardStatus)
-      })
-      console.log(this.cardStatus)
-    })
-    console.log(this.cardStatus)
-    return this.cardStatus
-  }
-
-  public creatingCards(){
-    this.gettingJson().subscribe(response => {
-      return this.createCards(response)
-    })
-  }
-
-  public createCards(json : any) : any{
-    var list : Card[] = [];
-    var motivo !: string;
-    if(json['selfies'].length === 0){  
-
-      // se estiver vazia, dar POST nas infos
-      // uploadSelfie
-      // vai exibir GET com as infos
-
-      let card = new Card(this.id++,'Data invalida','Selfie n enviada','Pendente','Sem motivo','Sem descricao') 
-      list.push(card)
-      return list
-    }
-
-    else{
-      for(var i : number = 0; i < 2;i++){
+  public showCards(json : any) : any{
+    var motivo !: string
+    
+    // caso ja haja selfies no RA
+    if(json['selfies'].length !==0){
+      for(var i : number = 0; i < json['selfies'].length; i++){
+        // pegando as datas! 
           let data = json['selfies'][i]['dateUpload'].substring(8,10)
           let mes = json['selfies'][i]['dateUpload'].substring(5,7)
           let ano = json['selfies'][i]['dateUpload'].substring(0,4)
           
           let date = `${data}/${mes}/${ano}`
           
-          // fazer enums aqui !
+          // fazendo o filtro dos motivos! --> fazer enums!!
           if(json['selfies'][i]['rejectionReason'] === 'COVERED_FACE')
             motivo = 'Rosto coberto'
           else
@@ -87,10 +53,31 @@ export class CardStatusService {
               motivo,
               json['selfies'][i]['rejectionDescription']            
           )
-          list.push(card)
+          this.list.push(card)   //vai puxar na lista para ver ocasioes anteriores, senão ele pula para o proximo
       }
-      return list
     }
+
+    // caso não haja selfies no RA
+    if(json['selfies'].length === 0){
+      let card = this.getInicialCard()
+      console.log(card)
+      this.list.push(card)
+    }
+
+    console.log(this.list)
+    return this.list
+  }
+
+  public createCards() : any{
+
+    //vai criar um card no momento em que ele tira a foto, e nesse momento, cria-se uma classe Card e uma requisicao post
+
+    let card = new Card(this.id++,'data de hoje','selfie','','','')   //criando classe card
+    this.list.push(card)
+
+
   }
 
 }
+
+

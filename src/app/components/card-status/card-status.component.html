@@ -1,10 +1,10 @@
 <section>
-    <div *ngIf="cards.length == 0">
+    <div *ngIf="statusCard === 'NEED_TO_SEND'">
         <app-card-status-inicial></app-card-status-inicial>
     </div>
-    <div *ngIf="cards.length != 0">                
+    <div *ngIf="statusCard !== 'NEED_TO_SEND'">      
         <ul *ngFor="let card of cards">
-            <li *ngIf="card.getSituacao() === 'Pendente'">
+            <li *ngIf="card.getSituacao() === ''">
                 <p class="titulo-card-status">Selfie #{{card.getId()}}</p>
                 <p class="status">Enviado em: {{card.getData()}}</p>
                 <p class="status">Situação: <span [ngStyle]="{'color':'orange'}">Pendente</span></p>

@@ -5,9 +5,8 @@ section {
 }
 
 div {
-    position: relative;
     top:13vh;
-    width: 82.6%;
+    width: 100%;
     height: fit-content;
 }
 

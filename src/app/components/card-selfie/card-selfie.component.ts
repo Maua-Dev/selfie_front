@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { Card } from 'src/entities/card';
 import { PopupComponent } from '../popup/popup.component';
 import {MatDialog} from '@angular/material/dialog';
@@ -18,10 +18,12 @@ export class CardSelfieComponent implements OnInit {
   tamanho:string = '32.6vh'
   marginTop:string = '4vh'
   marginBottom!:string
-
-  constructor(private dialog : MatDialog, private selfieService: SelfieStudent, private cardStatusSelfie : CardStatusService) { }
+  
+  constructor(private dialog : MatDialog, private selfieService: SelfieStudent, private cardStatusService : CardStatusService) { }
 
   @Output() eventClickSelfie : EventEmitter<Card> = new EventEmitter()  //1) criando um transmissor para a classe pai
+  @Input() statusCard !: string
+
   dialogRef !: any
 
   ngOnInit(): void {
@@ -36,14 +38,21 @@ export class CardSelfieComponent implements OnInit {
       this.tamanho = 'auto'
       this.marginTop = '2vh'
       this.marginBottom = '1vh'
-      this.eventClickSelfie.emit()          //2) transmitindo definitivo
+      //this.eventClickSelfie.emit()          //2) transmitindo definitivo
     }
   }
   
   termos(){
-    this.dialogRef = this.dialog.open(PopupComponent)   //invocando ele
-    if(this.dialogRef.nextPage === true)
-      this.dialogRef.popup
+    if(this.statusCard === 'APPROVED' || this.statusCard === 'Pendente'){
+      alert('Voce ja tirou foto!')
+      console.log(this.statusCard)
+    }
+    //if(this.statusCard === 'DECLINED' || this.statusCard === undefined){
+      this.dialogRef = this.dialog.open(PopupComponent)   //invocando ele
+      if(this.dialogRef.nextPage === true)
+        this.dialogRef.popup
+    //}
+      
   }
 
   acionaCamera(){
@@ -75,7 +84,7 @@ export class CardSelfieComponent implements OnInit {
   }
 
   public checkingStatus(){
-    this.status = this.cardStatusSelfie.gettingStatus()
-    console.log(this.status)
+    //this.status = this.cardStatusService.gettingStatus()
+    return this.status
   }
 }
