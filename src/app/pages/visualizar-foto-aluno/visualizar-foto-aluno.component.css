@@ -43,3 +43,9 @@ h1 {
 .rect-container {
   padding-left: 200px;
 }
+
+:host ::ng-deep .mat-checkbox-frame { 
+  border-color: rgba(174, 174, 180, 0);
+  background-color: rgb(174, 174, 180);
+}
+
