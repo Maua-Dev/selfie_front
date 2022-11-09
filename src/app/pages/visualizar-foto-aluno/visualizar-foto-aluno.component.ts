@@ -50,6 +50,8 @@ export class VisualizarFotoAlunoComponent implements OnInit {
 
       this._selfiesList = selfiesList;
       this.selfiesListFiltered = this._selfiesList.slice();
+
+      this.FilterSelfiesLists();
     });
   }
 
@@ -75,6 +77,8 @@ export class VisualizarFotoAlunoComponent implements OnInit {
 
       this._studentsList = studentsList;
       this.studentsListFiltered = this._studentsList.slice();
+
+      this.FilterStudentsLists()
     });
   }
 
@@ -94,55 +98,64 @@ export class VisualizarFotoAlunoComponent implements OnInit {
       //Ativando filtro
       this._currentActivatedSelfieFilters.push(state);
 
-      this.selfiesListFiltered = this._selfiesList.filter(
-        (element: Selfie): boolean => {
-          return this._currentActivatedSelfieFilters.includes(element.state);
-        }
-      );
-    }
-    
-    else {//Desativando filtro
-      this._currentActivatedSelfieFilters.splice(this._currentActivatedSelfieFilters.indexOf(state),1); //removendo o estado
+      this.FilterSelfiesLists();
+    } else {
+      //Desativando filtro
+      this._currentActivatedSelfieFilters.splice(
+        this._currentActivatedSelfieFilters.indexOf(state),
+        1
+      ); //removendo o estado
 
       if (this._currentActivatedSelfieFilters.length <= 0) {
         this.selfiesListFiltered = this._selfiesList.slice();
         return;
       }
 
-      this.selfiesListFiltered = this._selfiesList.filter(
-        (element: Selfie): boolean => {
-          return this._currentActivatedSelfieFilters.includes(element.state);
-        }
-      );
+      this.FilterSelfiesLists();
     }
-
   }
 
   FilterStudentsByStatus(indexButton: number, status: string): void {
     this.studentsFiltersButtons[indexButton] =
       !this.studentsFiltersButtons[indexButton];
 
-    if (this.studentsFiltersButtons[indexButton]) { //Ativando filtro
-      this._currentActivatedStudentsFilters.push(status)
+    if (this.studentsFiltersButtons[indexButton]) {
+      //Ativando filtro
+      this._currentActivatedStudentsFilters.push(status);
 
-      this.studentsListFiltered = this._studentsList.filter(
-        (element: Student): boolean => {
-          return this._currentActivatedStudentsFilters.includes(element.status!)
-        }
+      this.FilterStudentsLists()
+    } else {
+      //Desativando filtro
+      this._currentActivatedStudentsFilters.splice(
+        this._currentActivatedStudentsFilters.indexOf(status),
+        1
       );
-    } else { //Desativando filtro
-      this._currentActivatedStudentsFilters.splice(this._currentActivatedStudentsFilters.indexOf(status), 1)
 
-      if(this._currentActivatedStudentsFilters.length <= 0){
-        this.studentsListFiltered = this._studentsList.slice()
-        return
+      if (this._currentActivatedStudentsFilters.length <= 0) {
+        this.studentsListFiltered = this._studentsList.slice();
+        return;
       }
 
-      this.studentsListFiltered = this._studentsList.filter(
-        (element: Student): boolean => {
-          return this._currentActivatedStudentsFilters.includes(element.status!)
-        }
-      );
+      this.FilterStudentsLists()
+
     }
+  }
+
+  private FilterSelfiesLists(): void {
+    if (this._currentActivatedSelfieFilters.length <= 0) return;
+    this.selfiesListFiltered = this._selfiesList.filter(
+      (element: Selfie): boolean => {
+        return this._currentActivatedSelfieFilters.includes(element.state);
+      }
+    );
+  }
+
+  private FilterStudentsLists(): void {
+    if (this._currentActivatedStudentsFilters.length <= 0) return;
+    this.studentsListFiltered = this._studentsList.filter(
+      (element: Student): boolean => {
+        return this._currentActivatedStudentsFilters.includes(element.status!);
+      }
+    );
   }
 }
