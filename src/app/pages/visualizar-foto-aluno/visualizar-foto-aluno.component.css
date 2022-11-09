@@ -35,6 +35,11 @@ mat-icon{
   color: #022893;
 }
 
+.conteiner-clean-filters-btns{
+  position: relative;
+  left: 155px;
+}
+
 .cards-container {
   overflow: auto;
   height: 500px;
