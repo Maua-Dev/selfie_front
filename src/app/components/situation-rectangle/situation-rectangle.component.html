@@ -1,17 +1,17 @@
-<div class="d-flex align-items-center container">
+<div class="d-flex align-items-center rect-container">
         <div class="col-1">
             <mat-checkbox [color]="'primary'"></mat-checkbox>
         </div>
-        <div class="col col-sm student-name">
+        <div class="col student-name">
             {{studentToDisplay.name}}
         </div>
-        <div class="col-3 student-ra">
+        <div class="col-4 student-ra">
             {{studentToDisplay.email}}
         </div>
         <div>
             Situação: 
         </div>
-        <div class="col col-sm student-situation">
+        <div class="col student-situation">
             <app-state-display-icons [stateToDisplay]="studentToDisplay.status!"></app-state-display-icons>
         </div>
         <div class="clickable">

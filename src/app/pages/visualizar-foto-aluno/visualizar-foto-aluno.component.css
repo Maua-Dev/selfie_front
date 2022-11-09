@@ -7,6 +7,10 @@ h1 {
   margin: 20px 0;
 }
 
+mat-icon{
+  margin-right: 10px;
+}
+
 .tittle-and-icon {
   margin: 20px 0;
   color: #022893;
@@ -41,7 +45,7 @@ h1 {
 }
 
 .rect-container {
-  padding-left: 200px;
+  padding-bottom: 50px;
 }
 
 :host ::ng-deep .mat-checkbox-frame { 

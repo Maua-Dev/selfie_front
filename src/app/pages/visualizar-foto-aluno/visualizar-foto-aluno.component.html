@@ -19,8 +19,7 @@
       <app-filter-lists-buttons [text]="'Reprovados'" [buttonIsActivated]="selfieFiltersButtons[2]"
         (click)="FilterSelfieByState(2,'DECLINED')"></app-filter-lists-buttons>
     </div>
-    <div class="col-6"></div>
-    <div class="col-auto d-flex justify-content-center">
+    <div class="col-auto d-flex justify-content-center align-items-center">
       <button mat-button (click)="FilterSelfieByState(-1,'')" class="clean-filters-btn">Limpar filtros</button>
     </div>
   </div>
@@ -66,7 +65,6 @@
     <span *ngFor="let student of studentsListFiltered">
       <app-situation-rectangle *ngIf="student.status != 'SELFIE_PENDING_REVIEW'" [studentToDisplay]="student"></app-situation-rectangle>
     </span>
-
   </div>
 
 
