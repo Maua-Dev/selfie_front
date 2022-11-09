@@ -65,8 +65,11 @@ export class FetchSelfieMockService implements FetchSelfieService {
         },
       ],
     };
-
-    return of(a);
+    return new Observable(observer =>{
+      setTimeout(()=>{
+        observer.next(a)
+      }, 2000)
+    })
   }
 }
 

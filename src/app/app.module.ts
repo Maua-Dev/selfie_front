@@ -46,12 +46,12 @@ import { FilterListsButtonsComponent } from './components/filter-lists-buttons/f
     
   ],
   providers: [
-    { provide: FetchStudent, useClass: FetchStudentFromBackendService },
+    { provide: FetchStudent, useClass: FetchStudentMockService },
     {
       provide: UpdateSelfieStateService,
       useClass: UpdateSelfieStateBackendService,
     },
-    {provide:FetchSelfieService, useClass:FetchSelfieBackendService}
+    {provide:FetchSelfieService, useClass:FetchSelfieMockService}
   ],
   bootstrap: [AppComponent],
 })
