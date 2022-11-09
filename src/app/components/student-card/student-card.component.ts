@@ -1,5 +1,5 @@
 import { Selfie } from 'src/entities/selfie';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Student } from 'src/entities/student';
 import { UpdateSelfieStateService } from 'src/app/services/update-selfie-state.service';
 
@@ -11,6 +11,8 @@ import { UpdateSelfieStateService } from 'src/app/services/update-selfie-state.s
 export class StudentCardComponent implements OnInit {
   @Input() public selfieToDisplay!: Selfie;
   studentSelfie! : Student
+
+  @Output() OnSetSelfieStateEvent: EventEmitter<any> = new EventEmitter()
 
   private recuseReasons: any = {
     NOT_ALLOWED_BACKGROUND: false,
@@ -38,6 +40,7 @@ export class StudentCardComponent implements OnInit {
       ''
     );
     console.log(this.recuseReasons);
+    this.OnSetSelfieStateEvent.emit()
   }
 
   ngOnInit(): void {

@@ -29,6 +29,11 @@ export class VisualizarFotoAlunoComponent implements OnInit {
     this.GetStudentsList();
   }
 
+  OnSetSelfieState() {
+    this.GetSelfiesList();
+    this.GetStudentsList();
+  }
+
   GetSelfiesList(): void {
     this.fetchSelfieService.FetchAllSelfies().subscribe((resp: any) => {
       let allSelfies = resp['all_selfies'];
@@ -79,7 +84,7 @@ export class VisualizarFotoAlunoComponent implements OnInit {
       return;
     }
 
-    let stateFilter = state
+    let stateFilter = state;
 
     this.selfieFiltersButtons[indexButton] =
       !this.selfieFiltersButtons[indexButton];

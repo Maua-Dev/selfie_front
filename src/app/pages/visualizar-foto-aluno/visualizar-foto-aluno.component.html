@@ -26,7 +26,7 @@
 
   <div class="cards-container">
     <span *ngFor="let selfie of selfiesListFiltered">
-      <app-student-card *ngIf="selfie.state != 'PENDING_REVIEW'" [selfieToDisplay]="selfie"></app-student-card>
+      <app-student-card *ngIf="selfie.state != 'PENDING_REVIEW'" [selfieToDisplay]="selfie" (OnSetSelfieStateEvent)="OnSetSelfieState()"></app-student-card>
 
     </span>
   </div>
