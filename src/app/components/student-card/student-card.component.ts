@@ -45,7 +45,6 @@ export class StudentCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.studentSelfie = this.selfieToDisplay.student!
-
   }
 
   setReproveReason(reason: string) {

@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-5">
                     <a href="{{selfieToDisplay.imgURL}}" target="_blank">
-                        <img id="card-image" src="{{selfieToDisplay.imgURL}}" alt="Uma foto de {{studentSelfie.name}}">
+                        <img id="card-image" src="{{selfieToDisplay.imgURL}}" alt="Uma foto de {{studentSelfie.name}}" onerror="this.onerror=null; this.src='../../../assets/Error-Image.png'">
                     </a>
                 </div>
                 <div class="col">
