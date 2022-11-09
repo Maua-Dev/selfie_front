@@ -10,14 +10,17 @@ import { FetchSelfieService } from 'src/app/services/fetch-selfie.service';
   styleUrls: ['./visualizar-foto-aluno.component.css'],
 })
 export class VisualizarFotoAlunoComponent implements OnInit {
-  private studentsList: Student[] = [];
+  private _studentsList: Student[] = [];
   studentsListFiltered!: Student[];
 
-  private selfiesList: Selfie[] = [];
+  private _selfiesList: Selfie[] = [];
   selfiesListFiltered!: Selfie[];
 
   selfieFiltersButtons: boolean[] = [false, false, false];
   studentsFiltersButtons: boolean[] = [false, false, false, false];
+
+  private _currentActivatedSelfieFilters: string[] = [];
+  private _currentActivatedStudentsFilters: string[] = [];
 
   constructor(
     private fetchStudentService: FetchStudent,
@@ -45,8 +48,8 @@ export class VisualizarFotoAlunoComponent implements OnInit {
         selfiesList.push(selfie);
       });
 
-      this.selfiesList = selfiesList;
-      this.selfiesListFiltered = this.selfiesList.slice();
+      this._selfiesList = selfiesList;
+      this.selfiesListFiltered = this._selfiesList.slice();
     });
   }
 
@@ -70,55 +73,75 @@ export class VisualizarFotoAlunoComponent implements OnInit {
         studentsList.push(student);
       }
 
-      this.studentsList = studentsList;
-      this.studentsListFiltered = this.studentsList.slice();
+      this._studentsList = studentsList;
+      this.studentsListFiltered = this._studentsList.slice();
     });
   }
 
   FilterSelfieByState(indexButton: number, state: string): void {
     if (state == '') {
-      this.selfiesListFiltered = this.selfiesList.slice();
+      this.selfiesListFiltered = this._selfiesList.slice();
       for (let i = 0; i < this.selfieFiltersButtons.length; i++) {
         this.selfieFiltersButtons[i] = false;
       }
       return;
     }
 
-    let stateFilter = state;
-
     this.selfieFiltersButtons[indexButton] =
       !this.selfieFiltersButtons[indexButton];
 
     if (this.selfieFiltersButtons[indexButton]) {
-      this.selfiesListFiltered = this.selfiesList.filter(
+      //Ativando filtro
+      this._currentActivatedSelfieFilters.push(state);
+
+      this.selfiesListFiltered = this._selfiesList.filter(
         (element: Selfie): boolean => {
-          return element.state == stateFilter;
+          return this._currentActivatedSelfieFilters.includes(element.state);
         }
       );
-    } else {
-      this.selfiesListFiltered = this.selfiesListFiltered.concat(
-        this.selfiesList.filter((element: Selfie): boolean => {
-          return element.state != stateFilter;
-        })
+    }
+    
+    else {//Desativando filtro
+      this._currentActivatedSelfieFilters.splice(this._currentActivatedSelfieFilters.indexOf(state),1); //removendo o estado
+
+      if (this._currentActivatedSelfieFilters.length <= 0) {
+        this.selfiesListFiltered = this._selfiesList.slice();
+        return;
+      }
+
+      this.selfiesListFiltered = this._selfiesList.filter(
+        (element: Selfie): boolean => {
+          return this._currentActivatedSelfieFilters.includes(element.state);
+        }
       );
     }
+
   }
 
   FilterStudentsByStatus(indexButton: number, status: string): void {
     this.studentsFiltersButtons[indexButton] =
       !this.studentsFiltersButtons[indexButton];
 
-    if (this.studentsFiltersButtons[indexButton]) {
-      this.studentsListFiltered = this.studentsList.filter(
+    if (this.studentsFiltersButtons[indexButton]) { //Ativando filtro
+      this._currentActivatedStudentsFilters.push(status)
+
+      this.studentsListFiltered = this._studentsList.filter(
         (element: Student): boolean => {
-          return element.status == status;
+          return this._currentActivatedStudentsFilters.includes(element.status!)
         }
       );
-    } else {
-      this.studentsListFiltered = this.studentsListFiltered.concat(
-        this.studentsList.filter((element: Student): boolean => {
-          return element.status != status;
-        })
+    } else { //Desativando filtro
+      this._currentActivatedStudentsFilters.splice(this._currentActivatedStudentsFilters.indexOf(status), 1)
+
+      if(this._currentActivatedStudentsFilters.length <= 0){
+        this.studentsListFiltered = this._studentsList.slice()
+        return
+      }
+
+      this.studentsListFiltered = this._studentsList.filter(
+        (element: Student): boolean => {
+          return this._currentActivatedStudentsFilters.includes(element.status!)
+        }
       );
     }
   }
