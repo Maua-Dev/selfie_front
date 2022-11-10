@@ -74,7 +74,7 @@ export class CardStatusService {
     //vai criar um card no momento em que ele tira a foto, e nesse momento, cria-se uma classe Card e uma requisicao post
     // verificar a resposta do back
     let card = new Card(this.id++,'data de hoje','selfie','Pendente','','')   //criando classe card
-   
+    
 
   }
 
