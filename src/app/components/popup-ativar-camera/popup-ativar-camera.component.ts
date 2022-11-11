@@ -1,4 +1,5 @@
 import { Component, OnInit , Output, EventEmitter} from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-popup-ativar-camera',
@@ -7,17 +8,14 @@ import { Component, OnInit , Output, EventEmitter} from '@angular/core';
 })
 export class PopupAtivarCameraComponent implements OnInit {
 
-  constructor() { }
-
-  @Output() event : EventEmitter<boolean> = new EventEmitter()
+  constructor(public dialog : MatDialogRef<PopupAtivarCameraComponent>) {
+  }
 
   ngOnInit(): void {
   }
 
   sairPopup(){
-    console.log('ola')
-    this.event.emit()
-    //vai emitir evento para a classe pai, dizendo que é para dar um close no dialog
+    this.dialog.close()
   }
 
 }
