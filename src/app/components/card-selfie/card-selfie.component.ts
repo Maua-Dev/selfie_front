@@ -29,6 +29,7 @@ export class CardSelfieComponent implements OnInit {
   ngOnInit(): void {
     this.getSelfie()
     this.getStatus()
+    this.popUpNavigationPerm()
   }
 
   async getSelfie(){
@@ -37,7 +38,6 @@ export class CardSelfieComponent implements OnInit {
       this.tamanho = 'auto'
       this.marginTop = '2vh'
       this.marginBottom = '1vh'
-      //this.eventClickSelfie.emit()          //2) transmitindo definitivo
     }
   }
   
@@ -46,34 +46,32 @@ export class CardSelfieComponent implements OnInit {
       alert('Voce ja tirou foto!')
       console.log(this.statusCard)
     }
-    //if(this.statusCard === 'DECLINED' || this.statusCard === undefined){
-      this.dialogRef = this.dialog.open(PopupComponent)   //invocando ele
+      this.dialogRef = this.dialog.open(PopupComponent) 
       if(this.dialogRef.nextPage === true)
         this.dialogRef.popup
-    //}
-      
-  }
-
-  acionaCamera(){
-    navigator.mediaDevices.getUserMedia({
-      video:{
-        facingMode: 'user'
-      },
-    }).then(response =>{
-      this.stream = response
-    }).catch(err =>{
-      this.stream = err
-    })
+  
   }
 
   ativarNovamente(){
     this.dialogRef2 = this.dialog.open(PopupAtivarCameraComponent)
   }
 
+  popUpNavigationPerm(){
+    navigator.mediaDevices.getUserMedia({
+      video: {
+        facingMode: 'user'
+      },
+    }).then((response) => {
+      console.log('response: ', response)
+      this.stream = response
+    }).catch(err => {
+      this.stream = err
+    })
+  }
+
   checkPermissions(){
     let permissionName = "camera" as PermissionName
     navigator.permissions.query({ name : permissionName }).then(result => {
-      console.log(result.state)
       let action = result.state
       if(action === "granted"){
         this.termos()

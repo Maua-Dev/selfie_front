@@ -7,6 +7,7 @@ import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { SelfieStudent } from 'src/app/services/selfie-student.service';
 import { CardStatusService } from 'src/app/services/card-status.service';
+import { UploadSelfieService } from 'src/app/services/upload-selfie.service';
 
 @Component({
   selector: 'app-card-selfie-tela2',
@@ -27,7 +28,7 @@ export class CardSelfieTela2Component implements OnInit {
   trigger: Subject<void> = new Subject();
   previewImage: string = '';
 
-  constructor(private dialog: MatDialog, private selfieService: SelfieStudent, private statusCardService : CardStatusService) {
+  constructor(public uploadSelfie : UploadSelfieService,private dialog: MatDialog, private selfieService: SelfieStudent, private statusCardService : CardStatusService) {
   }
 
   ngOnInit(): void {
@@ -51,21 +52,6 @@ export class CardSelfieTela2Component implements OnInit {
     }
   }
 
-  checkPermissions(): void {
-    navigator.mediaDevices.getUserMedia({
-      video: {
-        facingMode: 'user'
-      },
-    }).then((response) => {
-      console.log('response: ', response)
-      this.stream = response
-      this.status = true
-    }).catch(err => {
-      this.stream = err
-      this.status = false
-    })
-  }
-
   popUp() {
     this.dialogRef = this.dialog.open(PopupComponent)   //invocando ele
     console.log(this.dialogRef.nextPage)
@@ -73,21 +59,18 @@ export class CardSelfieTela2Component implements OnInit {
       this.dialogRef.popup
   }
 
-  public handleInitError(error: WebcamInitError): void {
-    if (error.mediaStreamError && error.mediaStreamError.name === "NotAllowedError") {
-      console.warn("Camera access was not allowed by user!");
-    }
-  }
-
   async sendingPhoto() {
     var res = await lastValueFrom(this.selfieService.uploadSelfie(this.previewImage));
+    return res
   }
 
   async confirmarFoto() {
     alert('Foto feita!')
     this.statusCardService.createCards()
+    let selfieBase64 = await this.sendingPhoto()
+    this.uploadSelfie.testSendImageService(selfieBase64)
     //this.statusCardService
-    await this.sendingPhoto()
+    
   }
 
 }
