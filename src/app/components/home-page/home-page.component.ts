@@ -12,7 +12,6 @@ import { Student } from 'src/entities/student';
 })
 export class HomePageComponent implements OnInit {
 
-  eventoPai !: boolean                      // 4) definindo uma variavel a ser manipulada - pensei nisso
   nome !: any
   ra!:any
   email!:any
@@ -23,12 +22,13 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.getStudent()
+    //this.showStatusLastCard()
   }
 
   status!:string
 
   public showStatusLastCard(){
-    //this.status = this.cardStatusService.gettingStatus()
+    this.status = "APPROVED"
     console.log(this.status)
   }
 
@@ -40,10 +40,6 @@ export class HomePageComponent implements OnInit {
       this.email = this.student.getEmail()
     })
   } 
-
-  eventoClick(){
-    this.eventoPai = true               // 5) atribuindo o valor (transmitido do filho para o pai) para a variavel (4)
-  }
 
   async testSendImage() {
       let data = {

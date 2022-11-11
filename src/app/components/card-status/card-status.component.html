@@ -4,7 +4,7 @@
     </div>
     <div *ngIf="statusCard !== 'NEED_TO_SEND'">      
         <ul *ngFor="let card of cards">
-            <li *ngIf="card.getSituacao() === ''">
+            <li *ngIf="card.getSituacao() === 'Pendente'">
                 <p class="titulo-card-status">Selfie #{{card.getId()}}</p>
                 <p class="status">Enviado em: {{card.getData()}}</p>
                 <p class="status">Situação: <span [ngStyle]="{'color':'orange'}">Pendente</span></p>

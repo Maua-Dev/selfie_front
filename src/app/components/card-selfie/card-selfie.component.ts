@@ -3,6 +3,7 @@ import { PopupComponent } from '../popup/popup.component';
 import {MatDialog} from '@angular/material/dialog';
 import { SelfieStudent } from 'src/app/services/selfie-student.service';
 import { CardStatusService } from 'src/app/services/card-status.service';
+import { Card } from 'src/entities/card';
 @Component({
   selector: 'app-card-selfie',
   templateUrl: './card-selfie.component.html',
@@ -25,7 +26,7 @@ export class CardSelfieComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSelfie()
-    this.checkingStatus()
+    this.get()
   }
 
   async getSelfie(){
@@ -79,8 +80,20 @@ export class CardSelfieComponent implements OnInit {
     })
   }
 
-  public checkingStatus(){
-    this.statusCard = this.cardStatusService.gettingStatus()
+  public gettingStatus(){
+    this.statusCard = this.cardStatusService.getStatus()
+    console.log('get status: '+this.statusCard)
     return this.statusCard
   }
+  
+  card : Card[] = []
+
+  public get(){
+    this.cardStatusService.gettingJson().subscribe((response : any) => {
+      this.card = this.cardStatusService.showCards(response)
+      this.statusCard = this.card[this.card.length-1].getSituacao()
+      console.log(this.statusCard)
+    })
+  }
+
 }

@@ -25,6 +25,7 @@ export class CardStatusService {
   }
 
   list : Card[] = []
+  status!:string
 
   public showCards(json : any) : any{
     this.list = []
@@ -40,6 +41,8 @@ export class CardStatusService {
           
           let date = `${data}/${mes}/${ano}`
           
+          this.status = json['selfies'][i]['state']
+
           // fazendo o filtro dos motivos! --> fazer enums!!
           if(json['selfies'][i]['rejectionReason'] === 'COVERED_FACE')
             motivo = 'Rosto coberto'
@@ -75,18 +78,11 @@ export class CardStatusService {
     // verificar a resposta do back
     let card = new Card(this.id++,'data de hoje','selfie','Pendente','','')   //criando classe card
     
-
   }
 
-  situacao !: string
-
-  public sendingStatus(situation:string){
-    this.situacao = situation
-    console.log('situacao no service: '+this.situacao)
-  }
-
-  public gettingStatus(){
-    return this.situacao
+  public getStatus(){
+    console.log('get status service: '+this.status)
+    return this.status
   }
 
 }
