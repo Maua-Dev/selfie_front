@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { UpdateSelfieStateService } from './update-selfie-state.service';
 
 @Injectable({
@@ -8,8 +9,7 @@ import { UpdateSelfieStateService } from './update-selfie-state.service';
 export class UpdateSelfieStateBackendService
   implements UpdateSelfieStateService
 {
-  private readonly BaseURL =
-    'https://idxd34yq6k.execute-api.us-east-1.amazonaws.com/prod/mss-student';
+  private readonly url = environment.BASE_URL;
   constructor(private http: HttpClient) {}
   UpdateSelfieState(
     ra: string,
@@ -18,7 +18,7 @@ export class UpdateSelfieStateBackendService
     newRejectionReason: string[],
     newRejectionDescription: string
   ): void {
-    this.http.post(`${this.BaseURL}/update-selfie`, {
+    this.http.post(`${this.url}/update-selfie`, {
       ra: ra,
       idSelfie: idSelfie,
       new_state: newState,

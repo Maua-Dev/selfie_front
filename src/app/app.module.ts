@@ -27,31 +27,13 @@ import { FilterListsButtonsComponent } from './components/filter-lists-buttons/f
 @NgModule({
   declarations: [
     AppComponent,
-    VisualizarFotoAlunoComponent,
-    StudentCardComponent,
-    SituationRectangleComponent,
-    StateDisplayIconsComponent,
-    FilterListsButtonsComponent,
   ],
   imports: [
     BrowserModule,
     NgbModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatCardModule,
-    MatCheckboxModule,
-    MatButtonModule,
-    AppRoutingModule,
-    MatIconModule,
-    
-  ],
-  providers: [
-    { provide: FetchStudent, useClass: FetchStudentFromBackendService },
-    {
-      provide: UpdateSelfieStateService,
-      useClass: UpdateSelfieStateBackendService,
-    },
-    {provide:FetchSelfieService, useClass:FetchSelfieBackendService}
+    AppRoutingModule
   ],
   bootstrap: [AppComponent],
 })

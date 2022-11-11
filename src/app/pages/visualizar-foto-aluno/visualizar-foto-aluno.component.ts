@@ -25,7 +25,7 @@ export class VisualizarFotoAlunoComponent implements OnInit {
   constructor(
     private fetchStudentService: FetchStudent,
     private fetchSelfieService: FetchSelfieService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.GetSelfiesList();
@@ -38,21 +38,13 @@ export class VisualizarFotoAlunoComponent implements OnInit {
   }
 
   GetSelfiesList(): void {
-    this.fetchSelfieService.FetchAllSelfies().subscribe((resp: any) => {
-      let allSelfies = resp['all_selfies'];
+    this.fetchSelfieService.FetchAllSelfies()
+      .subscribe((resp: Selfie[]) => {
+        this._selfiesList = resp;
+        this.selfiesListFiltered = this._selfiesList.slice();
 
-      let selfiesList: Selfie[] = [];
-      allSelfies.forEach((selfieJson: any) => {
-        let selfie: Selfie = Selfie.InstatiateSelfieFromJson(selfieJson);
-
-        selfiesList.push(selfie);
+        this.FilterSelfiesLists();
       });
-
-      this._selfiesList = selfiesList;
-      this.selfiesListFiltered = this._selfiesList.slice();
-
-      this.FilterSelfiesLists();
-    });
   }
 
   GetStudentsList(): void {

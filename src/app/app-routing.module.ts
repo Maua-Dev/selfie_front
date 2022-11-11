@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { VisualizarFotoAlunoComponent } from './pages/visualizar-foto-aluno/visualizar-foto-aluno.component';
 
 const routes: Routes = [
-  { path: '', component:  VisualizarFotoAlunoComponent}
+  { path: '',loadChildren: () => import('./pages/visualizar-foto-aluno/visualizar-foto-aluno.module').then(m => m.VisualizarFotoAlunoModule) }
 ];
 
 @NgModule({
