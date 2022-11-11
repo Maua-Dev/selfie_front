@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { SelfieStudent } from './services/selfie-student.service';
 import { SelfieStudentMockService } from './services/selfie-student-mock.service';
 import { CardStatusInicialComponent } from './components/card-status-inicial/card-status-inicial.component';
+import { PopupAtivarCameraComponent } from './components/popup-ativar-camera/popup-ativar-camera.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { CardStatusInicialComponent } from './components/card-status-inicial/car
     HomePageComponent,
     CardSelfieTela2Component,
     CardStatusInicialComponent,
+    PopupAtivarCameraComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,21 @@
+div{
+    font-size: 14px;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+}
+
+h3{
+    font-weight: 700;
+}
+
+button{
+    width: 30%;
+    text-align: center;
+    margin: auto;
+    color: #022893;
+    font-weight: 700;
+    background: none;
+    border: none;
+    margin-top: 0.5rem;
+}

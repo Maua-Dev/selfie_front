@@ -4,6 +4,7 @@ import {MatDialog} from '@angular/material/dialog';
 import { SelfieStudent } from 'src/app/services/selfie-student.service';
 import { CardStatusService } from 'src/app/services/card-status.service';
 import { Card } from 'src/entities/card';
+import { PopupAtivarCameraComponent } from '../popup-ativar-camera/popup-ativar-camera.component';
 @Component({
   selector: 'app-card-selfie',
   templateUrl: './card-selfie.component.html',
@@ -23,10 +24,11 @@ export class CardSelfieComponent implements OnInit {
 
   statusCard!:any
   dialogRef !: any
+  dialogRef2 !: any
 
   ngOnInit(): void {
     this.getSelfie()
-    this.get()
+    this.getStatus()
   }
 
   async getSelfie(){
@@ -64,31 +66,27 @@ export class CardSelfieComponent implements OnInit {
     })
   }
 
+  ativarNovamente(){
+    this.dialogRef2 = this.dialog.open(PopupAtivarCameraComponent)
+  }
+
   checkPermissions(){
     let permissionName = "camera" as PermissionName
     navigator.permissions.query({ name : permissionName }).then(result => {
       console.log(result.state)
       let action = result.state
       if(action === "granted"){
-        action = 'prompt'
         this.termos()
       }
       if(action === "denied"){
-        alert('necessario acionar novamente')
-        this.acionaCamera()
+        this.ativarNovamente()
       }
     })
-  }
-
-  public gettingStatus(){
-    this.statusCard = this.cardStatusService.getStatus()
-    console.log('get status: '+this.statusCard)
-    return this.statusCard
   }
   
   card : Card[] = []
 
-  public get(){
+  public getStatus(){
     this.cardStatusService.gettingJson().subscribe((response : any) => {
       this.card = this.cardStatusService.showCards(response)
       this.statusCard = this.card[this.card.length-1].getSituacao()

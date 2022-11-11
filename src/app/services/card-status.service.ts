@@ -10,7 +10,7 @@ export class CardStatusService {
 
   id : number = 0
   private readonly baseURL : string = 'https://idxd34yq6k.execute-api.us-east-1.amazonaws.com/prod/mss-student';
-  private studentRA : string = '21010757' //'17090212  21010757'  
+  private studentRA : string = '17090212' //'17090212  21010757'  
 
   constructor(private http: HttpClient) { }
 
