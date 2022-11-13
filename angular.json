@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "selfie-maua-front": {
+    "selfie-front": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/selfie-maua-front",
+            "outputPath": "dist/selfie-front",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -23,6 +23,8 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -50,6 +52,21 @@
               "outputHashing": "all"
             },
             "development": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.des.ts"
+                }
+              ],
+              "outputHashing": "all",
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            },
+            "local": {
               "buildOptimizer": false,
               "optimization": false,
               "vendorChunk": true,
@@ -64,10 +81,13 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "selfie-maua-front:build:production"
+              "browserTarget": "selfie-front:build:production"
             },
             "development": {
-              "browserTarget": "selfie-maua-front:build:development"
+              "browserTarget": "selfie-front:build:development"
+            },
+            "local": {
+              "browserTarget": "selfie-front:build:local"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +95,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "selfie-maua-front:build"
+            "browserTarget": "selfie-front:build"
           }
         },
         "test": {
@@ -90,6 +110,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -97,5 +118,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "054cdc46-f812-4fce-95a4-0262bf86806d"
   }
 }
