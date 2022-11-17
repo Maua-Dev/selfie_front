@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SelfieStudent } from 'src/app/services/selfie-student.service';
-import { Student } from 'src/entities/student';
+import { Student } from 'src/entities/student-davi';
 
 @Component({
   selector: 'app-tela-tirar-selfie',

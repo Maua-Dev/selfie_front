@@ -1,7 +1,4 @@
 import { Component, OnInit , Input} from '@angular/core';
-import { Observable } from 'rxjs';
-import { SelfieStudent } from 'src/app/services/selfie-student.service';
-import { Student } from 'src/entities/student';
 
 @Component({
   selector: 'app-profile-component',

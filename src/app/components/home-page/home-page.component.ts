@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { CardStatusService } from 'src/app/services/card-status.service';
 import { SelfieStudent } from 'src/app/services/selfie-student.service';
 import { UploadSelfieService } from 'src/app/services/upload-selfie.service';
-import { Student } from 'src/entities/student';
+import { Student } from 'src/entities/student-davi';
 
 @Component({
   selector: 'app-home-page',
