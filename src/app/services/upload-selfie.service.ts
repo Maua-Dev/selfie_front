@@ -1,24 +1,41 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { Student } from "src/entities/student";
+import { SelfieStudent } from "./selfie-student.service";
 
 @Injectable({
     providedIn: 'root'
 })
 export class UploadSelfieService {
 
-    constructor(private http: HttpClient){ }
+    constructor(private http: HttpClient, private selfieStudent: SelfieStudent){ }
+
+    student !: Student
+    nome !: string
+    ra !: string
+    email !: string
+
+    public getStudent() : any{
+        this.selfieStudent.getStudent().subscribe(response => {
+            this.student = Student.createStudent(response);             //recebe o estudante
+            this.nome = this.student.getNome()
+            this.ra = this.student.getRa()
+            this.email = this.student.getEmail()
+        })
+    } 
 
     public async testSendImageService(selfie:string) {
         let data = {
             'url': 'https://test-selfie-bucket.s3.amazonaws.com/', 
             'fields': <any>{
-                'x-amz-meta-ra': '20010990', 
-                'x-amz-meta-name': 'DAVI FERNANDES SIMOES SOARES', 
-                'x-amz-meta-email': '20.01099-0@maua.br', 
-                'key': '20010990/selfie-2022-11-10-20:31:35-71887.jpeg', 
+                'x-amz-meta-ra': '21010757',    
+                'x-amz-meta-name': 'JOAO VITOR CHOUERI BRANCO',   
+                'x-amz-meta-email': '21.01075-7@maua.br',  
+                'key': '21010757/selfie-2022-11-17-17:53:11-650c2.jpeg', 
                 'AWSAccessKeyId': 'AKIAT26XMTD74XSJ5FPO', 
-                'policy':'eyJleHBpcmF0aW9uIjogIjIwMjItMTEtMTRUMjM6MzE6MzVaIiwgImNvbmRpdGlvbnMiOiBbeyJ4LWFtei1tZXRhLXJhIjogIjIwMDEwOTkwIn0sIHsieC1hbXotbWV0YS1uYW1lIjogIkRBVkkgRkVSTkFOREVTIFNJTU9FUyBTT0FSRVMifSwgeyJ4LWFtei1tZXRhLWVtYWlsIjogIjIwLjAxMDk5LTBAbWF1YS5iciJ9LCB7ImJ1Y2tldCI6ICJ0ZXN0LXNlbGZpZS1idWNrZXQifSwgeyJrZXkiOiAiMjAwMTA5OTAvc2VsZmllLTIwMjItMTEtMTAtMjA6MzE6MzUtNzE4ODcuanBlZyJ9XX0=', 'signature': 'VkhUmndai09Ue2UYe8jEyQSnAsw='
+                'policy':'eyJleHBpcmF0aW9uIjogIjIwMjItMTEtMjFUMjA6NTM6MTFaIiwgImNvbmRpdGlvbnMiOiBbeyJ4LWFtei1tZXRhLXJhIjogIjIxMDEwNzU3In0sIHsieC1hbXotbWV0YS1uYW1lIjogIkpPQU8gVklUT1IgQ0hPVUVSSSBCUkFOQ08ifSwgeyJ4LWFtei1tZXRhLWVtYWlsIjogIjIxLjAxMDc1LTdAbWF1YS5iciJ9LCB7ImJ1Y2tldCI6ICJ0ZXN0LXNlbGZpZS1idWNrZXQifSwgeyJrZXkiOiAiMjEwMTA3NTcvc2VsZmllLTIwMjItMTEtMTctMTc6NTM6MTEtNjUwYzIuanBlZyJ9XX0=', 
+                'signature': 'ElmTjCrcIThs08E7JspOVcf2bCU='
             }
         }
   
