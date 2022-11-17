@@ -23,10 +23,12 @@ import { StateDisplayIconsComponent } from './components/state-display-icons/sta
 import { FetchSelfieService } from './services/fetch-selfie.service';
 import { FetchSelfieMockService } from './services/fetch-selfie-mock.service';
 import { FilterListsButtonsComponent } from './components/filter-lists-buttons/filter-lists-buttons.component';
+import { TelaLoginComponent } from './pages/tela-login/tela-login/tela-login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    TelaLoginComponent,
   ],
   imports: [
     BrowserModule,
