@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./tela-login.component.css']
 })
 export class TelaLoginComponent {
-
+  hide:boolean = true;
 }
