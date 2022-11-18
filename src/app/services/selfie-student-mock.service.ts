@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
@@ -9,8 +10,7 @@ import { SelfieStudent } from './selfie-student.service';
 export class SelfieStudentMockService implements SelfieStudent {
   private selfie: string = '';
 
-  private readonly baseURL: string =
-    'https://idxd34yq6k.execute-api.us-east-1.amazonaws.com/prod/mss-student';
+  private readonly baseURL: string = environment.BASE_URL_ESTUDANTE_DOMAIN
 
   constructor(private http: HttpClient) {}
 

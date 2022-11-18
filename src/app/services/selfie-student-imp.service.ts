@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -7,8 +8,7 @@ import { SelfieStudent } from './selfie-student.service';
   providedIn: 'root',
 })
 export class SelfieStudentImp implements SelfieStudent {
-  private readonly baseURL: string =
-    'https://idxd34yq6k.execute-api.us-east-1.amazonaws.com/prod/mss-student';
+  private readonly baseURL: string = environment.BASE_URL_ESTUDANTE_DOMAIN
 
   constructor(private http: HttpClient) {}
 

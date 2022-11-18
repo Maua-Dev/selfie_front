@@ -9,7 +9,7 @@ import { FetchStudent } from './fetch-student';
   providedIn: 'root',
 })
 export class FetchStudentFromBackendService implements FetchStudent {
-  private readonly url = environment.BASE_URL;
+  private readonly url = environment.BASE_URL_ADM_DOMAIN;
 
   constructor(private http: HttpClient) {}
 
