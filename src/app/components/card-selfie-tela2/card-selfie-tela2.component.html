@@ -1,0 +1,23 @@
+<section>
+    <div class="container">
+        <ul>
+            <p class="welcome-msg">
+                HORA DA SELFIE
+            </p>
+            <div class="webcam">
+                <img *ngIf="foto" height={{h}} width={{w}} [src]="previewImage" >
+                <webcam *ngIf="webcam" [trigger]="$trigger" (imageCapture)="snapshot($event)" [height]="450" [width]="300"></webcam>
+            </div>
+            <div *ngIf="webcam">
+                <button class="botao-tirar-foto" (click)="tirarFoto()">TIRAR</button>  <!-- 1) click acionar funcao (click)="criarStatus()" -->
+            </div>
+            <div class="botoes-posicao" *ngIf="foto">
+                <ul class="botao-posicao">
+                    <button style="margin-right: 2vw;" class="botao" (click)="tirarFoto()">REPETIR</button>  
+                    <button class="botao" (click)="confirmarFoto()" routerLink="/aluno">CONFIRMAR</button>
+                </ul>
+            </div>
+            <a (click)="popUp()">Reler <span [ngStyle]="{'font-weight':700}">Condições</span></a>
+        </ul>
+    </div>
+</section>

@@ -9,7 +9,7 @@ import { UpdateSelfieStateService } from './update-selfie-state.service';
 export class UpdateSelfieStateBackendService
   implements UpdateSelfieStateService
 {
-  private readonly url = environment.BASE_URL;
+  private readonly url = environment.BASE_URL_ADM_DOMAIN;
   constructor(private http: HttpClient) {}
   UpdateSelfieState(
     ra: string,

@@ -4,7 +4,7 @@ import { VisualizarFotoAlunoComponent } from './visualizar-foto-aluno.component'
 
 const routes: Routes = [
   {path:'',redirectTo:'/maua',pathMatch:'full'},
-  { path: 'maua', component:  VisualizarFotoAlunoComponent}
+  { path: 'maua', component:  VisualizarFotoAlunoComponent},
 ];
 
 @NgModule({

@@ -1,0 +1,25 @@
+<section>
+    <div *ngIf="statusCard === 'NEED_TO_SEND'">
+        <app-card-status-inicial></app-card-status-inicial>
+    </div>
+    <div *ngIf="statusCard !== 'NEED_TO_SEND'">      
+        <ul *ngFor="let card of cards">
+            <li *ngIf="card.getSituacao() === 'Pendente'">
+                <p class="titulo-card-status">Selfie #{{card.getId()}}</p>
+                <p class="status">Enviado em: {{card.getData()}}</p>
+                <p class="status">Situação: <span [ngStyle]="{'color':'orange'}">Pendente</span></p>
+            </li>
+            <li *ngIf="card.getSituacao() === 'DECLINED'">
+                <p class="titulo-card-status">Selfie #{{card.getId()}}</p>
+                <p class="status">Enviado em: {{card.getData()}}</p>
+                <p class="status">Situação: <span [ngStyle]="{'color':'red'}">Reprovado</span></p>
+                <p class="status">Motivo: {{card.getMotivo()}}</p>
+            </li>
+            <li *ngIf="card.getSituacao() === 'APPROVED'">
+                <p class="titulo-card-status">Selfie #{{card.getId()}}</p>
+                <p class="status">Enviado em: {{card.getData()}}</p>
+                <p class="status">Situação: <span [ngStyle]="{'color':'green'}">Aprovado</span></p>
+            </li>
+        </ul>
+    </div>
+</section>

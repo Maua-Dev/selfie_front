@@ -1,0 +1,52 @@
+section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2vh;
+}
+
+div {
+    top:13vh;
+    width: 100%;
+    height: fit-content;
+}
+
+ul {
+    padding:1vh 2vw;
+    margin: 0;
+    background-color: rgba(224,224,229, 0.4);
+    border-radius: 10px;
+    margin-bottom: 1em;
+}
+
+li{
+    list-style: none;
+}
+
+li p{
+    margin: 0.5vh;
+    color:#022893;
+}
+
+.titulo-card-status{
+    font-size: 16px;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 700;
+}
+
+.status-box{
+    display: flex;
+    flex-direction: column;
+}
+
+.status { 
+    font-size: 14px;
+}
+
+@media(min-width: 820px){
+    div{
+        width: 500px;
+    }
+    ul{
+        padding: 6px 8px;
+    }
+}
