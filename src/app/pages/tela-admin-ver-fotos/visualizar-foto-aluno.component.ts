@@ -1,6 +1,6 @@
 import { FetchStudent } from '../../services/fetch-student';
 import { Component, OnInit } from '@angular/core';
-import { Student } from 'src/entities/student';
+import { Student } from 'src/entities/student-admin-domain';
 import { Selfie } from 'src/entities/selfie';
 import { FetchSelfieService } from 'src/app/services/fetch-selfie.service';
 
