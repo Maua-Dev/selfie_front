@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
 import { CardStatusService } from 'src/app/services/card-status.service';
 import { SelfieStudent } from 'src/app/services/selfie-student.service';
 import { UploadSelfieService } from 'src/app/services/upload-selfie.service';

@@ -3,8 +3,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { WebcamImage, WebcamInitError } from 'ngx-webcam';
 import { lastValueFrom, Observable, Subject } from 'rxjs';
 import { PopupComponent } from '../popup/popup.component';
-import { ActivatedRoute, Router, ParamMap } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { SelfieStudent } from 'src/app/services/selfie-student.service';
 import { CardStatusService } from 'src/app/services/card-status.service';
 import { UploadSelfieService } from 'src/app/services/upload-selfie.service';

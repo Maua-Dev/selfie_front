@@ -1,4 +1,4 @@
-import { FetchStudent } from './../../services/fetch-student';
+import { FetchStudent } from '../../services/fetch-student';
 import { Component, OnInit } from '@angular/core';
 import { Student } from 'src/entities/student';
 import { Selfie } from 'src/entities/selfie';
@@ -25,7 +25,7 @@ export class VisualizarFotoAlunoComponent implements OnInit {
   constructor(
     private fetchStudentService: FetchStudent,
     private fetchSelfieService: FetchSelfieService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.GetSelfiesList();
@@ -38,13 +38,12 @@ export class VisualizarFotoAlunoComponent implements OnInit {
   }
 
   GetSelfiesList(): void {
-    this.fetchSelfieService.FetchAllSelfies()
-      .subscribe((resp: Selfie[]) => {
-        this._selfiesList = resp;
-        this.selfiesListFiltered = this._selfiesList.slice();
+    this.fetchSelfieService.FetchAllSelfies().subscribe((resp: Selfie[]) => {
+      this._selfiesList = resp;
+      this.selfiesListFiltered = this._selfiesList.slice();
 
-        this.FilterSelfiesLists();
-      });
+      this.FilterSelfiesLists();
+    });
   }
 
   GetStudentsList(): void {
@@ -70,7 +69,7 @@ export class VisualizarFotoAlunoComponent implements OnInit {
       this._studentsList = studentsList;
       this.studentsListFiltered = this._studentsList.slice();
 
-      this.FilterStudentsLists()
+      this.FilterStudentsLists();
     });
   }
 
@@ -115,7 +114,7 @@ export class VisualizarFotoAlunoComponent implements OnInit {
       //Ativando filtro
       this._currentActivatedStudentsFilters.push(status);
 
-      this.FilterStudentsLists()
+      this.FilterStudentsLists();
     } else {
       //Desativando filtro
       this._currentActivatedStudentsFilters.splice(
@@ -128,8 +127,7 @@ export class VisualizarFotoAlunoComponent implements OnInit {
         return;
       }
 
-      this.FilterStudentsLists()
-
+      this.FilterStudentsLists();
     }
   }
 

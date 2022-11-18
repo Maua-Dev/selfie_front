@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Form, FormBuilder } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { CardSelfieComponent } from '../card-selfie/card-selfie.component';
 
