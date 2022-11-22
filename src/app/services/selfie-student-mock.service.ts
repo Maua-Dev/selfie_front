@@ -14,12 +14,18 @@ export class SelfieStudentMockService implements SelfieStudent {
 
   constructor(private http: HttpClient) {}
 
-  private studentRA: string = '21010757';
+  private studentRA: string = '20010990';
 
   public getStudent(): Observable<any> {
     return this.http.get<any>(
       `${this.baseURL}/get-student?ra=${this.studentRA}`
     );
+  }
+
+  public getStudentAndSelfie() : Observable<any>{
+    return this.http.get<any>(
+      `${this.baseURL}/get-selfies-by-ra?ra=${this.studentRA}`
+    )
   }
 
   public getSelfie(): string {

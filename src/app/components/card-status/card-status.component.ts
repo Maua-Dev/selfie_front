@@ -22,9 +22,6 @@ export class CardStatusComponent{
       this.cardStatusService.gettingJson().subscribe((response : any) => {
         this.cards = this.cardStatusService.showCards(response)
         this.statusCard = this.cards[this.cards.length-1].getSituacao()
-        //this.cardStatusService.sendingStatus(this.statusCard)   //enviando o status para o service
-        console.log(this.cards)
-        console.log(this.statusCard)
       })
   }
 }

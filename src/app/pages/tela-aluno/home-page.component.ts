@@ -11,10 +11,10 @@ import { Student } from 'src/entities/student-aluno-domain';
   styleUrls: ['./home-page.component.css'],
 })
 export class HomePageComponent implements OnInit {
-  nome!: any;
-  ra!: any;
-  email!: any;
-  student!: any;
+  nome!: string;
+  ra!: string;
+  email!: string;
+  student!: Student;
   statusCamera!: boolean;
 
   constructor(
@@ -38,6 +38,7 @@ export class HomePageComponent implements OnInit {
 
   public getStudent() {
     this.selfieStudent.getStudent().subscribe((response) => {
+      console.log(response)
       this.student = Student.createStudent(response); //recebe o estudante
       this.nome = this.student.getNome();
       this.ra = this.student.getRa();

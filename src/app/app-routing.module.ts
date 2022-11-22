@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'a',
     loadChildren: () =>
       import('./pages/tela-admin-ver-fotos/visualizar-foto-aluno.module').then(
         (m) => m.VisualizarFotoAlunoModule

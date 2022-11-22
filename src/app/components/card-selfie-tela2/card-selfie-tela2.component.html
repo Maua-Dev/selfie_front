@@ -9,7 +9,7 @@
                 <webcam *ngIf="webcam" [trigger]="$trigger" (imageCapture)="snapshot($event)" [height]="450" [width]="300"></webcam>
             </div>
             <div *ngIf="webcam">
-                <button class="botao-tirar-foto" (click)="tirarFoto()">TIRAR</button>  <!-- 1) click acionar funcao (click)="criarStatus()" -->
+                <button class="botao-tirar-foto" (click)="tirarFoto()">TIRAR</button>  
             </div>
             <div class="botoes-posicao" *ngIf="foto">
                 <ul class="botao-posicao">

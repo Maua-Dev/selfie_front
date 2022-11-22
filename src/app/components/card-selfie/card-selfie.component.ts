@@ -44,7 +44,6 @@ export class CardSelfieComponent implements OnInit {
   termos(){
     if(this.statusCard === 'APPROVED' || this.statusCard === 'Pendente'){
       alert('Voce ja tirou foto!')
-      console.log(this.statusCard)
     }
       this.dialogRef = this.dialog.open(PopupComponent) 
       if(this.dialogRef.nextPage === true)
@@ -62,7 +61,6 @@ export class CardSelfieComponent implements OnInit {
         facingMode: 'user'
       },
     }).then((response) => {
-      console.log('response: ', response)
       this.stream = response
     }).catch(err => {
       this.stream = err
@@ -88,7 +86,6 @@ export class CardSelfieComponent implements OnInit {
     this.cardStatusService.gettingJson().subscribe((response : any) => {
       this.card = this.cardStatusService.showCards(response)
       this.statusCard = this.card[this.card.length-1].getSituacao()
-      console.log(this.statusCard)
     })
   }
 
