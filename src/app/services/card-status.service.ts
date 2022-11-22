@@ -64,11 +64,8 @@ export class CardStatusService {
     // caso não haja selfies no RA
     if(json['selfies'].length === 0){
       let card = this.getInicialCard()
-      console.log(card)
       this.list.push(card)
     }
-    console.log(this.list)
-
     return this.list
   }
 
@@ -81,7 +78,6 @@ export class CardStatusService {
   }
 
   public getStatus(){
-    console.log('get status service: '+this.status)
     return this.status
   }
 

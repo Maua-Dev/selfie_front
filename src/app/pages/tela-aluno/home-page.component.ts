@@ -11,10 +11,10 @@ import { Student } from 'src/entities/student-aluno-domain';
   styleUrls: ['./home-page.component.css'],
 })
 export class HomePageComponent implements OnInit {
-  nome!: any;
-  ra!: any;
-  email!: any;
-  student!: any;
+  nome!: string;
+  ra!: string;
+  email!: string;
+  student!: Student;
   statusCamera!: boolean;
 
   constructor(

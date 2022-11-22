@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
+import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Student } from 'src/entities/student-aluno-domain';
 import { SelfieStudent } from './selfie-student.service';
 
@@ -7,38 +9,47 @@ import { SelfieStudent } from './selfie-student.service';
   providedIn: 'root',
 })
 export class UploadSelfieService {
+
+  private readonly baseURL: string = environment.BASE_URL_ESTUDANTE_DOMAIN
+
   constructor(private http: HttpClient, private selfieStudent: SelfieStudent) {}
 
-  student!: Student;
+  students!: Student;
   nome!: string;
   ra!: string;
   email!: string;
-
+  list !: any[]
+  
   public getStudent(): any {
-    this.selfieStudent.getStudent().subscribe((response) => {
-      this.student = Student.createStudent(response); //recebe o estudante
-      this.nome = this.student.getNome();
-      this.ra = this.student.getRa();
-      this.email = this.student.getEmail();
+    this.selfieStudent.getStudentAndSelfie().subscribe((response) => {
+      this.students = Student.createStudent(response.student); //recebe o estudante
+      this.nome = this.students.getNome();
+      this.ra = this.students.getRa();
+      this.email = this.students.getEmail();
+      this.list = response.selfies.length
     });
   }
 
-  public async testSendImageService(selfie: string) {
-    let data = {
-      url: 'https://test-selfie-bucket.s3.amazonaws.com/',
-      fields: <any>{
-        'x-amz-meta-ra': '21010757',
-        'x-amz-meta-name': 'JOAO VITOR CHOUERI BRANCO',
-        'x-amz-meta-email': '21.01075-7@maua.br',
-        key: '21010757/selfie-2022-11-17-17:53:11-650c2.jpeg',
-        AWSAccessKeyId: 'AKIAT26XMTD74XSJ5FPO',
-        policy:
-          'eyJleHBpcmF0aW9uIjogIjIwMjItMTEtMjFUMjA6NTM6MTFaIiwgImNvbmRpdGlvbnMiOiBbeyJ4LWFtei1tZXRhLXJhIjogIjIxMDEwNzU3In0sIHsieC1hbXotbWV0YS1uYW1lIjogIkpPQU8gVklUT1IgQ0hPVUVSSSBCUkFOQ08ifSwgeyJ4LWFtei1tZXRhLWVtYWlsIjogIjIxLjAxMDc1LTdAbWF1YS5iciJ9LCB7ImJ1Y2tldCI6ICJ0ZXN0LXNlbGZpZS1idWNrZXQifSwgeyJrZXkiOiAiMjEwMTA3NTcvc2VsZmllLTIwMjItMTEtMTctMTc6NTM6MTEtNjUwYzIuanBlZyJ9XX0=',
-        signature: 'ElmTjCrcIThs08E7JspOVcf2bCU=',
-      },
-    };
+  public requestUpload() : Observable<any>{
+    const body = {
+        'ra':this.ra,
+        'email':this.email,
+        'name':this.nome
+    }
+    return this.http.post(
+      `${this.baseURL}`,body
+    )
+  }
 
-    let base64 = selfie;
+  public async testSendImageService(selfie: string) {
+    console.log('ola')
+    /*this.requestUpload().subscribe((response => {
+      let statusApi = response.status
+      console.log(statusApi)   //retorna o status do post - tem que dar 201
+      console.log(response)
+    }))
+
+    /*let base64 = selfie;
 
     let base64Res = await fetch(base64);
     const blob = await base64Res.blob();
@@ -49,6 +60,6 @@ export class UploadSelfieService {
     formdata.append('file', blob);
     this.http.post(data.url, formdata).subscribe((res) => {
       console.log(res);
-    });
+    });*/
   }
 }
