@@ -1,4 +1,5 @@
-import { Student } from 'src/entities/student-admin-domain';
+import { Student } from "./student-admin-domain";
+
 export class Selfie {
   constructor(
     public idSelfie: number,
