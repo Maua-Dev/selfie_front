@@ -1,4 +1,5 @@
 import { HttpClient } from '@angular/common/http';
+import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Card } from 'src/entities/card';
@@ -9,14 +10,14 @@ import { Card } from 'src/entities/card';
 export class CardStatusService {
 
   id : number = 0
-  private readonly baseURL : string = 'https://idxd34yq6k.execute-api.us-east-1.amazonaws.com/prod/mss-student';
-  private studentRA : string = '17090212' //'17090212  21010757'  
+  private readonly baseURL : string = environment.BASE_URL_ESTUDANTE_DOMAIN
+  private studentRA : string = '20010990' //'17090212  21010757'  
 
   constructor(private http: HttpClient) { }
 
   // FAZ A REQUISICAO HTTP GET INFORMACOES DA SELFIE
   public gettingJson() : Observable<any>{
-    return this.http.get<any>(`${this.baseURL}/get-selfies-by-ra?ra=${this.studentRA}`)
+    return this.http.get<any>(`https://vi7brr3n86.execute-api.us-east-1.amazonaws.com/prod/mss-student/get-selfies-by-ra?ra=${this.studentRA}`)
   }
 
   // PEGA O CARD INICIAL 
@@ -30,14 +31,14 @@ export class CardStatusService {
   public showCards(json : any) : any{
     this.list = []
     var motivo !: string
-    
+   
     // caso ja haja selfies no RA
     if(json['selfies'].length !==0){
       for(var i : number = 0; i < json['selfies'].length; i++){
         // pegando as datas! 
-          let data = json['selfies'][i]['dateUpload'].substring(8,10)
-          let mes = json['selfies'][i]['dateUpload'].substring(5,7)
-          let ano = json['selfies'][i]['dateUpload'].substring(0,4)
+          let data = json['selfies'][i]['dateCreated'].substring(8,10)
+          let mes = json['selfies'][i]['dateCreated'].substring(5,7)
+          let ano = json['selfies'][i]['dateCreated'].substring(0,4)
           
           let date = `${data}/${mes}/${ano}`
           
