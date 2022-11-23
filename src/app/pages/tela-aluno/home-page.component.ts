@@ -26,6 +26,7 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.getStudent();
+    this.uploadSelfie.getStudent()
     //this.showStatusLastCard()
   }
 
@@ -38,7 +39,7 @@ export class HomePageComponent implements OnInit {
 
   public getStudent() {
     this.selfieStudent.getStudent().subscribe((response) => {
-      console.log(response)
+//      console.log(response)
       this.student = Student.createStudent(response); //recebe o estudante
       this.nome = this.student.getNome();
       this.ra = this.student.getRa();
