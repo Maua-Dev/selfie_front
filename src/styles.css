@@ -1,36 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
-html, body { height: 98.5%; }
-body { margin: 0;  padding: 0;}
-
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
-
-*{
-    font-family: 'Noto Sans', sans-serif;
-
+.mat-dialog-container {
+  border-radius: 10px !important;
 }
 
-.clickable{
-    cursor: pointer;
+html,
+body {
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+body {
+  font-family: "Noto Sans", sans-serif;
 }
 
-h1,h2,h3,h4{
-    color: #022893;
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-h1{
-    font-weight: 700;
-    font-size: 24px;
-}
+@media (min-width: 821px) {
 
-h2{
-    font-weight: 700;
-    font-size: 22px;
-}
+  .tela-aluno *{
+    max-width: 821px;
+  }
 
-h3{
-    font-size: 18px;
-}
-
-h4{
-    font-size: 16px;
+  .tela-aluno .background {
+    width: 821px;
+  }
+  .tela-aluno .background2 {
+    width: 821px;
+  }
 }

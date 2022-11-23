@@ -1,6 +1,6 @@
 import { Selfie } from 'src/entities/selfie';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Student } from 'src/entities/student';
+import { Student } from 'src/entities/student-admin-domain';
 import { UpdateSelfieStateService } from 'src/app/services/update-selfie-state.service';
 
 @Component({
@@ -10,18 +10,17 @@ import { UpdateSelfieStateService } from 'src/app/services/update-selfie-state.s
 })
 export class StudentCardComponent implements OnInit {
   @Input() public selfieToDisplay!: Selfie;
-  studentSelfie! : Student
+  studentSelfie!: Student;
 
-  @Output() OnSetSelfieStateEvent: EventEmitter<any> = new EventEmitter()
+  @Output() OnSetSelfieStateEvent: EventEmitter<any> = new EventEmitter();
 
   private recuseReasons: any = {
     NOT_ALLOWED_BACKGROUND: false,
-    COVERED_FACE : false,
-    NO_PERSON_RECOGNIZED : false,
+    COVERED_FACE: false,
+    NO_PERSON_RECOGNIZED: false,
   };
 
-  constructor(private updateSelfieService: UpdateSelfieStateService) {
-  }
+  constructor(private updateSelfieService: UpdateSelfieStateService) {}
 
   SetSelfieState(newState: string): void {
     let newRecuseReasons: string[] = [];
@@ -40,11 +39,11 @@ export class StudentCardComponent implements OnInit {
       ''
     );
     console.log(this.recuseReasons);
-    this.OnSetSelfieStateEvent.emit()
+    this.OnSetSelfieStateEvent.emit();
   }
 
   ngOnInit(): void {
-    this.studentSelfie = this.selfieToDisplay.student!
+    this.studentSelfie = this.selfieToDisplay.student!;
   }
 
   setReproveReason(reason: string) {

@@ -3,8 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { VisualizarFotoAlunoComponent } from './visualizar-foto-aluno.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:'/maua',pathMatch:'full'},
-  { path: 'maua', component:  VisualizarFotoAlunoComponent}
+  // {path:'',redirectTo:'/maua',pathMatch:'full'},
+  { path: '', component:  VisualizarFotoAlunoComponent},
 ];
 
 @NgModule({

@@ -1,16 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Student } from 'src/entities/student';
+import { Student } from 'src/entities/student-admin-domain';
 
 @Component({
   selector: 'app-situation-rectangle',
   templateUrl: './situation-rectangle.component.html',
-  styleUrls: ['./situation-rectangle.component.css']
+  styleUrls: ['./situation-rectangle.component.css'],
 })
 export class SituationRectangleComponent implements OnInit {
+  @Input() public studentToDisplay!: Student;
 
-  @Input() public studentToDisplay! : Student
-
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     // this.studentToDisplay.uploadedSelfiesList!.forEach(selfie => {
@@ -26,9 +25,7 @@ export class SituationRectangleComponent implements OnInit {
     //     this.studentState = "PENDING_REVIEW"
     //     return
     //   }
-    
     //   this.studentState = 'IN_REVIEW'
     // });
   }
-
 }

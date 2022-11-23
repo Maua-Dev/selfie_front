@@ -1,6 +1,6 @@
 import { Selfie } from 'src/entities/selfie';
 import { FetchStudent } from './fetch-student';
-import { Student } from '../../entities/student';
+import { Student } from '../../entities/student-admin-domain';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 

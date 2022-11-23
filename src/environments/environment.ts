@@ -1,11 +1,15 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
-const _BASE_URL = 'https://l975vn092c.execute-api.sa-east-1.amazonaws.com/prod/mss-student';
+const _BASE_URL_ADM_DOMAIN =
+  'https://vi7brr3n86.execute-api.us-east-1.amazonaws.com/prod/mss-student';
+const _BASE_URL_ESTUDANTE_DOMAIN =
+  'https://vi7brr3n86.execute-api.us-east-1.amazonaws.com/prod/mss-student';
 
 export const environment = {
   production: false,
-  BASE_URL: _BASE_URL,
+  BASE_URL_ADM_DOMAIN: _BASE_URL_ADM_DOMAIN,
+  BASE_URL_ESTUDANTE_DOMAIN:_BASE_URL_ESTUDANTE_DOMAIN
 };
 
 /*
