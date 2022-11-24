@@ -8,7 +8,7 @@
                 <img *ngIf="foto" height={{h}} width={{w}} [src]="previewImage" >
                 <webcam *ngIf="webcam" [trigger]="$trigger" (imageCapture)="snapshot($event)" [height]="450" [width]="300"></webcam>
             </div>
-            <div *ngIf="webcam">
+            <div *ngIf="webcam" class="botoes-posicao1">
                 <button class="botao-tirar-foto" (click)="tirarFoto()">TIRAR</button>  
             </div>
             <div class="botoes-posicao" *ngIf="foto">

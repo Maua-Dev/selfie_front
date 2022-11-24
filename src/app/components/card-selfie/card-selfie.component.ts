@@ -27,46 +27,10 @@ export class CardSelfieComponent implements OnInit {
   dialogRef2 !: any
 
   ngOnInit(): void {
-    this.getSelfie()
     this.getStatus()
     this.popUpNavigationPerm()
   }
-
-  async getSelfie(){
-    this.foto = this.selfieService.getSelfie()
-    if(this.foto != ''){
-      this.tamanho = 'auto'
-      this.marginTop = '2vh'
-      this.marginBottom = '1vh'
-    }
-  }
   
-  termos(){
-    if(this.statusCard === 'APPROVED' || this.statusCard === 'Pendente'){
-      alert('Voce ja tirou foto!')
-    }
-      this.dialogRef = this.dialog.open(PopupComponent) 
-      if(this.dialogRef.nextPage === true)
-        this.dialogRef.popup
-  
-  }
-
-  ativarNovamente(){
-    this.dialogRef2 = this.dialog.open(PopupAtivarCameraComponent)
-  }
-
-  popUpNavigationPerm(){
-    navigator.mediaDevices.getUserMedia({
-      video: {
-        facingMode: 'user'
-      },
-    }).then((response) => {
-      this.stream = response
-    }).catch(err => {
-      this.stream = err
-    })
-  }
-
   checkPermissions(){
     let permissionName = "camera" as PermissionName
     navigator.permissions.query({ name : permissionName }).then(result => {
@@ -80,13 +44,45 @@ export class CardSelfieComponent implements OnInit {
     })
   }
   
+  termos(){
+    if(this.statusCard === 'APPROVED' || this.statusCard === 'PENDING_REVIEW'){
+      alert('Voce ja tirou foto!')
+    }
+      this.dialogRef = this.dialog.open(PopupComponent) 
+      if(this.dialogRef.nextPage === true)
+        this.dialogRef.popup
+  
+  }
+
+  ativarNovamente(){
+    this.dialogRef2 = this.dialog.open(PopupAtivarCameraComponent)
+  }
+  
+  popUpNavigationPerm(){
+    navigator.mediaDevices.getUserMedia({
+      video: {
+        facingMode: 'user'
+      },
+    }).then((response) => {
+      this.stream = response
+    }).catch(err => {
+      this.stream = err
+    })
+  }
+
+  
   card : Card[] = []
 
   public getStatus(){
     this.cardStatusService.gettingJson().subscribe((response : any) => {
       this.card = this.cardStatusService.showCards(response)
       this.statusCard = this.card[this.card.length-1].getSituacao()
-      console.log(this.card)
+      this.foto = this.card[this.card.length-1].getSelfie()
+      if(this.foto != ''){
+        this.tamanho = 'auto'
+        this.marginTop = '2vh'
+        this.marginBottom = '1vh'
+      }
     })
   }
 

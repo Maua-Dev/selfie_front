@@ -62,9 +62,7 @@ export class CardStatusService {
             else{
               motivo = json['selfies'][i]['rejectionReasons']
             }
-          
-          console.log(json['selfies'][i]['rejectionReasons'])
-  
+            
           let card = new Card(
               json['selfies'][i]['idSelfie'],
               date,       

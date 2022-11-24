@@ -9,6 +9,7 @@ import { CardStatusInicialComponent } from 'src/app/components/card-status-inici
 import { CardStatusComponent } from 'src/app/components/card-status/card-status.component';
 import { PopupAtivarCameraComponent } from 'src/app/components/popup-ativar-camera/popup-ativar-camera.component';
 import { PopupComponent } from 'src/app/components/popup/popup.component';
+import { PopupComponent2 } from 'src/app/components/popup2/popup2.component';
 import { ProfileComponentComponent } from 'src/app/components/profile-component/profile-component.component';
 import { TelaTirarSelfieComponent } from 'src/app/components/tela-tirar-selfie/tela-tirar-selfie.component';
 import { TituloPaginaComponent } from 'src/app/components/titulo-pagina/titulo-pagina.component';
@@ -32,6 +33,7 @@ import { UploadSelfieService } from 'src/app/services/upload-selfie.service';
     CardStatusComponent,
     BackgroundGreyComponent,
     PopupComponent,
+    PopupComponent2,
     TelaTirarSelfieComponent,
     HomePageComponent,
     CardSelfieTela2Component,

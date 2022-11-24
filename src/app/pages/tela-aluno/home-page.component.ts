@@ -35,13 +35,11 @@ export class HomePageComponent implements OnInit {
     this.selfieStudent.getStudent().subscribe((response) => {
       this.student = Student.createStudent(response); 
       this.tratarNome(this.student.getNome())
-      this.ra = this.student.getRa();
-      this.email = this.student.getEmail();
     });
   }
 
   public tratarNome(nomeCompleto:string){
-    let primeiroNome = nomeCompleto.split(" ")[0] //.toLowerCase().substring(1,nome.length)
+    let primeiroNome = nomeCompleto.split(" ")[0] 
     let primeiroNomeLowerCase = primeiroNome.toLowerCase()
     let primeiraLetraUpperCase = primeiroNome[0].toUpperCase()
     let restoNomeLowerCase = primeiroNomeLowerCase.substring(1,primeiroNome.length)
