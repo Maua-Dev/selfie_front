@@ -64,11 +64,8 @@ export class CardSelfieTela2Component implements OnInit {
 
   async confirmarFoto() {
     alert('Foto feita!')
-    this.statusCardService.createCards()
     let selfieBase64 = await this.sendingPhoto()
     this.uploadSelfie.testSendImageService(selfieBase64)
-    //this.statusCardService
-    
   }
 
 }

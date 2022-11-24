@@ -86,6 +86,7 @@ export class CardSelfieComponent implements OnInit {
     this.cardStatusService.gettingJson().subscribe((response : any) => {
       this.card = this.cardStatusService.showCards(response)
       this.statusCard = this.card[this.card.length-1].getSituacao()
+      console.log(this.card)
     })
   }
 
