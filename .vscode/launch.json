@@ -3,11 +3,16 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "ng serve",
-      "type": "pwa-chrome",
+      "name": "Launch Angular",
+      "type": "chrome",
       "request": "launch",
       "preLaunchTask": "npm: start",
-      "url": "http://localhost:4200/"
+      "url": "http://localhost:4200/",
+      "webRoot": "${workspaceFolder}",
+      "env": {
+        "BASE_URL_ADM_DOMAIN": "https://vi7brr3n86.execute-api.us-east-1.amazonaws.com/prod/mss-student",
+        "BASE_URL_ESTUDANTE_DOMAIN": "https://vi7brr3n86.execute-api.us-east-1.amazonaws.com/prod/mss-student"
+      }
     },
     {
       "name": "ng test",
@@ -15,6 +20,7 @@
       "request": "launch",
       "preLaunchTask": "npm: test",
       "url": "http://localhost:9876/debug.html"
-    }
+    },
+    
   ]
 }

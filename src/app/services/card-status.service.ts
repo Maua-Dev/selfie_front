@@ -10,7 +10,7 @@ import { Card } from 'src/entities/card';
 export class CardStatusService {
 
   id : number = 0
-  private readonly baseURL : string = environment.BASE_URL_ESTUDANTE_DOMAIN
+  private readonly baseURL : string | undefined = environment.BASE_URL_ESTUDANTE_DOMAIN
   private studentRA : string = '20010990' //'17090212  21010757'  
 
   constructor(private http: HttpClient) { }

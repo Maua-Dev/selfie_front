@@ -10,7 +10,7 @@ import { SelfieStudent } from './selfie-student.service';
 export class SelfieStudentMockService implements SelfieStudent {
   private selfie: string = '';
 
-  private readonly baseURL: string = environment.BASE_URL_ESTUDANTE_DOMAIN
+  private readonly baseURL: string | undefined = environment.BASE_URL_ESTUDANTE_DOMAIN
 
   constructor(private http: HttpClient) {}
 
