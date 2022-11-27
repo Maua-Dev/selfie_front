@@ -20,7 +20,10 @@ import { SelfieStudent } from 'src/app/services/selfie-student.service';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
 import { WebcamModule } from 'ngx-webcam';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { UploadSelfieService } from 'src/app/services/upload-selfie.service';
+import { LoadingComponent } from 'src/app/components/loading/loading.component';
+
 
 
 
@@ -38,13 +41,13 @@ import { UploadSelfieService } from 'src/app/services/upload-selfie.service';
     HomePageComponent,
     CardSelfieTela2Component,
     CardStatusInicialComponent,
+    LoadingComponent,
     PopupAtivarCameraComponent,
   ],
   imports: [
     CommonModule,
     TelaAlunoRoutingModule,
-
-    
+    MatProgressSpinnerModule,
     MatDialogModule,
     MatCheckboxModule,
     WebcamModule,
