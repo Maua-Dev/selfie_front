@@ -16,7 +16,7 @@ class SelfieFrontStack(Stack):
     root_directory = Path(__file__).parent.parent.parent
     print(f"Root directory: {root_directory}")
 
-    subprocess.run("ng build --configuration production", cwd=root_directory, shell=True, check=True)
+    subprocess.run("npm run build:prod", cwd=root_directory, shell=True, check=True)
 
     return os.path.join(root_directory, "dist/selfie-front")
 
