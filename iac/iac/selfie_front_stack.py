@@ -18,7 +18,7 @@ class SelfieFrontStack(Stack):
 
     subprocess.run("ng build --configuration production", cwd=root_directory, shell=True, check=True)
 
-    return os.path.join(root_directory, "dist/selfie-maua-front")
+    return os.path.join(root_directory, "dist/selfie-front")
 
   def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
     super().__init__(scope, construct_id, **kwargs)
