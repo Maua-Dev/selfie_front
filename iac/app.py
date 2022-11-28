@@ -9,7 +9,7 @@ from iac.selfie_front_stack import SelfieFrontStack
 app = cdk.App()
 SelfieFrontStack(app, "SelfieFrontStack",
                   env=cdk.Environment(
-                      account="264055331071",
+                      account=os.environ["AWS_ACCOUNT_ID"],
                       region="us-east-2",
                   )
     )
