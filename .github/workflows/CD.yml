@@ -24,16 +24,19 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
           role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/GithubActionsRole
           role-session-name: github-action
-
+          
+      - name: Install Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.8
+      - name: npm dependencies
+        run: npm install
 
       - name: Installing Dependencies
         run: |
           npm install -g aws-cdk
           cd iac
           pip install -r requirements.txt
-
-      - name: Setup node modules
-        run: npm install
 
       - name: DeployWithCDK
         run: |
