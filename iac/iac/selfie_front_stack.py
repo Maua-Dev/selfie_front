@@ -37,6 +37,7 @@ class SelfieFrontStack(Stack):
                                    access_control=aws_s3.BucketAccessControl.PRIVATE,
                                    removal_policy=RemovalPolicy.DESTROY,
                                    auto_delete_objects=True,
+                                   website_index_document="index.html",
                                    )
 
     oai = aws_cloudfront.OriginAccessIdentity(self, "Selfie_Frontend_OAI")
@@ -47,7 +48,8 @@ class SelfieFrontStack(Stack):
                                                                default_behavior=aws_cloudfront.BehaviorOptions(
                                                                  origin=aws_cloudfront_origins.S3Origin(
                                                                    self.s3_bucket,
-                                                                   origin_access_identity=oai),
+                                                                   origin_access_identity=oai,
+                                                                 ),
                                                                  # origin_request_policy=aws_cloudfront.OriginRequestPolicy.CORS_S3_ORIGIN,
                                                                  # viewer_protocol_policy=aws_cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
                                                                  # response_headers_policy=aws_cloudfront.ResponseHeadersPolicy.CORS_ALLOW_ALL_ORIGINS,
@@ -55,7 +57,14 @@ class SelfieFrontStack(Stack):
                                                                  # allowed_methods=aws_cloudfront.AllowedMethods.ALLOW_ALL
                                                                ),
                                                                comment="Selfie Frontend Distribution",
-                                                               default_root_object="index.html",
+                                                               error_responses=[
+                                                                 aws_cloudfront.ErrorResponse(
+                                                                   http_status=403,
+                                                                   response_http_status=200,
+                                                                   response_page_path="/index.html",
+                                                                 )
+                                                               ],
+                                                               default_root_object="index.html"
                                                                )
 
     build_dir = self.build_angular_project()
@@ -65,8 +74,6 @@ class SelfieFrontStack(Stack):
                                        destination_bucket=self.s3_bucket,
                                        distribution=self.cloudfront_distribution,
                                        )
-
-
 
     s3_name_output = CfnOutput(self, "S3BucketName",
                                value=self.s3_bucket.bucket_name,
