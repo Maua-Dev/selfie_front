@@ -35,11 +35,11 @@
     <mat-card-footer>
         <div class="footer-content">
             <span *ngIf="selfieToDisplay.state == 'PENDING_REVIEW'">
-                <button class="aprove-btn button" mat-raised-button (click)="SetSelfieState('APROVED')">
+                <button class="aprove-btn button" mat-raised-button (click)="SetSelfieState('APPROVED')">
                     <mat-icon fontIcon="thumb_up"></mat-icon> Aprovar
                 </button>
 
-                <button class="reprove-btn button" mat-raised-button (click)="SetSelfieState('REPROVED')">
+                <button class="reprove-btn button" mat-raised-button (click)="SetSelfieState('DECLINED')">
                     <mat-icon fontIcon="thumb_down"></mat-icon> Reprovar
                 </button>
             </span>

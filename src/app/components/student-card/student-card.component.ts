@@ -37,9 +37,12 @@ export class StudentCardComponent implements OnInit {
       newState,
       newRecuseReasons,
       ''
-    );
-    console.log(this.recuseReasons);
-    this.OnSetSelfieStateEvent.emit();
+    ).subscribe(resp =>{
+      console.log(this.recuseReasons);
+      console.log(resp)
+      this.OnSetSelfieStateEvent.emit();
+    })
+   
   }
 
   ngOnInit(): void {
