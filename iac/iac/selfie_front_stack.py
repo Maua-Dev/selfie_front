@@ -23,13 +23,6 @@ class SelfieFrontStack(Stack):
   def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
     super().__init__(scope, construct_id, **kwargs)
 
-    # The code that defines your stack goes here
-
-    # example resource
-    # queue = sqs.Queue(
-    #     self, "IacQueue",
-    #     visibility_timeout=Duration.seconds(300),
-    # )
 
     self.s3_bucket = aws_s3.Bucket(self, "FrontendBucket",
                                    versioned=True,
@@ -37,7 +30,6 @@ class SelfieFrontStack(Stack):
                                    access_control=aws_s3.BucketAccessControl.PRIVATE,
                                    removal_policy=RemovalPolicy.DESTROY,
                                    auto_delete_objects=True,
-                                   website_index_document="index.html",
                                    )
 
     oai = aws_cloudfront.OriginAccessIdentity(self, "Selfie_Frontend_OAI")
@@ -50,16 +42,18 @@ class SelfieFrontStack(Stack):
                                                                    self.s3_bucket,
                                                                    origin_access_identity=oai,
                                                                  ),
-                                                                 # origin_request_policy=aws_cloudfront.OriginRequestPolicy.CORS_S3_ORIGIN,
-                                                                 # viewer_protocol_policy=aws_cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
-                                                                 # response_headers_policy=aws_cloudfront.ResponseHeadersPolicy.CORS_ALLOW_ALL_ORIGINS,
-                                                                 # cache_policy=aws_cloudfront.CachePolicy.CACHING_OPTIMIZED,
-                                                                 # allowed_methods=aws_cloudfront.AllowedMethods.ALLOW_ALL
+                                                                 allowed_methods=aws_cloudfront.AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
+                                                                 viewer_protocol_policy=aws_cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
                                                                ),
                                                                comment="Selfie Frontend Distribution",
                                                                error_responses=[
                                                                  aws_cloudfront.ErrorResponse(
                                                                    http_status=403,
+                                                                   response_http_status=200,
+                                                                   response_page_path="/index.html",
+                                                                 ),
+                                                                 aws_cloudfront.ErrorResponse(
+                                                                   http_status=404,
                                                                    response_http_status=200,
                                                                    response_page_path="/index.html",
                                                                  )
