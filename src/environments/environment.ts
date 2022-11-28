@@ -3,8 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  BASE_URL_ADM_DOMAIN: process.env['BASE_URL_ADM_DOMAIN'],
+  BASE_URL_ESTUDANTE_DOMAIN: process.env['BASE_URL_ESTUDANTE_DOMAIN']
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file

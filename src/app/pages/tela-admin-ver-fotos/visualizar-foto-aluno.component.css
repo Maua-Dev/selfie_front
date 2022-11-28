@@ -1,0 +1,60 @@
+.body-container {
+  margin: 20px 50px;
+}
+h1 {
+  font-weight: 700;
+  font-size: 24px;
+  margin: 20px 0;
+}
+
+mat-icon{
+  margin-right: 10px;
+}
+
+.tittle-and-icon {
+  margin: 20px 0;
+  color: #022893;
+
+  font-weight: 700;
+  font-size: 22px;
+
+  display: flex;
+  align-items: center;
+}
+
+.filter-buttons {
+  margin-bottom: 10px;
+}
+
+.clean-filters-btn {
+  border: 1px solid #022893;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0);
+  height: 40.99px;
+
+  color: #022893;
+}
+
+.conteiner-clean-filters-btns{
+  position: relative;
+  left: 155px;
+}
+
+.cards-container {
+  overflow: auto;
+  height: 500px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.rect-container {
+  padding-bottom: 50px;
+}
+
+:host ::ng-deep .mat-checkbox-frame { 
+  border-color: rgba(174, 174, 180, 0);
+  background-color: rgb(174, 174, 180);
+}
+

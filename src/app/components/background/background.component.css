@@ -1,0 +1,7 @@
+.background {
+    width: 100%;
+    height: 39.1vh;
+    display: flex;
+    position: relative;
+    background-image: linear-gradient(to right, #02258f, #0264ff);
+}

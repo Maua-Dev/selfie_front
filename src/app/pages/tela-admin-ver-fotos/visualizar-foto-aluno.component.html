@@ -1,0 +1,71 @@
+<div class="body-container">
+  <h1>Avaliação da Selfie</h1>
+
+  <div class="tittle-and-icon">
+    <mat-icon fontIcon="tune"></mat-icon>
+    Filtros
+  </div>
+
+  <div class="row filter-buttons">
+    <div class="col-auto d-flex justify-content-center">
+      <app-filter-lists-buttons [text]="'Para aprovar'" [buttonIsActivated]="selfieFiltersButtons[0]"
+        (click)="FilterSelfieByState(0,'IN_REVIEW')"></app-filter-lists-buttons>
+    </div>
+    <div class="col-auto d-flex justify-content-center">
+      <app-filter-lists-buttons [text]="'Aprovados'" [buttonIsActivated]="selfieFiltersButtons[1]"
+        (click)="FilterSelfieByState(1,'APPROVED')"></app-filter-lists-buttons>
+    </div>
+    <div class="col-auto d-flex justify-content-center">
+      <app-filter-lists-buttons [text]="'Reprovados'" [buttonIsActivated]="selfieFiltersButtons[2]"
+        (click)="FilterSelfieByState(2,'DECLINED')"></app-filter-lists-buttons>
+    </div>
+    <div class="col-6 d-flex justify-content-end align-items-center conteiner-clean-filters-btns">
+      <button mat-button (click)="FilterSelfieByState(-1,'')" class="clean-filters-btn">Limpar filtros</button>
+    </div>
+  </div>
+
+  <div class="cards-container">
+    <span *ngFor="let selfie of selfiesListFiltered">
+      <app-student-card *ngIf="selfie.state != 'PENDING_REVIEW'" [selfieToDisplay]="selfie" (OnSetSelfieStateEvent)="OnSetSelfieState()"></app-student-card>
+
+    </span>
+  </div>
+
+  <h1>Status de envio</h1>
+
+  <div class="tittle-and-icon">
+    <mat-icon fontIcon="tune"></mat-icon>Filtros
+  </div>
+
+  <div class="row filter-buttons">
+    <div class="col-auto d-flex justify-content-center">
+      <app-filter-lists-buttons [text]="'Aprovados'" [buttonIsActivated]="studentsFiltersButtons[0]"
+        (click)="FilterStudentsByStatus(0,'APPROVED')"></app-filter-lists-buttons>
+
+    </div>
+    <div class="col-auto d-flex justify-content-center">
+      <app-filter-lists-buttons [text]="'Reprovados'" [buttonIsActivated]="studentsFiltersButtons[1]"
+        (click)="FilterStudentsByStatus(1,'SELFIE_REJECTED')">
+      </app-filter-lists-buttons>
+    </div>
+    <div class="col-auto d-flex justify-content-center">
+      <app-filter-lists-buttons [text]="'Em Análise'" [buttonIsActivated]="studentsFiltersButtons[2]"
+        (click)="FilterStudentsByStatus(2,'SELFIE_IN_REVIEW')">
+      </app-filter-lists-buttons>
+    </div>
+    <div class="col-auto d-flex justify-content-center">
+      <app-filter-lists-buttons [text]="'Não enviados'" [buttonIsActivated]="studentsFiltersButtons[3]"
+        (click)="FilterStudentsByStatus(3,'NO_SELFIE')">
+      </app-filter-lists-buttons>
+    </div>
+
+  </div>
+
+  <div class="rect-container">
+    <span *ngFor="let student of studentsListFiltered">
+      <app-situation-rectangle *ngIf="student.status != 'SELFIE_PENDING_REVIEW'" [studentToDisplay]="student"></app-situation-rectangle>
+    </span>
+  </div>
+
+
+</div>

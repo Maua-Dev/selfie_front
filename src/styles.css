@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+.mat-dialog-container {
+    border-radius: 10px !important;
+  }
+
+html, body { 
+    height: 100%; 
+    margin-left: auto;
+    margin-right: auto; }
+body { font-family: 'Noto Sans', sans-serif; }
+
+@media(min-width: 821px){
+    *{
+        max-width: 821px;
+    }
+    .background{
+        width: 821px;
+    }
+    .background2{
+        width: 821px;
+    }
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

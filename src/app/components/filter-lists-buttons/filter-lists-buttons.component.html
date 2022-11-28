@@ -1,0 +1,5 @@
+<span *ngIf="!buttonIsActivated;"><button mat-button class="buttonDeactivated">{{text}}<mat-icon fontIcon="add">
+        </mat-icon></button>
+</span>
+
+<span *ngIf="buttonIsActivated;"><button mat-button class="buttonActivated">{{text}}<mat-icon fontIcon="remove"></mat-icon></button></span>

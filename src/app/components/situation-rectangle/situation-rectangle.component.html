@@ -1,0 +1,23 @@
+<div class="d-flex align-items-center rect-container">
+        <div class="col-1">
+            <mat-checkbox [color]="'primary'"></mat-checkbox>
+        </div>
+        <div class="col student-name">
+            {{studentToDisplay.name}}
+        </div>
+        <div class="col-4 student-ra">
+            {{studentToDisplay.email}}
+        </div>
+        <div>
+            Situação: 
+        </div>
+        <div class="col student-situation">
+            <app-state-display-icons [stateToDisplay]="studentToDisplay.status!"></app-state-display-icons>
+        </div>
+        <div class="clickable">
+            <mat-icon fontIcon="outgoing_mail"></mat-icon>
+        </div>
+        <div class="col-2 clickable">
+            Enviar email
+        </div>
+</div>
