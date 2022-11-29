@@ -25,7 +25,7 @@ ul{
 }
 
 .welcome-msg{
-    margin: 0.5vh 0 4.5vh 0;
+    margin: 3.5vh 0 2.5vh 0;
     color: #022893;
     font-weight: bolder;
     font-size: 24px;
@@ -33,7 +33,7 @@ ul{
 } 
 
 .webcam{
-    margin-top: 10vh;
+    margin-top: 8vh;
 }
 
 .placeholder-foto{
@@ -55,6 +55,7 @@ ul{
     width: 58.5vw;
     height: 5vh;
     margin-top: 25vh;
+    display: block;
     border-radius: 14px;
     color:white;
     font-size: 22px;
@@ -62,8 +63,16 @@ ul{
     box-shadow: 0px 2px 4px #494950;
 }
 
+.botoes-posicao1{
+    display:flex;
+    height: 100%;
+    align-items: flex-end;
+}
+
 .botoes-posicao{
     display:flex;
+    height: 100%;
+    align-items: flex-end;
 }
 
 .botao-posicao{
@@ -78,7 +87,6 @@ ul{
     padding: 0;
     width: 32vw;
     height: 5vh;
-    margin-top: 3vh;
     border-radius: 14px;
     color:white;
     font-size: 18px;

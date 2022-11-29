@@ -34,7 +34,6 @@ export class SelfieStudentMockService implements SelfieStudent {
 
   public uploadSelfie(base64Image: string): Observable<any> {
     this.selfie = base64Image;
-    //console.log('upload selfie:', this.selfie)
     return of(this.selfie);
   }
 }

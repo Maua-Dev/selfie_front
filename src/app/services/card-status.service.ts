@@ -3,7 +3,7 @@ import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Card } from 'src/entities/card';
-
+import { Motivos } from 'src/entities/motivos';
 @Injectable({
   providedIn: 'root'
 })
@@ -31,7 +31,7 @@ export class CardStatusService {
   public showCards(json : any) : any{
     this.list = []
     var motivo !: string
-   
+    console.log(json)
     // caso ja haja selfies no RA
     if(json['selfies'].length !==0){
       for(var i : number = 0; i < json['selfies'].length; i++){
@@ -43,13 +43,26 @@ export class CardStatusService {
           let date = `${data}/${mes}/${ano}`
           
           this.status = json['selfies'][i]['state']
-
-          // fazendo o filtro dos motivos! --> fazer enums!!
-          if(json['selfies'][i]['rejectionReason'] === 'COVERED_FACE')
-            motivo = 'Rosto coberto'
-          else
-            motivo = json['selfies'][i]['rejectionReason']
-  
+          
+          // fazendo o filtro dos motivos!
+          if(json['selfies'][i]['rejectionReasons'] in Motivos){
+            for(let j = 0; j < json['selfies'][i]['rejectionReasons'].length; j++){
+              if(json['selfies'][i]['rejectionReasons'][j] === 'NOT_ALLOWED_BACKGROUND')
+                motivo = Motivos.NOT_ALLOWED_BACKGROUND
+              if(json['selfies'][i]['rejectionReasons'][j] === 'COVERED_FACE')
+                motivo = Motivos.COVERED_FACE
+              if(json['selfies'][i]['rejectionReasons'][j] === 'NO_PERSON_RECOGNIZED')
+                motivo = Motivos.NO_PERSON_RECOGNIZED
+              if(json['selfies'][i]['rejectionReasons'][j] === 'OTHER_REASON')
+                motivo = Motivos.OTHER_REASON
+              if(json['selfies'][i]['rejectionReasons'][j] === 'NONE')
+                motivo = Motivos.NONE
+            }
+          } 
+            else{
+              motivo = json['selfies'][i]['rejectionReasons']
+            }
+            
           let card = new Card(
               json['selfies'][i]['idSelfie'],
               date,       
@@ -70,12 +83,9 @@ export class CardStatusService {
     return this.list
   }
 
+  //inutilizado, não há necessidade!
   public createCards() : any{
-
-    //vai criar um card no momento em que ele tira a foto, e nesse momento, cria-se uma classe Card e uma requisicao post
-    // verificar a resposta do back
     let card = new Card(this.id++,'data de hoje','selfie','Pendente','','')   //criando classe card
-    
   }
 
   public getStatus(){
