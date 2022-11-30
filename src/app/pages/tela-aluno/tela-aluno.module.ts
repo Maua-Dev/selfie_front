@@ -9,7 +9,6 @@ import { CardStatusInicialComponent } from 'src/app/components/card-status-inici
 import { CardStatusComponent } from 'src/app/components/card-status/card-status.component';
 import { PopupAtivarCameraComponent } from 'src/app/components/popup-ativar-camera/popup-ativar-camera.component';
 import { PopupComponent } from 'src/app/components/popup/popup.component';
-import { PopupComponent2 } from 'src/app/components/popup2/popup2.component';
 import { ProfileComponentComponent } from 'src/app/components/profile-component/profile-component.component';
 import { TelaTirarSelfieComponent } from 'src/app/components/tela-tirar-selfie/tela-tirar-selfie.component';
 import { TituloPaginaComponent } from 'src/app/components/titulo-pagina/titulo-pagina.component';
@@ -20,10 +19,7 @@ import { SelfieStudent } from 'src/app/services/selfie-student.service';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
 import { WebcamModule } from 'ngx-webcam';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { UploadSelfieService } from 'src/app/services/upload-selfie.service';
-import { LoadingComponent } from 'src/app/components/loading/loading.component';
-
 
 
 
@@ -36,18 +32,17 @@ import { LoadingComponent } from 'src/app/components/loading/loading.component';
     CardStatusComponent,
     BackgroundGreyComponent,
     PopupComponent,
-    PopupComponent2,
     TelaTirarSelfieComponent,
     HomePageComponent,
     CardSelfieTela2Component,
     CardStatusInicialComponent,
-    LoadingComponent,
     PopupAtivarCameraComponent,
   ],
   imports: [
     CommonModule,
     TelaAlunoRoutingModule,
-    MatProgressSpinnerModule,
+
+    
     MatDialogModule,
     MatCheckboxModule,
     WebcamModule,

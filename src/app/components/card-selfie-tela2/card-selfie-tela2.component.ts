@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { WebcamImage, WebcamInitError } from 'ngx-webcam';
 import { lastValueFrom, Observable, Subject } from 'rxjs';
-import { PopupComponent2 } from '../popup2/popup2.component';
+import { PopupComponent } from '../popup/popup.component';
 import { SelfieStudent } from 'src/app/services/selfie-student.service';
 import { CardStatusService } from 'src/app/services/card-status.service';
 import { UploadSelfieService } from 'src/app/services/upload-selfie.service';
@@ -51,7 +51,7 @@ export class CardSelfieTela2Component implements OnInit {
   }
 
   popUp() {
-    this.dialogRef = this.dialog.open(PopupComponent2)   //invocando ele
+    this.dialogRef = this.dialog.open(PopupComponent)   //invocando ele
     console.log(this.dialogRef.nextPage)
     if (this.dialogRef.nextPage === true)
       this.dialogRef.popup
@@ -64,8 +64,11 @@ export class CardSelfieTela2Component implements OnInit {
 
   async confirmarFoto() {
     alert('Foto feita!')
+    this.statusCardService.createCards()
     let selfieBase64 = await this.sendingPhoto()
     this.uploadSelfie.testSendImageService(selfieBase64)
+    //this.statusCardService
+    
   }
 
 }

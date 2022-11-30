@@ -19,7 +19,7 @@ export class Card{
         return this.id
     }
 
-    public getSelfie(){
+    public setSelfie(){
         return this.selfie
     }
 

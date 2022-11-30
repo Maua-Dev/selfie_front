@@ -10,7 +10,7 @@ import { SelfieStudent } from './selfie-student.service';
 })
 export class UploadSelfieService {
 
-  private readonly baseURL: string | undefined = environment.BASE_URL_ESTUDANTE_DOMAIN
+  private readonly baseURL: string = environment.BASE_URL_ESTUDANTE_DOMAIN
 
   constructor(private http: HttpClient, private selfieStudent: SelfieStudent) {}
 
@@ -37,34 +37,29 @@ export class UploadSelfieService {
         'name':this.nome
     }
     return this.http.post(
-      `${this.baseURL}/request-upload-selfie`,body,{observe:'response'}
+      `${this.baseURL}`,body
     )
   }
 
-  public async testSendImageService(selfie:string) {
-    var linkS3 : any
-    this.requestUpload().subscribe((response => {
-      if(response.status === 200){
-        linkS3 = response.body
-        this.uploadSelfie(selfie,linkS3)
-      }
-      
-    }))}
+  public async testSendImageService(selfie: string) {
+    console.log('ola')
+    /*this.requestUpload().subscribe((response => {
+      let statusApi = response.status
+      console.log(statusApi)   //retorna o status do post - tem que dar 201
+      console.log(response)
+    }))
 
-  public async uploadSelfie(selfie: string, link:any){
-    //tratando a selfie
-    let base64 = selfie;
+    /*let base64 = selfie;
+
     let base64Res = await fetch(base64);
     const blob = await base64Res.blob();
-
-    //headers = link fields
-    const headers = link.fields
-    console.log(typeof(headers))
-
-    this.http.put(link.url, blob, {headers}).subscribe((res) => {
+    const formdata = new FormData();
+    for (let val in data.fields) {
+      formdata.append(val, data.fields[val]);
+    }
+    formdata.append('file', blob);
+    this.http.post(data.url, formdata).subscribe((res) => {
       console.log(res);
-    });
+    });*/
   }
-
 }
-
