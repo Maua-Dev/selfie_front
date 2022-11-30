@@ -18,21 +18,24 @@ mat-card {
 }
 
 .button {
-  margin: 10px 10px 30px 10px;
-  color: white;
+  border: 1px solid #022893;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 12px;
+
+  margin: 10px 10px 30px 10px;
+  color: #022893;
   height: 40px;
   width: 164px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: #e0e0e500;
 }
 
-.reprove-btn {
+/* .reprove-btn {
   background-color: #d00000;
 }
 
 .aprove-btn {
   background-color: #38b000;
-}
+} */
 
 .footer-content {
   display: flex;
