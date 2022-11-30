@@ -4,7 +4,8 @@
             <div class="row">
                 <div class="col-5">
                     <a href="{{selfieToDisplay.imgURL}}" target="_blank">
-                        <img id="card-image" src="{{selfieToDisplay.imgURL}}" alt="Uma foto de {{studentSelfie.name}}" onerror="this.onerror=null; this.src='../../../assets/Error-Image.png'">
+                        <img id="card-image" src="{{selfieToDisplay.imgURL}}" alt="Uma foto de {{studentSelfie.name}}"
+                            onerror="this.onerror=null; this.src='../../../assets/Error-Image.png'">
                     </a>
                 </div>
                 <div class="col">
@@ -35,30 +36,24 @@
     <mat-card-footer>
         <div class="footer-content">
             <span *ngIf="selfieToDisplay.state == 'PENDING_REVIEW'">
-                <button class="aprove-btn button" mat-raised-button (click)="SetSelfieState('APPROVED')">
+                <button class="button" mat-raised-button (click)="SetSelfieState('APPROVED')">
                     <mat-icon fontIcon="thumb_up"></mat-icon> Aprovar
                 </button>
 
-                <button class="reprove-btn button" mat-raised-button (click)="SetSelfieState('DECLINED')">
+                <button class="button" mat-raised-button (click)="SetSelfieState('DECLINED')">
                     <mat-icon fontIcon="thumb_down"></mat-icon> Reprovar
                 </button>
             </span>
             <span *ngIf="selfieToDisplay.state == 'DECLINED'">
-                <button class="aprove-btn button" disabled="true" mat-raised-button>
-                    <mat-icon fontIcon="thumb_up"></mat-icon> Aprovar
-                </button>
-                <button class="reprove-btn button" disabled="true" mat-raised-button>
-                    <mat-icon [style.color]="'#d00000'" fontIcon="thumb_down"></mat-icon> Reprovar
-                </button>
+                <div class="reprove-btn d-flex justify-content-center align-items-center">
+                    <mat-icon class="me-2" fontIcon="thumb_down"></mat-icon> Reprovado
+                </div>
             </span>
 
             <span *ngIf="selfieToDisplay.state == 'APPROVED'">
-                <button class="aprove-btn button" disabled="true" mat-raised-button>
-                    <mat-icon [style.color]="'#38b000'" fontIcon="thumb_up"></mat-icon> Aprovar
-                </button>
-                <button class="reprove-btn button" disabled="true" mat-raised-button>
-                    <mat-icon fontIcon="thumb_down"></mat-icon> Reprovar
-                </button>
+                <div class="aprove-btn d-flex justify-content-center align-items-center">
+                    <mat-icon class="me-2" fontIcon="thumb_up"></mat-icon> Aprovado
+                </div>
             </span>
 
         </div>
