@@ -71,3 +71,21 @@ mat-card {
 h2 {
   font-weight: 700;
 }
+
+.state-checkbox{
+  color: #003C9C;
+  width: 24px;
+  height: 24px;
+}
+
+.state-checkbox-no-checked{
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-color: rgba(174, 174, 180, 0);
+  background-color: rgba(174, 174, 180, 0.377);
+}
+
+.reject-reasons-div{
+  color: rgb(122, 122, 126);
+}

@@ -15,19 +15,56 @@
                     </div>
                     <div class="col">
                         <h2>Impedimentos</h2>
-                        <div class="rejection-reason-list">
-                            <mat-checkbox [color]="'primary'" (change)="setReproveReason('NOT_ALLOWED_BACKGROUND')">
-                                Fundo inválido
-                            </mat-checkbox>
+                        <div *ngIf="selfieToDisplay.state == 'PENDING_REVIEW'">
+                            <div class="rejection-reason-list">
+                                <mat-checkbox [color]="'primary'" (change)="setReproveReason('NOT_ALLOWED_BACKGROUND')">
+                                    Fundo inválido
+                                </mat-checkbox>
+                            </div>
+                            <div class="rejection-reason-list">
+                                <mat-checkbox [color]="'primary'" (change)="setReproveReason('COVERED_FACE ')">Rosto
+                                    coberto
+                                </mat-checkbox>
+                            </div>
+                            <div class="rejection-reason-list">
+                                <mat-checkbox [color]="'primary'" (change)="setReproveReason('NO_PERSON_RECOGNIZED ')">
+                                    Nenhuma pessoa reconhecida</mat-checkbox>
+                            </div>
                         </div>
-                        <div class="rejection-reason-list">
-                            <mat-checkbox [color]="'primary'" (change)="setReproveReason('COVERED_FACE ')">Rosto coberto
-                            </mat-checkbox>
+
+                        <div *ngIf="selfieToDisplay.state != 'PENDING_REVIEW'">
+                            <div class="rejection-reason-list">
+                                <div class="d-flex align-items-center reject-reasons-div">
+                                    <span>
+                                        <mat-icon *ngIf="selfieToDisplay.rejectionReason == 'NOT_ALLOWED_BACKGROUND'"
+                                            class="me-1 state-checkbox" fontIcon="check_box"></mat-icon>
+                                        <span *ngIf="selfieToDisplay.rejectionReason != 'NOT_ALLOWED_BACKGROUND'"
+                                            class="me-1 ms-1 state-checkbox-no-checked"></span>
+                                    </span> Fundo inválido
+                                </div>
+                            </div>
+                            <div class="rejection-reason-list">
+                                <div class="d-flex align-items-center reject-reasons-div">
+                                    <span>
+                                        <mat-icon *ngIf="selfieToDisplay.rejectionReason == 'COVERED_FACE'"
+                                            class="me-1 state-checkbox" fontIcon="check_box"></mat-icon>
+                                        <span *ngIf="selfieToDisplay.rejectionReason != 'COVERED_FACE'"
+                                            class="me-1 ms-1 state-checkbox-no-checked"></span>
+                                    </span> Rosto coberto
+                                </div>
+                            </div>
+                            <div class="rejection-reason-list">
+                                <div class="d-flex align-items-center reject-reasons-div">
+                                    <span>
+                                        <mat-icon *ngIf="selfieToDisplay.rejectionReason == 'NO_PERSON_RECOGNIZED'"
+                                            class="me-1 state-checkbox-checked" fontIcon="check_box"></mat-icon>
+                                        <span *ngIf="selfieToDisplay.rejectionReason != 'NO_PERSON_RECOGNIZED'"
+                                            class="me-1  ms-1 state-checkbox-no-checked"></span>
+                                    </span> Nenhuma pessoa reconhecida
+                                </div>
+                            </div>
                         </div>
-                        <div class="rejection-reason-list">
-                            <mat-checkbox [color]="'primary'" (change)="setReproveReason('NO_PERSON_RECOGNIZED ')">
-                                Nenhuma pessoa reconhecida</mat-checkbox>
-                        </div>
+
                     </div>
                 </div>
             </div>

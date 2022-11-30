@@ -14,7 +14,7 @@ export class StudentCardComponent implements OnInit {
 
   @Output() OnSetSelfieStateEvent: EventEmitter<any> = new EventEmitter();
 
-  private recuseReasons: any = {
+   recuseReasons: any = {
     NOT_ALLOWED_BACKGROUND: false,
     COVERED_FACE: false,
     NO_PERSON_RECOGNIZED: false,
