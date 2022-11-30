@@ -26,23 +26,24 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.getStudent();
-    //this.showStatusLastCard()
+    this.uploadSelfie.getStudent()
   }
 
   status!: string;
 
-  public showStatusLastCard() {
-    this.status = 'APPROVED';
-    console.log(this.status);
-  }
-
   public getStudent() {
     this.selfieStudent.getStudent().subscribe((response) => {
-      console.log(response)
-      this.student = Student.createStudent(response); //recebe o estudante
-      this.nome = this.student.getNome();
-      this.ra = this.student.getRa();
-      this.email = this.student.getEmail();
+      this.student = Student.createStudent(response); 
+      this.tratarNome(this.student.getNome())
     });
+  }
+
+  public tratarNome(nomeCompleto:string){
+    let primeiroNome = nomeCompleto.split(" ")[0] 
+    let primeiroNomeLowerCase = primeiroNome.toLowerCase()
+    let primeiraLetraUpperCase = primeiroNome[0].toUpperCase()
+    let restoNomeLowerCase = primeiroNomeLowerCase.substring(1,primeiroNome.length)
+    let nomeExibir = primeiraLetraUpperCase + restoNomeLowerCase
+    this.nome = nomeExibir
   }
 }
