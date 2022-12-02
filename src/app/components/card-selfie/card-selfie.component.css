@@ -6,6 +6,7 @@ section{
 .container{
     position: absolute;
     top:11.2vh;
+    height: 20vh;
     display: flex;
     justify-content: center;
     width: 82.6%;

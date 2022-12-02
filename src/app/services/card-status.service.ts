@@ -15,12 +15,10 @@ export class CardStatusService {
 
   constructor(private http: HttpClient) { }
 
-  // FAZ A REQUISICAO HTTP GET INFORMACOES DA SELFIE
   public gettingJson() : Observable<any>{
-    return this.http.get<any>(`https://vi7brr3n86.execute-api.us-east-1.amazonaws.com/prod/mss-student/get-selfies-by-ra?ra=${this.studentRA}`)
+    return this.http.get<any>(`${this.baseURL}/get-selfies-by-ra?ra=${this.studentRA}`)
   }
 
-  // PEGA O CARD INICIAL 
   public getInicialCard(){
     return new Card(this.id, 'Não enviado ainda','','NEED_TO_SEND','','')        
   }

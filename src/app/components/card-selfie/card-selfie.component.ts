@@ -5,6 +5,7 @@ import { SelfieStudent } from 'src/app/services/selfie-student.service';
 import { CardStatusService } from 'src/app/services/card-status.service';
 import { Card } from 'src/entities/card';
 import { PopupAtivarCameraComponent } from '../popup-ativar-camera/popup-ativar-camera.component';
+import { CameraPermissions } from 'src/app/services/camera-permissions.service';
 @Component({
   selector: 'app-card-selfie',
   templateUrl: './card-selfie.component.html',
@@ -20,7 +21,7 @@ export class CardSelfieComponent implements OnInit {
   marginTop:string = '4vh'
   marginBottom!:string
   
-  constructor(private dialog : MatDialog, private selfieService: SelfieStudent, private cardStatusService : CardStatusService) { }
+  constructor(private dialog : MatDialog, private cameraPermissions : CameraPermissions, private cardStatusService : CardStatusService) { }
 
   statusCard!:any
   dialogRef !: any
@@ -28,9 +29,13 @@ export class CardSelfieComponent implements OnInit {
 
   ngOnInit(): void {
     this.getStatus()
-    this.popUpNavigationPerm()
+    this.turnOnCamera()
   }
   
+  turnOnCamera(){
+    this.cameraPermissions.turnOnCamera() 
+  }
+
   checkPermissions(){
     let permissionName = "camera" as PermissionName
     navigator.permissions.query({ name : permissionName }).then(result => {
@@ -57,19 +62,6 @@ export class CardSelfieComponent implements OnInit {
   ativarNovamente(){
     this.dialogRef2 = this.dialog.open(PopupAtivarCameraComponent)
   }
-  
-  popUpNavigationPerm(){
-    navigator.mediaDevices.getUserMedia({
-      video: {
-        facingMode: 'user'
-      },
-    }).then((response) => {
-      this.stream = response
-    }).catch(err => {
-      this.stream = err
-    })
-  }
-
   
   card : Card[] = []
 
