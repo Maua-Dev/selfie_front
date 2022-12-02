@@ -9,7 +9,7 @@
   <div class="row filter-buttons">
     <div class="col-auto d-flex justify-content-center">
       <app-filter-lists-buttons [text]="'Para aprovar'" [buttonIsActivated]="selfieFiltersButtons[0]"
-        (click)="FilterSelfieByState(0,'IN_REVIEW')"></app-filter-lists-buttons>
+        (click)="FilterSelfieByState(0,'PENDING_REVIEW')"></app-filter-lists-buttons>
     </div>
     <div class="col-auto d-flex justify-content-center">
       <app-filter-lists-buttons [text]="'Aprovados'" [buttonIsActivated]="selfieFiltersButtons[1]"
@@ -26,7 +26,7 @@
 
   <div class="cards-container">
     <span *ngFor="let selfie of selfiesListFiltered">
-      <app-student-card *ngIf="selfie.state != 'PENDING_REVIEW'" [selfieToDisplay]="selfie" (OnSetSelfieStateEvent)="OnSetSelfieState()"></app-student-card>
+      <app-student-card [selfieToDisplay]="selfie" (OnSetSelfieStateEvent)="OnSetSelfieState()"></app-student-card>
 
     </span>
   </div>
@@ -50,7 +50,7 @@
     </div>
     <div class="col-auto d-flex justify-content-center">
       <app-filter-lists-buttons [text]="'Em Análise'" [buttonIsActivated]="studentsFiltersButtons[2]"
-        (click)="FilterStudentsByStatus(2,'SELFIE_IN_REVIEW')">
+        (click)="FilterStudentsByStatus(2,'SELFIE_PENDING_REVIEW')">
       </app-filter-lists-buttons>
     </div>
     <div class="col-auto d-flex justify-content-center">
@@ -63,7 +63,7 @@
 
   <div class="rect-container">
     <span *ngFor="let student of studentsListFiltered">
-      <app-situation-rectangle *ngIf="student.status != 'SELFIE_PENDING_REVIEW'" [studentToDisplay]="student"></app-situation-rectangle>
+      <app-situation-rectangle [studentToDisplay]="student"></app-situation-rectangle>
     </span>
   </div>
 

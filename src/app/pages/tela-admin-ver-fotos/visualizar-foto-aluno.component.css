@@ -7,7 +7,7 @@ h1 {
   margin: 20px 0;
 }
 
-mat-icon{
+mat-icon {
   margin-right: 10px;
 }
 
@@ -35,7 +35,7 @@ mat-icon{
   color: #022893;
 }
 
-.conteiner-clean-filters-btns{
+.conteiner-clean-filters-btns {
   position: relative;
   left: 155px;
 }
@@ -53,7 +53,7 @@ mat-icon{
   padding-bottom: 50px;
 }
 
-:host ::ng-deep .mat-checkbox-frame { 
+:host ::ng-deep .mat-checkbox-frame {
   border-color: rgba(174, 174, 180, 0);
   background-color: rgb(174, 174, 180);
 }
