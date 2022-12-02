@@ -21,7 +21,6 @@ export class HomePageComponent implements OnInit {
     public uploadSelfie: UploadSelfieService,
     public selfieStudent: SelfieStudent,
     public cardStatusService: CardStatusService,
-    private http: HttpClient
   ) {}
 
   ngOnInit(): void {

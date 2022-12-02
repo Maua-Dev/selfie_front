@@ -6,6 +6,7 @@ import { PopupComponent2 } from '../popup2/popup2.component';
 import { SelfieStudent } from 'src/app/services/selfie-student.service';
 import { CardStatusService } from 'src/app/services/card-status.service';
 import { UploadSelfieService } from 'src/app/services/upload-selfie.service';
+import { CameraPermissions } from 'src/app/services/camera-permissions.service';
 
 @Component({
   selector: 'app-card-selfie-tela2',
@@ -26,10 +27,11 @@ export class CardSelfieTela2Component implements OnInit {
   trigger: Subject<void> = new Subject();
   previewImage: string = '';
 
-  constructor(public uploadSelfie : UploadSelfieService,private dialog: MatDialog, private selfieService: SelfieStudent, private statusCardService : CardStatusService) {
+  constructor(public uploadSelfie : UploadSelfieService,private dialog: MatDialog, private selfieService: SelfieStudent, private cameraPermission : CameraPermissions) {
   }
 
   ngOnInit(): void {
+    this.cameraPermission.getStream()
   }
 
   get $trigger(): Observable<void> {
@@ -66,6 +68,10 @@ export class CardSelfieTela2Component implements OnInit {
     alert('Foto feita!')
     let selfieBase64 = await this.sendingPhoto()
     this.uploadSelfie.testSendImageService(selfieBase64)
+    
+    this.stream = this.cameraPermission.getStream()
+    console.log(this.stream)
+    this.cameraPermission.turnOffCamera(this.stream)
   }
 
 }

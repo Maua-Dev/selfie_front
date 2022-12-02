@@ -1,0 +1,6 @@
+.background{
+    background-color: #f5f5fa;
+    width: 100%;
+    height: -webkit-fill-available;
+    position: absolute;
+}
