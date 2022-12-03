@@ -80,10 +80,11 @@ h2 {
 
 .state-checkbox-no-checked{
   display: inline-block;
-  width: 18px;
-  height: 18px;
+  width: 17px;
+  height: 17px;
   border-color: rgba(174, 174, 180, 0);
   background-color: rgba(174, 174, 180, 0.377);
+  border-radius: 2px;
 }
 
 .reject-reasons-div{
