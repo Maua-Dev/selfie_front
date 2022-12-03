@@ -1,4 +1,5 @@
 import { Student } from 'src/entities/student-admin-domain';
+import { AutomaticReview } from './automatic-review';
 export class Selfie {
   constructor(
     public idSelfie: number,
@@ -7,7 +8,8 @@ export class Selfie {
     public state: string,
     public rejectionReason?: string,
     public rejectionDescription?: string,
-    public student?: Student
+    public automaticReview?: AutomaticReview,
+    public student?: Student,
   ) {}
 
   public static InstatiateSelfieFromJson(selfieJson: any) {
@@ -18,6 +20,7 @@ export class Selfie {
       selfieJson['state'],
       selfieJson['rejectionReasons'],
       selfieJson['rejectionDescription'],
+      selfieJson['automaticReview'],
       Student.InstantiateStudentFromJson(selfieJson['student'])
     );
   }
