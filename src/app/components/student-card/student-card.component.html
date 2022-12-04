@@ -33,6 +33,14 @@
                                 <mat-checkbox [color]="'primary'" (change)="setReproveReason('NO_PERSON_RECOGNIZED ')">
                                     Nenhuma pessoa reconhecida</mat-checkbox>
                             </div>
+                            <div class="rejection-reason-list">
+                                <mat-checkbox [color]="'primary'" (change)="setReproveReason(rejectionDescription)">
+                                    <mat-form-field appearance="fill">
+                                        <mat-label>Digite outro motivo</mat-label>
+                                        <input matInput #rejectionText (change)="rejectionDescription = rejectionText.value" [type]="'text'">
+                                    </mat-form-field>    
+                                </mat-checkbox>
+                            </div>
                         </div>
 
                         <div *ngIf="selfieToDisplay.state != 'PENDING_REVIEW'">

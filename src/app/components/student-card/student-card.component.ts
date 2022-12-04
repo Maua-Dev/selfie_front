@@ -14,6 +14,7 @@ export class StudentCardComponent implements OnInit {
   studentEntity!: Student;
 
   @Output() OnSetSelfieStateEvent: EventEmitter<any> = new EventEmitter();
+  rejectionDescription!: string
 
   recuseReasons: any = {
     NOT_ALLOWED_BACKGROUND: false,
@@ -51,6 +52,7 @@ export class StudentCardComponent implements OnInit {
       }
     }
 
+    console.log(newRecuseReasons)
     this.updateSelfieService
       .UpdateSelfieState(
         this.selfieToDisplay.student!.ra,
@@ -60,7 +62,7 @@ export class StudentCardComponent implements OnInit {
         ''
       )
       .subscribe((resp) => {
-        console.log(this.recuseReasons);
+        console.log(newRecuseReasons);
         console.log(resp);
         this.OnSetSelfieStateEvent.emit();
       });
