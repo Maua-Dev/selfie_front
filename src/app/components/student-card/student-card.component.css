@@ -2,12 +2,13 @@
   background-color: #e0e0e5;
 }
 
+
 #card-image {
+  margin: 10px 5px 5px 5px;
   width: 200px;
   height: 200px;
   border-radius: 10px;
-  margin: 10px 5px 5px 5px;
-  object-fit: cover;
+  object-fit: scale-down;
 }
 
 mat-card {
@@ -38,7 +39,7 @@ mat-card {
   height: 40px;
   width: 336px;
 
-  color:  #FFFFFF;
+  color: #ffffff;
 }
 
 .aprove-btn {
@@ -49,7 +50,7 @@ mat-card {
   height: 40px;
   width: 336px;
 
-  color:  #FFFFFF;
+  color: #ffffff;
   background: #38b000;
 }
 
@@ -72,13 +73,13 @@ h2 {
   font-weight: 700;
 }
 
-.state-checkbox{
-  color: #003C9C;
+.state-checkbox {
+  color: #003c9c;
   width: 24px;
   height: 24px;
 }
 
-.state-checkbox-no-checked{
+.state-checkbox-no-checked {
   display: inline-block;
   width: 17px;
   height: 17px;
@@ -87,23 +88,17 @@ h2 {
   border-radius: 2px;
 }
 
-.reject-reasons-div{
+.reject-reasons-div {
   color: rgb(122, 122, 126);
 }
 
-.square-identyfier{
+.square-identyfier {
   position: absolute;
-  
-  left: 49%;
-  top: 36%;
-  height: 20%;
-  width: 45%;
 
   display: inline-block;
-  border: green solid 1px;
-  
+  border: rgb(228, 3, 3) solid 2px;
 }
 
-.link-image{
+.link-image {
   position: absolute;
 }

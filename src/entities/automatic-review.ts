@@ -1,10 +1,10 @@
 export class AutomaticReview {
   constructor(
     public automaticallyRejected: boolean,
-    public rejectionReasons: string,
-    public labelsList?: any[]
+    public rejectionReasons: string[],
+    public labels: any[]
   ) {}
-
+  
   static RejectedLabelslist: string[] = [
     'Hat',
     'Cap',
@@ -32,7 +32,6 @@ export class AutomaticReview {
     'Animal',
     'Pet',
     'Food',
-    'Electronics',
     'Phone',
   ];
 }

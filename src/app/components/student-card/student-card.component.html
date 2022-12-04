@@ -5,15 +5,16 @@
                 <div class="col-5">
 
                     <a class="link-image" href="{{selfieToDisplay.imgURL}}" target="_blank">
-                        <span class="square-identyfier" [ngStyle]=""></span>
-                        <img id="card-image" src="{{selfieToDisplay.imgURL}}" alt="Uma foto de {{studentSelfie.name}}"
+                        <div *ngIf="GetSquareCoords()" class="square-identyfier" [ngStyle]="GetSquareCoords()"></div>
+                        <img id="card-image" src="{{selfieToDisplay.imgURL}}" alt="Uma foto de {{studentEntity.name}}"
                             onerror="this.onerror=null; this.src='../../../assets/Error-Image.png'">
                     </a>
+
                 </div>
                 <div class="col">
                     <div class="col">
-                        <h2 id="student-name">{{studentSelfie.name}}</h2>
-                        <h3 id="student-email">{{studentSelfie.email}}</h3>
+                        <h2 id="student-name">{{studentEntity.name}}</h2>
+                        <h3 id="student-email">{{studentEntity.email}}</h3>
                     </div>
                     <div class="col">
                         <h2>Impedimentos</h2>
