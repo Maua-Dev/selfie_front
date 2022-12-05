@@ -33,10 +33,7 @@
                                 <mat-checkbox [color]="'primary'" (change)="setReproveReason('NO_PERSON_RECOGNIZED ')">
                                     Nenhuma pessoa reconhecida</mat-checkbox>
                             </div>
-                            <div class="rejection-reason-list">
-                                <!-- <mat-checkbox [color]="'primary'" (change)="setReproveReason(rejectionDescription)">
-                                   
-                                </mat-checkbox> -->
+                            <div class="rejection-reason-list mt-2">
                                 <mat-form-field appearance="fill">
                                     <mat-label>Digite outro motivo</mat-label>
                                     <input matInput #rejectionText (change)="rejectionDescription = rejectionText.value"
@@ -85,7 +82,11 @@
                                         <mat-icon
                                             *ngIf="selfieToDisplay.rejectionReason != 'NO_PERSON_RECOGNIZED' && selfieToDisplay.rejectionReason != 'COVERED_FACE' && selfieToDisplay.rejectionReason != 'NOT_ALLOWED_BACKGROUND'"
                                             class="me-1 state-checkbox" fontIcon="check_box"></mat-icon>
-                                    </span> <span *ngIf="selfieToDisplay.rejectionReason == 'NO_PERSON_RECOGNIZED' || selfieToDisplay.rejectionReason == 'COVERED_FACE' || selfieToDisplay.rejectionReason == 'NOT_ALLOWED_BACKGROUND'">Outro motivo</span><span *ngIf="selfieToDisplay.rejectionReason != 'NO_PERSON_RECOGNIZED' && selfieToDisplay.rejectionReason != 'COVERED_FACE' && selfieToDisplay.rejectionReason != 'NOT_ALLOWED_BACKGROUND'"> {{selfieToDisplay.GetRejectionReason()}}</span>
+                                    </span> <span
+                                        *ngIf="selfieToDisplay.rejectionReason == 'NO_PERSON_RECOGNIZED' || selfieToDisplay.rejectionReason == 'COVERED_FACE' || selfieToDisplay.rejectionReason == 'NOT_ALLOWED_BACKGROUND'">Outro
+                                        motivo</span><span
+                                        *ngIf="selfieToDisplay.rejectionReason != 'NO_PERSON_RECOGNIZED' && selfieToDisplay.rejectionReason != 'COVERED_FACE' && selfieToDisplay.rejectionReason != 'NOT_ALLOWED_BACKGROUND'">
+                                        {{selfieToDisplay.GetRejectionReason()}}</span>
                                 </div>
                             </div>
                         </div>

@@ -102,3 +102,8 @@ h2 {
 .link-image {
   position: absolute;
 }
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: #ffffff;
+  border: 1px solid #E6E3E1
+}

@@ -52,7 +52,7 @@ export class StudentCardComponent implements OnInit {
       }
     }
 
-    console.log(newRecuseReasons)
+    console.log(this.rejectionDescription)
     this.updateSelfieService
       .UpdateSelfieState(
         this.selfieToDisplay.student!.ra,
