@@ -24,4 +24,10 @@ export class Selfie {
       Student.InstantiateStudentFromJson(selfieJson['student'])
     );
   }
+
+  public GetRejectionReason(): string{
+    if(this.rejectionReason == 'NONE')
+      return 'Nenhum motivo declarado'
+    return this.rejectionReason!
+  }
 }
