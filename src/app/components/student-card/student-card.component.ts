@@ -14,21 +14,31 @@ export class StudentCardComponent implements OnInit {
   studentEntity!: Student;
 
   @Output() OnSetSelfieStateEvent: EventEmitter<any> = new EventEmitter();
-  rejectionDescription!: string
+  rejectionDescription!: string;
 
   recuseReasons: any = {
     NOT_ALLOWED_BACKGROUND: false,
     COVERED_FACE: false,
     NO_PERSON_RECOGNIZED: false,
+    OTHER_REASONS: false
   };
 
   constructor(private updateSelfieService: UpdateSelfieStateService) {}
 
   GetSquareCoords() {
-    for(let i = 0; i<this.selfieToDisplay.automaticReview?.labels.length!; i++){
-      let label = this.selfieToDisplay.automaticReview?.labels[i]
+    for (
+      let i = 0;
+      i < this.selfieToDisplay.automaticReview?.labels.length!;
+      i++
+    ) {
+      let label = this.selfieToDisplay.automaticReview?.labels[i];
 
-      let isAbleToDrawSquare: boolean = (AutomaticReview.RejectedLabelslist.includes(label['name']) || label['parents'].some((parent:any)=> AutomaticReview.RejectedLabelslist.includes(parent))) && Object.keys(label['coords']).length > 0
+      let isAbleToDrawSquare: boolean =
+        (AutomaticReview.RejectedLabelslist.includes(label['name']) ||
+          label['parents'].some((parent: any) =>
+            AutomaticReview.RejectedLabelslist.includes(parent)
+          )) &&
+        Object.keys(label['coords']).length > 0;
 
       if (isAbleToDrawSquare) {
         let coordsObj = label['coords'];
@@ -37,10 +47,10 @@ export class StudentCardComponent implements OnInit {
           width: `${coordsObj['Width'] * 100}%`,
           top: `${coordsObj['Top'] * 100}%`,
           left: `${coordsObj['Left'] * 100}%`,
-        }
+        };
       }
     }
-    return null
+    return null;
   }
 
   SetSelfieState(newState: string): void {
@@ -51,18 +61,19 @@ export class StudentCardComponent implements OnInit {
         newRecuseReasons.push(reason);
       }
     }
-
-    console.log(this.rejectionDescription)
+    console.log(this.recuseReasons);
     this.updateSelfieService
       .UpdateSelfieState(
         this.selfieToDisplay.student!.ra,
         this.selfieToDisplay.idSelfie.toString(),
         newState,
         newRecuseReasons,
-        ''
+        this.rejectionDescription
       )
       .subscribe((resp) => {
         console.log(newRecuseReasons);
+        console.log(this.rejectionDescription);
+
         console.log(resp);
         this.OnSetSelfieStateEvent.emit();
       });
