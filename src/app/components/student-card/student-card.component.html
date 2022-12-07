@@ -33,11 +33,14 @@
                                 <mat-checkbox [color]="'primary'" (change)="setReproveReason('NO_PERSON_RECOGNIZED ')">
                                     Nenhuma pessoa reconhecida</mat-checkbox>
                             </div>
+                            <div class="rejection-reason-list">
+                                <mat-checkbox [color]="'primary'" (change)="setReproveReason('NO_PERSON_RECOGNIZED ')">
+                                    Outro motivo</mat-checkbox>
+                            </div>
                             <div class="rejection-reason-list mt-2">
                                 <mat-form-field appearance="fill">
-                                    <mat-label>Digite outro motivo</mat-label>
-                                    <input matInput #rejectionText (change)="rejectionDescription = rejectionText.value"
-                                        [type]="'text'">
+                                    <mat-label>Motivo rejeição</mat-label>
+                                        <textarea #rejectionText (change)="rejectionDescription = rejectionText.value" matInput></textarea>
                                 </mat-form-field>
                             </div>
                         </div>
