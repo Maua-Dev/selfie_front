@@ -81,7 +81,6 @@ export class StudentCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.studentEntity = this.selfieToDisplay.student!;
-    // console.log(this.GetSquareCoords());
   }
 
   setReproveReason(reason: string) {

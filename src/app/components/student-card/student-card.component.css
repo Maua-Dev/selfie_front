@@ -2,7 +2,6 @@
   background-color: #e0e0e5;
 }
 
-
 #card-image {
   margin: 10px 5px 5px 5px;
   width: 200px;
@@ -40,6 +39,19 @@ mat-card {
   width: 336px;
 
   color: #ffffff;
+}
+
+.auto-reprove-btn {
+  color: #d00000;
+  border: 1px solid #d00000;
+
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+
+  margin: 10px 10px 30px 10px;
+  height: 40px;
+  width: 336px;
+
 }
 
 .aprove-btn {
@@ -96,7 +108,8 @@ h2 {
   position: absolute;
 
   display: inline-block;
-  border: rgb(228, 3, 3) solid 2px;
+  border: rgba(228, 9, 9, 0.815) groove 2px;
+  /* border-radius: 10px; */
 }
 
 .link-image {
@@ -105,5 +118,5 @@ h2 {
 
 ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
   background-color: #ffffff;
-  border: 1px solid #E6E3E1
+  border: 1px solid #e6e3e1;
 }

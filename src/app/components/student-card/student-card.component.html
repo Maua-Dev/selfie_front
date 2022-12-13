@@ -40,7 +40,8 @@
                             <div class="rejection-reason-list mt-2">
                                 <mat-form-field appearance="fill">
                                     <mat-label>Motivo rejeição</mat-label>
-                                        <textarea #rejectionText (change)="rejectionDescription = rejectionText.value" matInput></textarea>
+                                    <textarea #rejectionText (change)="rejectionDescription = rejectionText.value"
+                                        matInput></textarea>
                                 </mat-form-field>
                             </div>
                         </div>
@@ -111,7 +112,13 @@
                 </button>
             </span>
             <span *ngIf="selfieToDisplay.state == 'DECLINED'">
-                <div class="reprove-btn d-flex justify-content-center align-items-center">
+                <div *ngIf="selfieToDisplay.automaticReview?.automaticallyRejected"
+                    class="auto-reprove-btn d-flex justify-content-center align-items-center">
+                    Rejeitado automaticamente
+                </div>
+
+                <div *ngIf="!selfieToDisplay.automaticReview?.automaticallyRejected"
+                    class="reprove-btn d-flex justify-content-center align-items-center">
                     <mat-icon class="me-2" fontIcon="thumb_down"></mat-icon> Reprovado
                 </div>
             </span>
