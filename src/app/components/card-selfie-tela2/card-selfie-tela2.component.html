@@ -6,7 +6,16 @@
             </p>
             <div class="webcam">
                 <img *ngIf="foto" height={{h}} width={{w}} [src]="previewImage" >
-                <webcam *ngIf="webcam" [trigger]="$trigger" (imageCapture)="snapshot($event)" [height]="450" [width]="300"></webcam>
+                <webcam
+                    *ngIf="webcam" 
+                    [trigger]="$trigger" 
+                    (imageCapture)="snapshot($event)" 
+                    [height]="400" 
+                    [width]="300"
+                    [allowCameraSwitch]="false"
+                    [imageQuality]="0.92"
+                    >
+                </webcam>
             </div>
             <div *ngIf="webcam" class="botoes-posicao1">
                 <button class="botao-tirar-foto" (click)="tirarFoto()">TIRAR</button>  

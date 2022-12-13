@@ -11,7 +11,10 @@ export class CameraPermissions{
     turnOnCamera(){
         this.stream = navigator.mediaDevices.getUserMedia({
           video: {
-            facingMode: 'user'
+            facingMode: 'user',
+            width:300,
+            height:400,
+            aspectRatio:3/4,
           },
         }).then((response) => {
           this.stream = response
