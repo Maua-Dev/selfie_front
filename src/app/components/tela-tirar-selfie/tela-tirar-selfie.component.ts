@@ -20,16 +20,12 @@ export class TelaTirarSelfieComponent implements OnInit {
   public getStudent() {
     this.selfieStudent.getStudent().subscribe((response) => {
       this.student = Student.createStudent(response); //recebe o estudante
-      this.tratarNome(this.student.getNome())
+      this.nome = this.student.getNome();
     });
-  } 
+  }
 
-  public tratarNome(nomeCompleto:string){
-    let primeiroNome = nomeCompleto.split(" ")[0]
-    let primeiroNomeLowerCase = primeiroNome.toLowerCase()
-    let primeiraLetraUpperCase = primeiroNome[0].toUpperCase()
-    let restoNomeLowerCase = primeiroNomeLowerCase.substring(1,primeiroNome.length)
-    let nomeExibir = primeiraLetraUpperCase + restoNomeLowerCase
-    this.nome = nomeExibir
+  public getName() {
+    this.getStudent();
+    this.nome = this.student.getNome();
   }
 }

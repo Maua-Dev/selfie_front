@@ -5,6 +5,7 @@ h1 {
   font-weight: 700;
   font-size: 24px;
   margin: 20px 0;
+  color: #022893;
 }
 
 mat-icon {
@@ -57,4 +58,3 @@ mat-icon {
   border-color: rgba(174, 174, 180, 0);
   background-color: rgb(174, 174, 180);
 }
-
