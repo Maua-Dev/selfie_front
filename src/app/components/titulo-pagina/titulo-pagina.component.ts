@@ -1,8 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { CardStatusService } from 'src/app/services/card-status.service';
-import { SelfieStudent } from 'src/app/services/selfie-student.service';
-import { Card } from 'src/entities/card';
-
+import { Component, OnInit,Input } from '@angular/core';
 @Component({
   selector: 'app-titulo-pagina',
   templateUrl: './titulo-pagina.component.html',
@@ -10,6 +6,7 @@ import { Card } from 'src/entities/card';
 })
 export class TituloPaginaComponent implements OnInit {
 
+  @Input() foto!:string
   constructor() { }
 
   ngOnInit(): void {
