@@ -36,4 +36,21 @@ export class SelfieStudentMockService implements SelfieStudent {
     this.selfie = base64Image;
     return of(this.selfie);
   }
+
+  public cuttingPhoto(base64Image: string) {
+    return new Promise((res,rej) => {
+      const resize_canvas = document.createElement('canvas');
+      const img = new Image();
+      img.src = base64Image;
+      img.onload = () => {
+        resize_canvas.width = 300;
+        resize_canvas.height = 400;
+        const ctx = resize_canvas.getContext('2d');
+        ctx?.drawImage(img,150,0,300,400,0,0,300,400);
+        const data = ctx?.canvas.toDataURL();
+        res(data);
+      }
+      img.onerror = error => rej(error);
+    })
+  }
 }

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { BackgroundGreyComponent } from 'src/app/components/background-grey/background-grey.component';
 import { BackgroundComponent } from 'src/app/components/background/background.component';
 import { CardSelfieTela2Component } from 'src/app/components/card-selfie-tela2/card-selfie-tela2.component';
 import { CardSelfieComponent } from 'src/app/components/card-selfie/card-selfie.component';
@@ -34,7 +33,6 @@ import { LoadingComponent } from 'src/app/components/loading/loading.component';
     CardSelfieComponent,
     TituloPaginaComponent,
     CardStatusComponent,
-    BackgroundGreyComponent,
     PopupComponent,
     PopupComponent2,
     TelaTirarSelfieComponent,

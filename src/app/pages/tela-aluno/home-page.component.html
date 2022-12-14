@@ -1,6 +1,9 @@
 <div class="tela-aluno">
     <app-background></app-background>
     <app-profile-component [nameProfile]="nome"></app-profile-component>
-    <app-card-selfie></app-card-selfie>
-    <app-background-grey></app-background-grey>
+    <app-card-selfie [card]="cardStudent" [statusCard]="statusStudent" [foto]="selfie"></app-card-selfie>
+    <div class="background2">
+        <app-titulo-pagina [foto]="selfie"></app-titulo-pagina>
+        <app-card-status></app-card-status>
+    </div>
 </div>

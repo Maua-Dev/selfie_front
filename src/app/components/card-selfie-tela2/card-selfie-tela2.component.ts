@@ -26,8 +26,9 @@ export class CardSelfieTela2Component implements OnInit {
   stream: any = null;
   trigger: Subject<void> = new Subject();
   previewImage: string = '';
+  previewImageUpload: string = '';
 
-  constructor(public uploadSelfie : UploadSelfieService,private dialog: MatDialog, private selfieService: SelfieStudent, private cameraPermission : CameraPermissions) {
+  constructor(public uploadSelfie : UploadSelfieService ,private dialog: MatDialog, private selfieService: SelfieStudent, private cameraPermission : CameraPermissions) {
   }
 
   ngOnInit(): void {
@@ -40,6 +41,13 @@ export class CardSelfieTela2Component implements OnInit {
 
   snapshot(event: WebcamImage) {
     this.previewImage = event.imageAsDataUrl;
+    this.snapshotCutting(this.previewImage);
+  }
+
+  snapshotCutting(base64Image:string){
+    this.selfieService.cuttingPhoto(base64Image).then((compressed:any)=>{
+      this.previewImageUpload = compressed;
+    })
   }
 
   tirarFoto() {
@@ -53,14 +61,13 @@ export class CardSelfieTela2Component implements OnInit {
   }
 
   popUp() {
-    this.dialogRef = this.dialog.open(PopupComponent2)   //invocando ele
-    console.log(this.dialogRef.nextPage)
+    this.dialogRef = this.dialog.open(PopupComponent2)
     if (this.dialogRef.nextPage === true)
       this.dialogRef.popup
   }
 
-  async sendingPhoto() {
-    var res = await lastValueFrom(this.selfieService.uploadSelfie(this.previewImage));
+  sendingPhoto() {
+    var res = lastValueFrom(this.selfieService.uploadSelfie(this.previewImageUpload));
     return res
   }
 

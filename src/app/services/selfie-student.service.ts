@@ -6,4 +6,5 @@ export abstract class SelfieStudent {
   public abstract getStudentAndSelfie(): Observable<any>;
   public abstract getSelfie(): string;
   public abstract uploadSelfie(base64Image: string): Observable<any>;
+  public abstract cuttingPhoto(base64Image:string) : any;
 }

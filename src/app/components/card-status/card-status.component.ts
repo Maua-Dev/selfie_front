@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component,Input} from '@angular/core';
 import { Card } from 'src/entities/card';
 import { CardStatusService } from 'src/app/services/card-status.service';
 

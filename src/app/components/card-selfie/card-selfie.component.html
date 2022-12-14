@@ -6,7 +6,7 @@
             </p>
             <button *ngIf="foto == ''" class="placeholder-foto"></button>
             <div *ngIf="foto != ''" class="placehold-foto">
-                <img [src]="foto" [height]="108" [width]="242">
+                <img [src]="foto" [height]="250" [width]="250">
             </div>
             <button *ngIf="statusCard === 'NEED_TO_SEND' || statusCard === undefined || statusCard === 'DECLINED'" class="botao-tirar-foto" [ngStyle]="{'margin-top':marginTop, 'margin-bottom':marginBottom }" (click)="checkPermissions()">TIRAR</button>  
             <button *ngIf="statusCard === 'APPROVED' || statusCard === 'PENDING_REVIEW'" disabled='true' class="botao-tirar-foto" [ngStyle]="{'margin-top':marginTop, 'margin-bottom':marginBottom, 'background-color':'grey'}" (click)="termos()">TIRAR</button> 

@@ -5,7 +5,7 @@
                 HORA DA SELFIE
             </p>
             <div class="webcam">
-                <img *ngIf="foto" height={{h}} width={{w}} [src]="previewImage" >
+                <img *ngIf="foto" height={{h}} width={{w}} [src]="previewImageUpload" >
                 <webcam
                     *ngIf="webcam" 
                     [trigger]="$trigger" 

@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit,Input} from '@angular/core';
 import { PopupComponent } from '../popup/popup.component';
 import {MatDialog} from '@angular/material/dialog';
 import { SelfieStudent } from 'src/app/services/selfie-student.service';
@@ -6,6 +6,7 @@ import { CardStatusService } from 'src/app/services/card-status.service';
 import { Card } from 'src/entities/card';
 import { PopupAtivarCameraComponent } from '../popup-ativar-camera/popup-ativar-camera.component';
 import { CameraPermissions } from 'src/app/services/camera-permissions.service';
+import { TitleStrategy } from '@angular/router';
 @Component({
   selector: 'app-card-selfie',
   templateUrl: './card-selfie.component.html',
@@ -14,16 +15,20 @@ import { CameraPermissions } from 'src/app/services/camera-permissions.service';
 export class CardSelfieComponent implements OnInit {
 
   name!:PermissionName
-  foto : string = ''
+  //foto : string = ''
   status!:string;
   stream:any = null;
   tamanho:string = '32.6vh'
   marginTop:string = '4vh'
   marginBottom!:string
   
+  @Input() card!:any
+  @Input() statusCard!:any
+  @Input() foto!:any
+
   constructor(private dialog : MatDialog, private cameraPermissions : CameraPermissions, private cardStatusService : CardStatusService) { }
 
-  statusCard!:any
+  //statusCard!:any
   dialogRef !: any
   dialogRef2 !: any
 
@@ -63,19 +68,13 @@ export class CardSelfieComponent implements OnInit {
     this.dialogRef2 = this.dialog.open(PopupAtivarCameraComponent)
   }
   
-  card : Card[] = []
 
   public getStatus(){
-    this.cardStatusService.gettingJson().subscribe((response : any) => {
-      this.card = this.cardStatusService.showCards(response)
-      this.statusCard = this.card[this.card.length-1].getSituacao()
-      this.foto = this.card[this.card.length-1].getSelfie()
       if(this.foto != ''){
         this.tamanho = 'auto'
         this.marginTop = '2vh'
         this.marginBottom = '1vh'
       }
-    })
   }
 
 }
