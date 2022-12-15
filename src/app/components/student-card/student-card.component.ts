@@ -13,7 +13,9 @@ export class StudentCardComponent implements OnInit {
   @Input() public selfieToDisplay!: Selfie;
   studentEntity!: Student;
 
-  @Output() OnSetSelfieStateEvent: EventEmitter<any> = new EventEmitter();
+  @Output() OnSetSelfieStateEvent: EventEmitter<any> = new EventEmitter(); //A maneira como eu estou alterando o estado da selfie está péssima
+                                                                //Caso aconteça da selfie ter mais um estado novo ou se simplesmente quiserem mudar qualquer outra coisa relacionada ao estado, é um inferno. 
+                                                                //Talvez um remake no componente Student-card seja necessário
   rejectionDescription!: string;
 
   recuseReasons: any = {

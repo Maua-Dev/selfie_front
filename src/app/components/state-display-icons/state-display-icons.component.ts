@@ -24,11 +24,11 @@ export class StateDisplayIconsComponent implements OnInit {
   };
 
   SetStateToDisplay(stateKey: string) {
-    for (let key in this.currentButonsColor) {
-      if (key == stateKey) {
-        this.currentButonsColor[key] = this.butonsColorMap[key];
+    for (let button in this.currentButonsColor) {
+      if (button == stateKey) {
+        this.currentButonsColor[button] = this.butonsColorMap[button];
       } else {
-        this.currentButonsColor[key] =
+        this.currentButonsColor[button] =
           this.butonsColorMap['disabledButtonColor'];
       }
     }
