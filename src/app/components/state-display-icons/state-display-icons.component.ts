@@ -12,7 +12,7 @@ export class StateDisplayIconsComponent implements OnInit {
     APPROVED: '#38B000',
     SELFIE_REJECTED: '#D00000',
     SELFIE_PENDING_REVIEW: '#FDBE21',
-    NO_SELFIE: '#FDBE21',
+    NO_SELFIE: '#D00000',
     disabledButtonColor: '#E0E0E5',
   };
 

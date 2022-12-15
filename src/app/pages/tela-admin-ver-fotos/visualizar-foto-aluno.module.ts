@@ -17,6 +17,9 @@ import { UpdateSelfieStateService } from 'src/app/services/update-selfie-state.s
 import { UpdateSelfieStateBackendService } from 'src/app/services/update-selfie-state-backend.service';
 import { FetchSelfieService } from 'src/app/services/fetch-selfie.service';
 import { FetchSelfieBackendService } from 'src/app/services/fetch-selfie-backend.service';
+import {TextFieldModule} from '@angular/cdk/text-field';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -34,6 +37,9 @@ import { FetchSelfieBackendService } from 'src/app/services/fetch-selfie-backend
     MatCheckboxModule,
     MatButtonModule,
     MatIconModule,
+    TextFieldModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [
     { provide: FetchStudent, useClass: FetchStudentFromBackendService },
