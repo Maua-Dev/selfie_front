@@ -3,11 +3,11 @@
 }
 
 #card-image {
+  margin: 10px 5px 5px 5px;
   width: 200px;
   height: 200px;
   border-radius: 10px;
-  margin: 10px 5px 5px 5px;
-  object-fit: cover;
+  object-fit: scale-down;
 }
 
 mat-card {
@@ -18,20 +18,51 @@ mat-card {
 }
 
 .button {
-  margin: 10px 10px 30px 10px;
-  color: white;
+  border: 1px solid #022893;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 12px;
+
+  margin: 10px 10px 30px 10px;
+  color: #022893;
   height: 40px;
   width: 164px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: #e0e0e500;
 }
 
 .reprove-btn {
-  background-color: #d00000;
+  background: #d00000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+
+  margin: 10px 10px 30px 10px;
+  height: 40px;
+  width: 336px;
+
+  color: #ffffff;
+}
+
+.auto-reprove-btn {
+  color: #d00000;
+  border: 1px solid #d00000;
+
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+
+  margin: 10px 10px 30px 10px;
+  height: 40px;
+  width: 336px;
 }
 
 .aprove-btn {
-  background-color: #38b000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+
+  margin: 10px 10px 30px 10px;
+  height: 40px;
+  width: 336px;
+
+  color: #ffffff;
+  background: #38b000;
 }
 
 .footer-content {
@@ -51,4 +82,40 @@ mat-card {
 
 h2 {
   font-weight: 700;
+}
+
+.state-checkbox {
+  color: #003c9c;
+  width: 24px;
+  height: 24px;
+}
+
+.state-checkbox-no-checked {
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  border-color: rgba(174, 174, 180, 0);
+  background-color: rgba(174, 174, 180, 0.377);
+  border-radius: 2px;
+}
+
+.reject-reasons-div {
+  color: rgb(122, 122, 126);
+}
+
+.square-identyfier {
+  position: absolute;
+
+  display: inline-block;
+  border: rgba(228, 9, 9, 0.815) groove 2px;
+  /* border-radius: 10px; */
+}
+
+.link-image {
+  position: absolute;
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: #ffffff;
+  border: 1px solid #e6e3e1;
 }
