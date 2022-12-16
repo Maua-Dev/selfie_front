@@ -32,7 +32,7 @@ export class VisualizarFotoAlunoComponent implements OnInit {
     this.GetStudentsList();
   }
 
-  OnSetSelfieState() {
+  ReloadSelfiesAndStudentsLists() {
     this.GetSelfiesList();
     this.GetStudentsList();
   }

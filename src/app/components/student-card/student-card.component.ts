@@ -13,79 +13,125 @@ export class StudentCardComponent implements OnInit {
   @Input() public selfieToDisplay!: Selfie;
   studentEntity!: Student;
 
-  @Output() OnSetSelfieStateEvent: EventEmitter<any> = new EventEmitter(); //A maneira como eu estou alterando o estado da selfie está péssima
-                                                                //Caso aconteça da selfie ter mais um estado novo ou se simplesmente quiserem mudar qualquer outra coisa relacionada ao estado, é um inferno. 
-                                                                //Talvez um remake no componente Student-card seja necessário
-  rejectionDescription!: string;
-
-  recuseReasons: any = {
-    NOT_ALLOWED_BACKGROUND: false,
-    COVERED_FACE: false,
-    NO_PERSON_RECOGNIZED: false,
-    OTHER_REASONS: false
-  };
-
-  constructor(private updateSelfieService: UpdateSelfieStateService) {}
-
-  GetSquareCoords() {
-    for (
-      let i = 0;
-      i < this.selfieToDisplay.automaticReview?.labels.length!;
-      i++
-    ) {
-      let label = this.selfieToDisplay.automaticReview?.labels[i];
-
-      let isAbleToDrawSquare: boolean =
-        (AutomaticReview.RejectedLabelslist.includes(label['name']) ||
-          label['parents'].some((parent: any) =>
-            AutomaticReview.RejectedLabelslist.includes(parent)
-          )) &&
-        Object.keys(label['coords']).length > 0;
-
-      if (isAbleToDrawSquare) {
-        let coordsObj = label['coords'];
-        return {
-          height: `${coordsObj['Height'] * 100}%`,
-          width: `${coordsObj['Width'] * 100}%`,
-          top: `${coordsObj['Top'] * 100}%`,
-          left: `${coordsObj['Left'] * 100}%`,
-        };
-      }
-    }
-    return null;
-  }
-
-  SetSelfieState(newState: string): void {
-    let newRecuseReasons: string[] = [];
-
-    for (let reason in this.recuseReasons) {
-      if (this.recuseReasons[reason]) {
-        newRecuseReasons.push(reason);
-      }
-    }
-    console.log(this.recuseReasons);
-    this.updateSelfieService
-      .UpdateSelfieState(
-        this.selfieToDisplay.student!.ra,
-        this.selfieToDisplay.idSelfie.toString(),
-        newState,
-        newRecuseReasons,
-        this.rejectionDescription
-      )
-      .subscribe((resp) => {
-        console.log(newRecuseReasons);
-        console.log(this.rejectionDescription);
-
-        console.log(resp);
-        this.OnSetSelfieStateEvent.emit();
-      });
-  }
+  @Output() OnSetSelfieStateEvent: EventEmitter<any> = new EventEmitter(); 
 
   ngOnInit(): void {
     this.studentEntity = this.selfieToDisplay.student!;
   }
 
-  setReproveReason(reason: string) {
-    this.recuseReasons[reason] = !this.recuseReasons[reason];
+  GetStudentFirstName(): string{ //Avaliar isso. Se houver alguém com o nome João de Deus. Só vai aparecer João de
+    let nameArray = this.studentEntity.name.split(" ")
+    if(nameArray.length > 1)
+      return `${nameArray[0]} ${nameArray[1]}`
+    
+    return this.studentEntity.name
   }
+ 
+
+  
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// rejectionDescription!: string;
+
+  // recuseReasons: any = {
+  //   NOT_ALLOWED_BACKGROUND: false,
+  //   COVERED_FACE: false,
+  //   NO_PERSON_RECOGNIZED: false,
+  //   OTHER_REASONS: false
+  // };
+
+  // constructor(private updateSelfieService: UpdateSelfieStateService) {}
+
+  // GetSquareCoords() {
+  //   for (
+  //     let i = 0;
+  //     i < this.selfieToDisplay.automaticReview?.labels.length!;
+  //     i++
+  //   ) {
+  //     let label = this.selfieToDisplay.automaticReview?.labels[i];
+
+  //     let isAbleToDrawSquare: boolean =
+  //       (AutomaticReview.RejectedLabelslist.includes(label['name']) ||
+  //         label['parents'].some((parent: any) =>
+  //           AutomaticReview.RejectedLabelslist.includes(parent)
+  //         )) &&
+  //       Object.keys(label['coords']).length > 0;
+
+  //     if (isAbleToDrawSquare) {
+  //       let coordsObj = label['coords'];
+  //       return {
+  //         height: `${coordsObj['Height'] * 100}%`,
+  //         width: `${coordsObj['Width'] * 100}%`,
+  //         top: `${coordsObj['Top'] * 100}%`,
+  //         left: `${coordsObj['Left'] * 100}%`,
+  //       };
+  //     }
+  //   }
+  //   return null;
+  // }
+
+  // SetSelfieState(newState: string): void {
+  //   let newRecuseReasons: string[] = [];
+
+  //   for (let reason in this.recuseReasons) {
+  //     if (this.recuseReasons[reason]) {
+  //       newRecuseReasons.push(reason);
+  //     }
+  //   }
+  //   console.log(this.recuseReasons);
+  //   this.updateSelfieService
+  //     .UpdateSelfieState(
+  //       this.selfieToDisplay.student!.ra,
+  //       this.selfieToDisplay.idSelfie.toString(),
+  //       newState,
+  //       newRecuseReasons,
+  //       this.rejectionDescription
+  //     )
+  //     .subscribe((resp) => {
+  //       console.log(newRecuseReasons);
+  //       console.log(this.rejectionDescription);
+
+  //       console.log(resp);
+  //       this.OnSetSelfieStateEvent.emit();
+  //     });
+  // }
+
+ 
+
+  // setReproveReason(reason: string) {
+  //   this.recuseReasons[reason] = !this.recuseReasons[reason];
+  // }
