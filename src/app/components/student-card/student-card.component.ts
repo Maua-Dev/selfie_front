@@ -19,11 +19,16 @@ export class StudentCardComponent implements OnInit {
     this.studentEntity = this.selfieToDisplay.student!;
   }
 
-  GetStudentFirstName(): string{ //Avaliar isso. Se houver alguém com o nome João de Deus. Só vai aparecer João de
+  GetStudentFirstName(): string{
     let nameArray = this.studentEntity.name.split(" ")
-    if(nameArray.length > 1)
+
+
+    if(nameArray.length > 1){
+      if(nameArray[1].toLocaleLowerCase() == "de" || nameArray[1].toLocaleLowerCase() == "dos"|| nameArray[1].toLocaleLowerCase() == "e")
+        return `${nameArray[0]} ${nameArray[1]} ${nameArray[2]}`
+
       return `${nameArray[0]} ${nameArray[1]}`
-    
+    }
     return this.studentEntity.name
   }
  
