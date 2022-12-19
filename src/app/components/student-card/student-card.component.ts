@@ -1,8 +1,6 @@
-import { AutomaticReview } from './../../../entities/automatic-review';
 import { Selfie } from 'src/entities/selfie';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Student } from 'src/entities/student-admin-domain';
-import { UpdateSelfieStateService } from 'src/app/services/update-selfie-state.service';
 
 @Component({
   selector: 'app-student-card',
@@ -12,11 +10,16 @@ import { UpdateSelfieStateService } from 'src/app/services/update-selfie-state.s
 export class StudentCardComponent implements OnInit {
   @Input() public selfieToDisplay!: Selfie;
   studentEntity!: Student;
-
   @Output() OnSetSelfieStateEvent: EventEmitter<any> = new EventEmitter();
+
+  rejectionDescription: string = ''
 
   ngOnInit(): void {
     this.studentEntity = this.selfieToDisplay.student!;
+  }
+
+  SetRejectionDescription(newRejectionDescription:string){
+    this.rejectionDescription = newRejectionDescription
   }
 
   GetStudentFirstName(): string {

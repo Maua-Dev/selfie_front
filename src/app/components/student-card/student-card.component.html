@@ -37,7 +37,9 @@
                             </div>
                         </div>
                         <div class="col-12 mt-3">
-                            <input class="col-10" type="text" id="rejectionDescription" name="rejectionDescription" placeholder="Adicionar descrição">
+                            <input #rejectionDescription (input)="SetRejectionDescription(rejectionDescription.value)"
+                                class="col-10" type="text" id="rejectionDescription" name="rejectionDescription"
+                                placeholder="Adicionar descrição">
                         </div>
                         <app-student-card-state-buttons [selfieToDisplay]="selfieToDisplay"
                             class="p-0"></app-student-card-state-buttons>
