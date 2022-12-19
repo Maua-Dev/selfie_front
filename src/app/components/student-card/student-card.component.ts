@@ -24,7 +24,7 @@ export class StudentCardComponent implements OnInit {
 
     if (nameArray.length > 1) {
       const secondNameLowerCase = nameArray[1].toLocaleLowerCase();
-      const secondNamesMask = ['a', 'de', 'o', 'e', 'em'];
+      const secondNamesMask = ['a', 'de', 'o', 'e', 'em', 'dos', 'do', 'da', 'das'];
 
       if (secondNamesMask.includes(secondNameLowerCase))
         return `${nameArray[0]} ${nameArray[1]} ${nameArray[2]}`;

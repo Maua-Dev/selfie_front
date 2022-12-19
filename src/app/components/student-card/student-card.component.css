@@ -14,62 +14,8 @@ mat-card {
   margin: 20px 40px;
 }
 
-
 mat-card-header{
   border-bottom: 1px solid #022893
-}
-
-.button {
-  border: 1px solid #022893;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 12px;
-
-  margin: 10px 10px 30px 10px;
-  color: #022893;
-  height: 40px;
-  width: 164px;
-  background-color: #e0e0e500;
-}
-
-.reprove-btn {
-  background: #d00000;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 12px;
-
-  margin: 10px 10px 30px 10px;
-  height: 40px;
-  width: 336px;
-
-  color: #ffffff;
-}
-
-.auto-reprove-btn {
-  color: #d00000;
-  border: 1px solid #d00000;
-
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 12px;
-
-  margin: 10px 10px 30px 10px;
-  height: 40px;
-  width: 336px;
-}
-
-.aprove-btn {
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 12px;
-
-  margin: 10px 10px 30px 10px;
-  height: 40px;
-  width: 336px;
-
-  color: #ffffff;
-  background: #38b000;
-}
-
-.buttons-container {
-  align-items: center;
-  justify-content: space-around;
 }
 
 #student-name {

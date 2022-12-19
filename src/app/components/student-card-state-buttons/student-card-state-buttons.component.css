@@ -1,0 +1,16 @@
+.buttons-container {
+  align-items: center;
+  justify-content: space-around;
+}
+
+.button {
+  border: 1px solid #022893;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+
+  margin: 10px 10px 30px 10px;
+  color: #022893;
+  height: 40px;
+  width: 164px;
+  background-color: #e0e0e500;
+}

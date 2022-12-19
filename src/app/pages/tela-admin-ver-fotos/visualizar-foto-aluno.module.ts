@@ -1,3 +1,4 @@
+import { StudentCardStateButtonsComponent } from './../../components/student-card-state-buttons/student-card-state-buttons.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -23,31 +24,33 @@ import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
-  declarations: [
-    VisualizarFotoAlunoComponent,
-    StudentCardComponent,
-    SituationRectangleComponent,
-    StateDisplayIconsComponent,
-    FilterListsButtonsComponent
-  ],
-  imports: [
-    CommonModule,
-    VisualizarFotoAlunoRoutingModule,
-    MatCardModule,
-    MatCheckboxModule,
-    MatButtonModule,
-    MatIconModule,
-    TextFieldModule,
-    MatFormFieldModule,
-    MatInputModule
-  ],
-  providers: [
-    { provide: FetchStudent, useClass: FetchStudentFromBackendService },
-    {
-      provide: UpdateSelfieStateService,
-      useClass: UpdateSelfieStateBackendService,
-    },
-    {provide:FetchSelfieService, useClass:FetchSelfieBackendService}
-  ],
+    declarations: [
+        VisualizarFotoAlunoComponent,
+        StudentCardComponent,
+        SituationRectangleComponent,
+        StateDisplayIconsComponent,
+        FilterListsButtonsComponent,
+        StudentCardStateButtonsComponent
+    ],
+    providers: [
+        { provide: FetchStudent, useClass: FetchStudentFromBackendService },
+        {
+            provide: UpdateSelfieStateService,
+            useClass: UpdateSelfieStateBackendService,
+        },
+        { provide: FetchSelfieService, useClass: FetchSelfieBackendService }
+    ],
+    imports: [
+        CommonModule,
+        VisualizarFotoAlunoRoutingModule,
+        MatCardModule,
+        MatCheckboxModule,
+        MatButtonModule,
+        MatIconModule,
+        TextFieldModule,
+        MatFormFieldModule,
+        MatInputModule,
+       
+    ]
 })
 export class VisualizarFotoAlunoModule { }
