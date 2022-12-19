@@ -1,6 +1,7 @@
 import { Selfie } from 'src/entities/selfie';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Student } from 'src/entities/student-admin-domain';
+import { AutomaticReview } from 'src/entities/automatic-review';
 
 @Component({
   selector: 'app-student-card',
@@ -43,6 +44,35 @@ export class StudentCardComponent implements OnInit {
       return ''
     return `${raArray.slice(0,2)}.${raArray.slice(2,7)}-${raArray.slice(7,8)}`
   }
+
+  GetSquareCoords() {
+    for (
+      let i = 0;
+      i < this.selfieToDisplay.automaticReview?.labels.length!;
+      i++
+    ) {
+      let label = this.selfieToDisplay.automaticReview?.labels[i];
+  
+      let isAbleToDrawSquare: boolean =
+        (AutomaticReview.RejectedLabelslist.includes(label['name']) ||
+          label['parents'].some((parent: any) =>
+            AutomaticReview.RejectedLabelslist.includes(parent)
+          )) &&
+        Object.keys(label['coords']).length > 0;
+  
+      if (isAbleToDrawSquare) {
+        let coordsObj = label['coords'];
+        return {
+          height: `${coordsObj['Height'] * 100}%`,
+          width: `${coordsObj['Width'] * 100}%`,
+          top: `${coordsObj['Top'] * 100}%`,
+          left: `${coordsObj['Left'] * 100}%`,
+        };
+      }
+    }
+    return null;
+  }
+
 }
 
 
@@ -57,33 +87,7 @@ export class StudentCardComponent implements OnInit {
 
 // constructor(private updateSelfieService: UpdateSelfieStateService) {}
 
-// GetSquareCoords() {
-//   for (
-//     let i = 0;
-//     i < this.selfieToDisplay.automaticReview?.labels.length!;
-//     i++
-//   ) {
-//     let label = this.selfieToDisplay.automaticReview?.labels[i];
 
-//     let isAbleToDrawSquare: boolean =
-//       (AutomaticReview.RejectedLabelslist.includes(label['name']) ||
-//         label['parents'].some((parent: any) =>
-//           AutomaticReview.RejectedLabelslist.includes(parent)
-//         )) &&
-//       Object.keys(label['coords']).length > 0;
-
-//     if (isAbleToDrawSquare) {
-//       let coordsObj = label['coords'];
-//       return {
-//         height: `${coordsObj['Height'] * 100}%`,
-//         width: `${coordsObj['Width'] * 100}%`,
-//         top: `${coordsObj['Top'] * 100}%`,
-//         left: `${coordsObj['Left'] * 100}%`,
-//       };
-//     }
-//   }
-//   return null;
-// }
 
 // SetSelfieState(newState: string): void {
 //   let newRecuseReasons: string[] = [];

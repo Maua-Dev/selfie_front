@@ -8,6 +8,7 @@
             <div class="row">
                 <div class="col-4">
                     <a class="link-image" href="{{selfieToDisplay.imgURL}}" target="_blank">
+                        <div *ngIf="GetSquareCoords()" class="square-identyfier" [ngStyle]="GetSquareCoords()"></div>
                         <img id="card-image" src="{{selfieToDisplay.imgURL}}" alt="Uma foto de {{studentEntity.name}}"
                             onerror="this.onerror=null; this.src='../../../assets/Error-Image.png'">
                     </a>
