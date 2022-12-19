@@ -28,7 +28,6 @@ export class CardSelfieComponent implements OnInit {
 
   constructor(private dialog : MatDialog, private cameraPermissions : CameraPermissions, private cardStatusService : CardStatusService) { }
 
-  //statusCard!:any
   dialogRef !: any
   dialogRef2 !: any
 
@@ -38,7 +37,9 @@ export class CardSelfieComponent implements OnInit {
   }
   
   turnOnCamera(){
-    this.cameraPermissions.turnOnCamera() 
+    if(this.statusCard === "NEED_TO_SEND" || this.statusCard === "DECLINED" || this.statusCard === undefined){
+      this.cameraPermissions.turnOnCamera() 
+    }
   }
 
   checkPermissions(){
