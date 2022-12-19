@@ -17,21 +17,24 @@
                     <h2>Impedimentos</h2>
                     <div class="row">
                         <div class="col-12">
-                            <mat-checkbox [color]="'primary'">
-                                Fundo inválido
-                            </mat-checkbox>
-
-                            <mat-checkbox [color]="'primary'">Rosto
-                                coberto
-                            </mat-checkbox>
-
-                            <mat-checkbox [color]="'primary'">
-                                Pessoa não identificada
-                            </mat-checkbox>
-
-                            <mat-checkbox [color]="'primary'">
-                                Outros motivos
-                            </mat-checkbox>
+                            <div class="row">
+                                <div class="col-12">
+                                    <mat-checkbox [color]="'primary'" class="col-6">
+                                        Fundo inválido
+                                    </mat-checkbox>
+                                    <mat-checkbox [color]="'primary'" class="col-6">Rosto
+                                        coberto
+                                    </mat-checkbox>
+                                </div>
+                                <div class="col-12">
+                                    <mat-checkbox [color]="'primary'" class="col-6">
+                                        Pessoa não identificada
+                                    </mat-checkbox>
+                                    <mat-checkbox [color]="'primary'" class="col-6">
+                                        Outros motivos
+                                    </mat-checkbox>
+                                </div>
+                            </div>
                         </div>
                         <div class="col mt-3">
                             <mat-form-field appearance="fill">
