@@ -1,8 +1,17 @@
+h1 {
+  font-weight: 700;
+}
+
+.impedimentos-container{
+  color: black;
+}
+
 #card-image {
   width: 170px;
   height: 227px;
   border-radius: 10px;
   object-fit: scale-down;
+  background-color: rgb(190, 190, 196);
 }
 
 mat-card {
@@ -64,7 +73,7 @@ mat-card-header {
   border: 1px solid rgba(204, 204, 204, 0);
   border-radius: 12px;
   box-sizing: border-box;
-  background-color: #C9C9CF;
+  background-color: rgb(208, 208, 214);
 }
 
 ::placeholder {
