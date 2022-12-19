@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Selfie } from './../../../entities/selfie';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-student-card-state-buttons',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentCardStateButtonsComponent implements OnInit {
 
+  @Input() selfieToDisplay!: Selfie
+  currentState!:string
+
   constructor() { }
 
   ngOnInit(): void {
+    this.currentState = this.selfieToDisplay.state
   }
 
 }

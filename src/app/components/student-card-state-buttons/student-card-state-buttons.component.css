@@ -1,6 +1,6 @@
 .buttons-container {
   align-items: center;
-  justify-content: space-around;
+  justify-content: start;
 }
 
 .button {
@@ -13,4 +13,40 @@
   height: 40px;
   width: 164px;
   background-color: #e0e0e500;
+}
+
+.aprove-btn{
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+
+  margin: 10px 10px 30px 10px;
+  height: 40px;
+  width: 336px;
+
+  color: #ffffff;
+  background: #38b000;
+}
+
+.auto-reprove-btn {
+  color: #d00000;
+  border: 1px solid #d00000;
+
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+
+  margin: 10px 10px 30px 10px;
+  height: 40px;
+  width: 336px;
+}
+
+.reprove-btn {
+  background: #d00000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+
+  margin: 10px 10px 30px 10px;
+  height: 40px;
+  width: 336px;
+
+  color: #ffffff;
 }
