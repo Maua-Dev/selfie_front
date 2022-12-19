@@ -36,14 +36,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col mt-3">
-                            <mat-form-field appearance="fill">
-                                <mat-label>Adicionar uma descrição...</mat-label>
-                                <textarea #rejectionText matInput></textarea>
-                            </mat-form-field>
+                        <div class="col-12 mt-3">
+                            <input class="col-10" type="text" id="rejectionDescription" name="rejectionDescription" placeholder="Adicionar descrição">
                         </div>
-                        <app-student-card-state-buttons [selfieToDisplay]="selfieToDisplay" class="p-0"></app-student-card-state-buttons>
-                        
+                        <app-student-card-state-buttons [selfieToDisplay]="selfieToDisplay"
+                            class="p-0"></app-student-card-state-buttons>
+
                     </div>
                 </div>
             </div>

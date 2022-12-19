@@ -1,4 +1,3 @@
-
 #card-image {
   width: 170px;
   height: 227px;
@@ -14,8 +13,8 @@ mat-card {
   margin: 20px 40px;
 }
 
-mat-card-header{
-  border-bottom: 1px solid #022893
+mat-card-header {
+  border-bottom: 1px solid #022893;
 }
 
 #student-name {
@@ -26,7 +25,6 @@ mat-card-header{
 .rejection-reason-list {
   color: black;
 }
-
 
 .state-checkbox {
   color: #003c9c;
@@ -58,7 +56,18 @@ mat-card-header{
   position: absolute;
 }
 
-::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
-  background-color: #ffffff;
-  border: 1px solid #e6e3e1;
+#rejectionDescription {
+  /* width: 100%; */
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid rgba(204, 204, 204, 0);
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #C9C9CF;
+}
+
+::placeholder {
+  color: black;
+  opacity: 1;
 }
