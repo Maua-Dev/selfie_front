@@ -9,9 +9,9 @@ import { Student } from 'src/entities/student-admin-domain';
 })
 export class StudentCardComponent implements OnInit {
   @Input() public selfieToDisplay!: Selfie;
-  studentEntity!: Student;
   @Output() OnSetSelfieStateEvent: EventEmitter<any> = new EventEmitter();
 
+  studentEntity!: Student;
   rejectionDescription: string = ''
 
   ngOnInit(): void {
@@ -36,7 +36,15 @@ export class StudentCardComponent implements OnInit {
     }
     return this.studentEntity.name;
   }
+
+  GetStudentRa(): string{
+    let raArray = this.studentEntity.ra
+    if(raArray.length != 8)
+      return ''
+    return `${raArray.slice(0,2)}.${raArray.slice(2,7)}-${raArray.slice(7,8)}`
+  }
 }
+
 
 // rejectionDescription!: string;
 
