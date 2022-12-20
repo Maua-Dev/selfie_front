@@ -75,9 +75,7 @@ export class CardSelfieTela2Component implements OnInit {
     alert('Foto feita!')
     let selfieBase64 = await this.sendingPhoto()
     this.uploadSelfie.testSendImageService(selfieBase64)
-    
     this.stream = this.cameraPermission.getStream()
-    console.log(this.stream)
     this.cameraPermission.turnOffCamera(this.stream)
   }
 

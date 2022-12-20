@@ -28,17 +28,12 @@ export class CardSelfieComponent implements OnInit {
 
   constructor(private dialog : MatDialog, private cameraPermissions : CameraPermissions, private cardStatusService : CardStatusService) { }
 
-  //statusCard!:any
+
   dialogRef !: any
   dialogRef2 !: any
 
   ngOnInit(): void {
     this.getStatus()
-    this.turnOnCamera()
-  }
-  
-  turnOnCamera(){
-    this.cameraPermissions.turnOnCamera() 
   }
 
   checkPermissions(){
@@ -46,7 +41,7 @@ export class CardSelfieComponent implements OnInit {
     navigator.permissions.query({ name : permissionName }).then(result => {
       let action = result.state
       if(action === "granted"){
-        this.termos()
+        this.turnOnCamera()
       }
       if(action === "denied"){
         this.ativarNovamente()
@@ -54,13 +49,12 @@ export class CardSelfieComponent implements OnInit {
     })
   }
   
-  termos(){
-    if(this.statusCard === 'APPROVED' || this.statusCard === 'PENDING_REVIEW'){
-      alert('Voce ja tirou foto!')
+  turnOnCamera(){
+    this.cameraPermissions.turnOnCamera()
+    this.dialogRef = this.dialog.open(PopupComponent) 
+    if(this.dialogRef.nextPage === true){
+      this.dialogRef.popup
     }
-      this.dialogRef = this.dialog.open(PopupComponent) 
-      if(this.dialogRef.nextPage === true)
-        this.dialogRef.popup
   
   }
 
