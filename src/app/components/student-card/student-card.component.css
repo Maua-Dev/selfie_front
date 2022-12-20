@@ -46,7 +46,7 @@ mat-card-header {
   width: 17px;
   height: 17px;
   border-color: rgba(174, 174, 180, 0);
-  background-color: rgba(174, 174, 180, 0.377);
+  background-color: rgb(174, 174, 180);
   border-radius: 2px;
 }
 

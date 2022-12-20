@@ -46,11 +46,7 @@ export class StudentCardComponent implements OnInit {
   }
 
   GetSquareCoords() {
-    for (
-      let i = 0;
-      i < this.selfieToDisplay.automaticReview?.labels.length!;
-      i++
-    ) {
+    for (let i = 0; i < this.selfieToDisplay.automaticReview?.labels.length!; i++) {
       let label = this.selfieToDisplay.automaticReview?.labels[i];
   
       let isAbleToDrawSquare: boolean =
@@ -71,6 +67,10 @@ export class StudentCardComponent implements OnInit {
       }
     }
     return null;
+  }
+
+  IsReasonTrue(reasonToCheck: string, reasonToCompare: string): boolean{
+    return reasonToCheck == reasonToCompare
   }
 
 }

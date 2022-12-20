@@ -18,7 +18,8 @@
                     <h2>Impedimentos</h2>
                     <div class="row">
                         <div class="col-12">
-                            <div class="row impedimentos-container">
+
+                            <div *ngIf="selfieToDisplay.state == 'IN_REVIEW'" class="row impedimentos-container">
                                 <div class="col-12">
                                     <mat-checkbox [color]="'primary'" class="col-6">
                                         Fundo inválido
@@ -34,6 +35,56 @@
                                     <mat-checkbox [color]="'primary'" class="col-6">
                                         Outros motivos
                                     </mat-checkbox>
+                                </div>
+                            </div>
+
+                            <div *ngIf="selfieToDisplay.state != 'IN_REVIEW'" class="row impedimentos-container">
+                                <div class="col-6">
+                                    <span class="d-flex align-items-center">
+                                        <mat-icon
+                                            *ngIf="IsReasonTrue('NOT_ALLOWED_BACKGROUND', selfieToDisplay.rejectionReason! )"
+                                            class="me-1 state-checkbox" fontIcon="check_box"></mat-icon>
+                                        <span
+                                            *ngIf="!IsReasonTrue('NOT_ALLOWED_BACKGROUND', selfieToDisplay.rejectionReason!)"
+                                            class="me-1  ms-1 state-checkbox-no-checked"></span>
+                                        Fundo
+                                        inválido
+                                    </span>
+                                </div>
+                                <div class="col-6">
+                                    <span class="d-flex align-items-center">
+                                        <mat-icon *ngIf="IsReasonTrue('COVERED_FACE', selfieToDisplay.rejectionReason!)"
+                                            class="me-1 state-checkbox" fontIcon="check_box"></mat-icon>
+                                        <span *ngIf="!IsReasonTrue('COVERED_FACE', selfieToDisplay.rejectionReason!)"
+                                            class="me-1  ms-1 state-checkbox-no-checked"></span>
+                                        Rosto
+                                        coberto
+                                    </span>
+                                </div>
+
+                                <div class="col-6">
+                                    <span class="d-flex align-items-center">
+                                        <mat-icon
+                                            *ngIf="IsReasonTrue('NO_PERSON_RECOGNIZED', selfieToDisplay.rejectionReason!)"
+                                            class="me-1 state-checkbox" fontIcon="check_box"></mat-icon>
+                                        <span
+                                            *ngIf="!IsReasonTrue('NO_PERSON_RECOGNIZED', selfieToDisplay.rejectionReason!)"
+                                            class="me-1  ms-1 state-checkbox-no-checked"></span>
+                                        Pessoa
+                                        não reconhecida
+                                    </span>
+                                </div>
+                                <div class="col-6">
+                                    <span class="d-flex align-items-center">
+                                        <mat-icon
+                                            *ngIf="IsReasonTrue('NONE', selfieToDisplay.rejectionReason!) || IsReasonTrue('OTHER_REASONS', selfieToDisplay.rejectionReason!)"
+                                            class="me-1 state-checkbox" fontIcon="check_box"></mat-icon>
+                                        <span
+                                            *ngIf="!IsReasonTrue('NONE', selfieToDisplay.rejectionReason!) && !IsReasonTrue('OTHER_REASONS', selfieToDisplay.rejectionReason!)"
+                                            class="me-1  ms-1 state-checkbox-no-checked"></span>
+                                        Outros
+                                        motivos
+                                    </span>
                                 </div>
                             </div>
                         </div>
