@@ -16,7 +16,7 @@ export class VisualizarFotoAlunoComponent implements OnInit {
   private _selfiesList: Selfie[] = [];
   selfiesListFiltered!: Selfie[];
 
-  selfieFiltersButtons: boolean[] = [false, false, false];
+  selfieFiltersButtons: boolean[] = [false, false, false]; //Se eu quiser um filtro novo, preciso adicionar aqui
   studentsFiltersButtons: boolean[] = [false, false, false, false];
 
   private _currentActivatedSelfieFilters: string[] = [];
@@ -32,7 +32,7 @@ export class VisualizarFotoAlunoComponent implements OnInit {
     this.GetStudentsList();
   }
 
-  OnSetSelfieState() {
+  ReloadSelfiesAndStudentsLists() {
     this.GetSelfiesList();
     this.GetStudentsList();
   }
@@ -82,7 +82,7 @@ export class VisualizarFotoAlunoComponent implements OnInit {
       return;
     }
 
-    this.selfieFiltersButtons[indexButton] =
+    this.selfieFiltersButtons[indexButton] =    //código duplicado aqui e na função FilterStudentsByStatus
       !this.selfieFiltersButtons[indexButton];
 
     if (this.selfieFiltersButtons[indexButton]) {
@@ -108,7 +108,7 @@ export class VisualizarFotoAlunoComponent implements OnInit {
 
   FilterStudentsByStatus(indexButton: number, status: string): void {
     this.studentsFiltersButtons[indexButton] =
-      !this.studentsFiltersButtons[indexButton];
+      !this.studentsFiltersButtons[indexButton];  //código duplicado aqui e na função FilterSelfieByState
 
     if (this.studentsFiltersButtons[indexButton]) {
       //Ativando filtro

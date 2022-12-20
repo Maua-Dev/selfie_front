@@ -12,20 +12,6 @@ export class SituationRectangleComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    // this.studentToDisplay.uploadedSelfiesList!.forEach(selfie => {
-    //   if(selfie.state == "APPROVED"){
-    //     this.studentState = "APPROVED"
-    //     return
-    //   }
-    //   if(selfie.state == "DECLINED"){
-    //     this.studentState = "DECLINED"
-    //     return
-    //   }
-    //   if(this.studentToDisplay.uploadedSelfiesList.length <= 0){
-    //     this.studentState = "PENDING_REVIEW"
-    //     return
-    //   }
-    //   this.studentState = 'IN_REVIEW'
-    // });
+
   }
 }

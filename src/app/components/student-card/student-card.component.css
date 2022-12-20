@@ -1,74 +1,29 @@
-.background-card {
-  background-color: #e0e0e5;
+h1 {
+  font-weight: 700;
+}
+
+.impedimentos-container{
+  color: black;
 }
 
 #card-image {
-  margin: 10px 5px 5px 5px;
-  width: 200px;
-  height: 200px;
+  width: 170px;
+  height: 227px;
   border-radius: 10px;
   object-fit: scale-down;
+  background-color: rgb(190, 190, 196);
 }
 
 mat-card {
-  width: 631px;
+  width: 645px;
+  height: 370px;
   background-color: rgba(224, 224, 230, 0.6);
   color: #003c9c;
   margin: 20px 40px;
 }
 
-.button {
-  border: 1px solid #022893;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 12px;
-
-  margin: 10px 10px 30px 10px;
-  color: #022893;
-  height: 40px;
-  width: 164px;
-  background-color: #e0e0e500;
-}
-
-.reprove-btn {
-  background: #d00000;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 12px;
-
-  margin: 10px 10px 30px 10px;
-  height: 40px;
-  width: 336px;
-
-  color: #ffffff;
-}
-
-.auto-reprove-btn {
-  color: #d00000;
-  border: 1px solid #d00000;
-
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 12px;
-
-  margin: 10px 10px 30px 10px;
-  height: 40px;
-  width: 336px;
-}
-
-.aprove-btn {
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 12px;
-
-  margin: 10px 10px 30px 10px;
-  height: 40px;
-  width: 336px;
-
-  color: #ffffff;
-  background: #38b000;
-}
-
-.footer-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+mat-card-header {
+  border-bottom: 1px solid #022893;
 }
 
 #student-name {
@@ -78,10 +33,6 @@ mat-card {
 
 .rejection-reason-list {
   color: black;
-}
-
-h2 {
-  font-weight: 700;
 }
 
 .state-checkbox {
@@ -95,7 +46,7 @@ h2 {
   width: 17px;
   height: 17px;
   border-color: rgba(174, 174, 180, 0);
-  background-color: rgba(174, 174, 180, 0.377);
+  background-color: rgb(174, 174, 180);
   border-radius: 2px;
 }
 
@@ -108,14 +59,24 @@ h2 {
 
   display: inline-block;
   border: rgba(228, 9, 9, 0.815) groove 2px;
-  /* border-radius: 10px; */
 }
 
 .link-image {
   position: absolute;
 }
 
-::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
-  background-color: #ffffff;
-  border: 1px solid #e6e3e1;
+#rejectionDescription {
+  height: 50px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid rgba(204, 204, 204, 0);
+  border-radius: 12px;
+  box-sizing: border-box;
+  background-color: rgb(208, 208, 214);
+}
+
+::placeholder {
+  color: black;
+  opacity: 1;
 }
