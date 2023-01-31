@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { WebcamImage, WebcamInitError } from 'ngx-webcam';
 import { lastValueFrom, Observable, Subject } from 'rxjs';
-import { PopupComponent } from '../popup/popup.component';
+import { PopupComponent2 } from '../popup2/popup2.component';
 import { SelfieStudent } from 'src/app/services/selfie-student.service';
 import { CardStatusService } from 'src/app/services/card-status.service';
 import { UploadSelfieService } from 'src/app/services/upload-selfie.service';
+import { CameraPermissions } from 'src/app/services/camera-permissions.service';
 
 @Component({
   selector: 'app-card-selfie-tela2',
@@ -25,11 +26,13 @@ export class CardSelfieTela2Component implements OnInit {
   stream: any = null;
   trigger: Subject<void> = new Subject();
   previewImage: string = '';
+  previewImageUpload: string = '';
 
-  constructor(public uploadSelfie : UploadSelfieService,private dialog: MatDialog, private selfieService: SelfieStudent, private statusCardService : CardStatusService) {
+  constructor(public uploadSelfie : UploadSelfieService ,private dialog: MatDialog, private selfieService: SelfieStudent, private cameraPermission : CameraPermissions) {
   }
 
   ngOnInit(): void {
+    this.cameraPermission.getStream()
   }
 
   get $trigger(): Observable<void> {
@@ -38,6 +41,13 @@ export class CardSelfieTela2Component implements OnInit {
 
   snapshot(event: WebcamImage) {
     this.previewImage = event.imageAsDataUrl;
+    this.snapshotCutting(this.previewImage);
+  }
+
+  snapshotCutting(base64Image:string){
+    this.selfieService.cuttingPhoto(base64Image).then((compressed:any)=>{
+      this.previewImageUpload = compressed;
+    })
   }
 
   tirarFoto() {
@@ -51,24 +61,22 @@ export class CardSelfieTela2Component implements OnInit {
   }
 
   popUp() {
-    this.dialogRef = this.dialog.open(PopupComponent)   //invocando ele
-    console.log(this.dialogRef.nextPage)
+    this.dialogRef = this.dialog.open(PopupComponent2)
     if (this.dialogRef.nextPage === true)
       this.dialogRef.popup
   }
 
-  async sendingPhoto() {
-    var res = await lastValueFrom(this.selfieService.uploadSelfie(this.previewImage));
+  sendingPhoto() {
+    var res = lastValueFrom(this.selfieService.uploadSelfie(this.previewImageUpload));
     return res
   }
 
   async confirmarFoto() {
     alert('Foto feita!')
-    this.statusCardService.createCards()
     let selfieBase64 = await this.sendingPhoto()
     this.uploadSelfie.testSendImageService(selfieBase64)
-    //this.statusCardService
-    
+    this.stream = this.cameraPermission.getStream()
+    this.cameraPermission.turnOffCamera(this.stream)
   }
 
 }

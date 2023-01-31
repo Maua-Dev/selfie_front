@@ -6,6 +6,7 @@ section{
 .container{
     position: absolute;
     top:11.2vh;
+    height: 20vh;
     display: flex;
     justify-content: center;
     width: 82.6%;
@@ -24,7 +25,7 @@ ul{
 }
 
 .welcome-msg{
-    margin: 0.5vh 0 4.5vh 0;
+    margin: 3.5vh 0 2.5vh 0;
     color: #022893;
     font-weight: bolder;
     font-size: 24px;

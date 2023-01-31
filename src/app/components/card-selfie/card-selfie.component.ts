@@ -1,10 +1,12 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit,Input} from '@angular/core';
 import { PopupComponent } from '../popup/popup.component';
 import {MatDialog} from '@angular/material/dialog';
 import { SelfieStudent } from 'src/app/services/selfie-student.service';
 import { CardStatusService } from 'src/app/services/card-status.service';
 import { Card } from 'src/entities/card';
 import { PopupAtivarCameraComponent } from '../popup-ativar-camera/popup-ativar-camera.component';
+import { CameraPermissions } from 'src/app/services/camera-permissions.service';
+import { TitleStrategy } from '@angular/router';
 @Component({
   selector: 'app-card-selfie',
   templateUrl: './card-selfie.component.html',
@@ -13,58 +15,25 @@ import { PopupAtivarCameraComponent } from '../popup-ativar-camera/popup-ativar-
 export class CardSelfieComponent implements OnInit {
 
   name!:PermissionName
-  foto : string = ''
+  //foto : string = ''
   status!:string;
   stream:any = null;
   tamanho:string = '32.6vh'
   marginTop:string = '4vh'
   marginBottom!:string
   
-  constructor(private dialog : MatDialog, private selfieService: SelfieStudent, private cardStatusService : CardStatusService) { }
+  @Input() card!:any
+  @Input() statusCard!:any
+  @Input() foto!:any
 
-  statusCard!:any
+  constructor(private dialog : MatDialog, private cameraPermissions : CameraPermissions, private cardStatusService : CardStatusService) { }
+
+
   dialogRef !: any
   dialogRef2 !: any
 
   ngOnInit(): void {
-    this.getSelfie()
     this.getStatus()
-    this.popUpNavigationPerm()
-  }
-
-  async getSelfie(){
-    this.foto = this.selfieService.getSelfie()
-    if(this.foto != ''){
-      this.tamanho = 'auto'
-      this.marginTop = '2vh'
-      this.marginBottom = '1vh'
-    }
-  }
-  
-  termos(){
-    if(this.statusCard === 'APPROVED' || this.statusCard === 'Pendente'){
-      alert('Voce ja tirou foto!')
-    }
-      this.dialogRef = this.dialog.open(PopupComponent) 
-      if(this.dialogRef.nextPage === true)
-        this.dialogRef.popup
-  
-  }
-
-  ativarNovamente(){
-    this.dialogRef2 = this.dialog.open(PopupAtivarCameraComponent)
-  }
-
-  popUpNavigationPerm(){
-    navigator.mediaDevices.getUserMedia({
-      video: {
-        facingMode: 'user'
-      },
-    }).then((response) => {
-      this.stream = response
-    }).catch(err => {
-      this.stream = err
-    })
   }
 
   checkPermissions(){
@@ -72,7 +41,7 @@ export class CardSelfieComponent implements OnInit {
     navigator.permissions.query({ name : permissionName }).then(result => {
       let action = result.state
       if(action === "granted"){
-        this.termos()
+        this.turnOnCamera()
       }
       if(action === "denied"){
         this.ativarNovamente()
@@ -80,13 +49,26 @@ export class CardSelfieComponent implements OnInit {
     })
   }
   
-  card : Card[] = []
+  turnOnCamera(){
+    this.cameraPermissions.turnOnCamera()
+    this.dialogRef = this.dialog.open(PopupComponent) 
+    if(this.dialogRef.nextPage === true){
+      this.dialogRef.popup
+    }
+  
+  }
+
+  ativarNovamente(){
+    this.dialogRef2 = this.dialog.open(PopupAtivarCameraComponent)
+  }
+  
 
   public getStatus(){
-    this.cardStatusService.gettingJson().subscribe((response : any) => {
-      this.card = this.cardStatusService.showCards(response)
-      this.statusCard = this.card[this.card.length-1].getSituacao()
-    })
+      if(this.foto != ''){
+        this.tamanho = 'auto'
+        this.marginTop = '2vh'
+        this.marginBottom = '1vh'
+      }
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component,Input} from '@angular/core';
 import { Card } from 'src/entities/card';
 import { CardStatusService } from 'src/app/services/card-status.service';
 
@@ -20,7 +20,6 @@ export class CardStatusComponent{
 
   public showingCards(){
       this.cardStatusService.gettingJson().subscribe((response : any) => {
-   //     console.log(response)
         this.cards = this.cardStatusService.showCards(response)
         this.statusCard = this.cards[this.cards.length-1].getSituacao()
       })

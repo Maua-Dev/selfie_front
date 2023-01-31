@@ -1,24 +1,36 @@
 .mat-dialog-container {
-    border-radius: 10px !important;
-  }
-
-html, body { 
-    height: 100%; 
-    margin-left: auto;
-    margin-right: auto; }
-body { font-family: 'Noto Sans', sans-serif; }
-
-@media(min-width: 821px){
-    *{
-        max-width: 821px;
-    }
-    .background{
-        width: 821px;
-    }
-    .background2{
-        width: 821px;
-    }
+  border-radius: 10px !important;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+body {
+  font-family: "Noto Sans", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@media (min-width: 821px) {
+
+  .tela-aluno *{
+    max-width: 821px;
+  }
+
+  .tela-aluno .background {
+    width: 821px;
+  }
+  .tela-aluno .background2 {
+    width: 821px;
+  }
+}

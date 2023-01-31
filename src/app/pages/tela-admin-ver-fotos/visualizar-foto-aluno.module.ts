@@ -1,3 +1,4 @@
+import { StudentCardStateButtonsComponent } from './../../components/student-card-state-buttons/student-card-state-buttons.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -17,31 +18,39 @@ import { UpdateSelfieStateService } from 'src/app/services/update-selfie-state.s
 import { UpdateSelfieStateBackendService } from 'src/app/services/update-selfie-state-backend.service';
 import { FetchSelfieService } from 'src/app/services/fetch-selfie.service';
 import { FetchSelfieBackendService } from 'src/app/services/fetch-selfie-backend.service';
+import {TextFieldModule} from '@angular/cdk/text-field';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
-  declarations: [
-    VisualizarFotoAlunoComponent,
-    StudentCardComponent,
-    SituationRectangleComponent,
-    StateDisplayIconsComponent,
-    FilterListsButtonsComponent
-  ],
-  imports: [
-    CommonModule,
-    VisualizarFotoAlunoRoutingModule,
-    MatCardModule,
-    MatCheckboxModule,
-    MatButtonModule,
-    MatIconModule,
-  ],
-  providers: [
-    { provide: FetchStudent, useClass: FetchStudentFromBackendService },
-    {
-      provide: UpdateSelfieStateService,
-      useClass: UpdateSelfieStateBackendService,
-    },
-    {provide:FetchSelfieService, useClass:FetchSelfieBackendService}
-  ],
+    declarations: [
+        VisualizarFotoAlunoComponent,
+        StudentCardComponent,
+        SituationRectangleComponent,
+        StateDisplayIconsComponent,
+        FilterListsButtonsComponent,
+        StudentCardStateButtonsComponent
+    ],
+    providers: [
+        { provide: FetchStudent, useClass: FetchStudentFromBackendService },
+        {
+            provide: UpdateSelfieStateService,
+            useClass: UpdateSelfieStateBackendService,
+        },
+        { provide: FetchSelfieService, useClass: FetchSelfieBackendService }
+    ],
+    imports: [
+        CommonModule,
+        VisualizarFotoAlunoRoutingModule,
+        MatCardModule,
+        MatCheckboxModule,
+        MatButtonModule,
+        MatIconModule,
+        TextFieldModule,
+        MatFormFieldModule,
+        MatInputModule,
+       
+    ]
 })
 export class VisualizarFotoAlunoModule { }

@@ -3,6 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { CardStatusService } from 'src/app/services/card-status.service';
 import { SelfieStudent } from 'src/app/services/selfie-student.service';
 import { UploadSelfieService } from 'src/app/services/upload-selfie.service';
+import { Card } from 'src/entities/card';
 import { Student } from 'src/entities/student-aluno-domain';
 
 @Component({
@@ -21,29 +22,42 @@ export class HomePageComponent implements OnInit {
     public uploadSelfie: UploadSelfieService,
     public selfieStudent: SelfieStudent,
     public cardStatusService: CardStatusService,
-    private http: HttpClient
   ) {}
 
   ngOnInit(): void {
     this.getStudent();
     this.uploadSelfie.getStudent()
-    //this.showStatusLastCard()
+    this.getInfosStudent();
   }
 
   status!: string;
 
-  public showStatusLastCard() {
-    this.status = 'APPROVED';
-    console.log(this.status);
-  }
-
   public getStudent() {
     this.selfieStudent.getStudent().subscribe((response) => {
-//      console.log(response)
-      this.student = Student.createStudent(response); //recebe o estudante
-      this.nome = this.student.getNome();
-      this.ra = this.student.getRa();
-      this.email = this.student.getEmail();
+      this.student = Student.createStudent(response); 
+      this.tratarNome(this.student.getNome())
     });
   }
+
+  public tratarNome(nomeCompleto:string){
+    let primeiroNome = nomeCompleto.split(" ")[0] 
+    let primeiroNomeLowerCase = primeiroNome.toLowerCase()
+    let primeiraLetraUpperCase = primeiroNome[0].toUpperCase()
+    let restoNomeLowerCase = primeiroNomeLowerCase.substring(1,primeiroNome.length)
+    let nomeExibir = primeiraLetraUpperCase + restoNomeLowerCase
+    this.nome = nomeExibir
+  }
+
+  cardStudent !: Card[]
+  statusStudent!:string;
+  selfie!:string;
+
+  public getInfosStudent(){
+    this.cardStatusService.gettingJson().subscribe((response:any)=>{
+      this.cardStudent = this.cardStatusService.showCards(response)
+      this.statusStudent = this.cardStudent[this.cardStudent.length-1].getSituacao()
+      this.selfie = this.cardStudent[this.cardStudent.length-1].getSelfie()
+    })
+  }
+
 }

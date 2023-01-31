@@ -1,4 +1,12 @@
-div{
-    display:contents;
-    flex-direction: column;
+div {
+  display: contents;
+  flex-direction: column;
 }
+
+.background2 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5fa ;
+}
+

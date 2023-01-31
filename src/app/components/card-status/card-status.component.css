@@ -1,19 +1,24 @@
 section {
     display: flex;
+    height: 100%;
     justify-content: center;
     margin-bottom: 2vh;
 }
 
 div {
     position: relative;
-    top:13vh;
-    width: 82.6%;
-    height: fit-content;
+    margin-top:2vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: #f5f5fa;
 }
 
 ul {
     padding:1vh 2vw;
     margin: 0;
+    width: 82.6%;
     background-color: rgba(224,224,229, 0.4);
     border-radius: 10px;
     margin-bottom: 1em;

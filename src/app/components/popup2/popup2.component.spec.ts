@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BackgroundGreyComponent } from './background-grey.component';
+import { PopupComponent2 } from './popup2.component';
 
-describe('BackgroundGreyComponent', () => {
-  let component: BackgroundGreyComponent;
-  let fixture: ComponentFixture<BackgroundGreyComponent>;
+describe('PopupComponent2', () => {
+  let component: PopupComponent2;
+  let fixture: ComponentFixture<PopupComponent2>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BackgroundGreyComponent ]
+      declarations: [ PopupComponent2 ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(BackgroundGreyComponent);
+    fixture = TestBed.createComponent(PopupComponent2);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

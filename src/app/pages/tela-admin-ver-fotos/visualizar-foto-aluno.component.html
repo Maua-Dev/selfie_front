@@ -26,7 +26,7 @@
 
   <div class="cards-container">
     <span *ngFor="let selfie of selfiesListFiltered">
-      <app-student-card *ngIf="selfie.state != 'PENDING_REVIEW'" [selfieToDisplay]="selfie" (OnSetSelfieStateEvent)="OnSetSelfieState()"></app-student-card>
+      <app-student-card [selfieToDisplay]="selfie" (OnSetSelfieStateEvent)="ReloadSelfiesAndStudentsLists()"></app-student-card>
 
     </span>
   </div>
@@ -63,7 +63,7 @@
 
   <div class="rect-container">
     <span *ngFor="let student of studentsListFiltered">
-      <app-situation-rectangle *ngIf="student.status != 'SELFIE_PENDING_REVIEW'" [studentToDisplay]="student"></app-situation-rectangle>
+      <app-situation-rectangle [studentToDisplay]="student"></app-situation-rectangle>
     </span>
   </div>
 
